@@ -11,7 +11,7 @@ application.config['SECRET_KEY'] = '1dfc4dedcd5b2ffa3a090dfc34f845fd'
 
 DBVAR = "postgresql://wurkinhbpcfdwh:b8df31f507916224e2ee03ca102a43b17ca5c835e75f442df57f97c3aec4fa67@ec2-52-48-159-67.eu-west-1.compute.amazonaws.com:5432/df6hfd1ok5nj3r"
 application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR
-# application.config['SQLALCHEMY_BINDS'] ={'gd_course': DBVAR, 'gender_platform': DBVAR }
+application.config['SQLALCHEMY_BINDS'] ={'gd_course': DBVAR, 'gender_platform': DBVAR }
 db = SQLAlchemy(application)
 bcrypt = Bcrypt(application)
 login_manager= LoginManager(application)
