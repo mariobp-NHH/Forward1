@@ -6,12 +6,13 @@ from flask_login import LoginManager
 application = Flask(__name__)
 application.config['SECRET_KEY'] = '1dfc4dedcd5b2ffa3a090dfc34f845fd'
 
-application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
-application.config['SQLALCHEMY_BINDS'] ={'gd_course': 'sqlite:///gd_course.db',
-                                          'gender_platform': 'sqlite:///gender_platform.db'  }
+# application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
+# application.config['SQLALCHEMY_BINDS'] ={'gd_course': 'sqlite:///gd_course.db', 'gender_platform': 'sqlite:///gender_platform.db'  }
 
-#application.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://dvqbylgvsfphjq:e42fe38ff4158166fc3fea2f03c9af6c391a5715dbc4ddc940c94368bd4eb1c0@ec2-99-80-170-190.eu-west-1.compute.amazonaws.com:5432/dd5gshjjree6ts'
-#application.config['SQLALCHEMY_BINDS'] ={'gd_course': 'postgresql://dvqbylgvsfphjq:e42fe38ff4158166fc3fea2f03c9af6c391a5715dbc4ddc940c94368bd4eb1c0@ec2-99-80-170-190.eu-west-1.compute.amazonaws.com:5432/dd5gshjjree6ts', 'gender_platform': 'postgresql://dvqbylgvsfphjq:e42fe38ff4158166fc3fea2f03c9af6c391a5715dbc4ddc940c94368bd4eb1c0@ec2-99-80-170-190.eu-west-1.compute.amazonaws.com:5432/dd5gshjjree6ts'  }
+DBVAR = "postgresql://wurkinhbpcfdwh:b8df31f507916224e2ee03ca102a43b17ca5c835e75f442df57f97c3aec4fa67@ec2-52-48-159-67.eu-west-1.compute.amazonaws.com:5432/df6hfd1ok5nj3r"
+
+application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR
+application.config['SQLALCHEMY_BINDS'] ={'gd_course': DBVAR, 'gender_platform': DBVAR }
 db = SQLAlchemy(application)
 bcrypt = Bcrypt(application)
 login_manager= LoginManager(application)
