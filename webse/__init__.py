@@ -9,7 +9,7 @@ application.config['SECRET_KEY'] = '1dfc4dedcd5b2ffa3a090dfc34f845fd'
 # application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 #application.config['SQLALCHEMY_BINDS'] ={'gd_course': 'sqlite:///gd_course.db', 'gender_platform': 'sqlite:///gender_platform.db'  }
 
-DBVAR = "postgresql://rqhybwqehprrdc:d69429fcd0aeaa01d4badf7ba5a7cf8ea5fadc3b33c1c41eaade50a3485596d8@ec2-54-75-184-144.eu-west-1.compute.amazonaws.com:5432/d77hmedg6s7p3c"
+DBVAR = "postgresql://spaomjipgdcsqv:06323463be5381864168727a5c780b5de930901bb1ec54ef55e9ab3788c622bc@ec2-54-77-40-202.eu-west-1.compute.amazonaws.com:5432/d6jm40e34d9jf4"
 application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR
 application.config['SQLALCHEMY_BINDS'] ={'gd_course': DBVAR, 'gender_platform': DBVAR }
 db = SQLAlchemy(application)
