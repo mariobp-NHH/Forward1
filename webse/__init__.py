@@ -2,9 +2,14 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+import os
+# from os import environ
 
 application = Flask(__name__)
-application.config['SECRET_KEY'] = process.env.SECRET_KEY_HEROKU
+# application.config['SECRET_KEY'] = os.environ.get('SECRET_KEY_HEROKU')
+# application.config['SECRET_KEY'] = os.environ.get('SECRET_KEY_HEROKU')
+
+application.config['SECRET_KEY'] = '121213132323244454656'
 
 #DBVAR = process.env.DATABASE_URL
 DBVAR = "postgresql://spaomjipgdcsqv:06323463be5381864168727a5c780b5de930901bb1ec54ef55e9ab3788c622bc@ec2-54-77-40-202.eu-west-1.compute.amazonaws.com:5432/d6jm40e34d9jf4"
