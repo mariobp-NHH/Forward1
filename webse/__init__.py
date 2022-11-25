@@ -6,7 +6,7 @@ from flask_login import LoginManager
 application = Flask(__name__)
 application.config['SECRET_KEY'] = '1dfc4dedcdsdsd5b2ffa3a090dfc34f845fd'
 
-DBVAR = process.env.DATABASE_HEROKU
+DBVAR = process.env.DATABASE_URL
 #DBVAR = "postgresql://spaomjipgdcsqv:06323463be5381864168727a5c780b5de930901bb1ec54ef55e9ab3788c622bc@ec2-54-77-40-202.eu-west-1.compute.amazonaws.com:5432/d6jm40e34d9jf4"
 application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR
 application.config['SQLALCHEMY_BINDS'] ={'gd_course': DBVAR, 'gender_platform': DBVAR }
