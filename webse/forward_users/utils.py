@@ -17,7 +17,7 @@ ACCESS_KEY=os.environ.get('ACCESS_KEY', None)
 
 SECRET_KEY=os.environ.get('SECRET_KEY', None)
 
-BUCKET= = os.getenv('BUCKET', None)
+BUCKET= = 'forward-v1-heroku'
 
 # os.getenv('BUCKET', None)
 
