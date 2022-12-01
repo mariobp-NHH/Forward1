@@ -17,9 +17,7 @@ ACCESS_KEY=os.environ.get('ACCESS_KEY', None)
 
 SECRET_KEY=os.environ.get('SECRET_KEY', None)
 
-BUCKET='forward-v1-heroku'
-
-# os.getenv('BUCKET', None)
+BUCKET=os.getenv('BUCKET', None)
 
 s3_r = boto3.resource('s3',
                       aws_access_key_id=ACCESS_KEY,
