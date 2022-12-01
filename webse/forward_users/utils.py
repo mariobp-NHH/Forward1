@@ -17,7 +17,7 @@ ACCESS_KEY=os.environ.get('ACCESS_KEY', None)
 
 SECRET_KEY=os.environ.get('SECRET_KEY', None)
 
-BUCKET= =os.environ.get('BUCKET', None)
+BUCKET= = os.getenv('BUCKET', None)
 
 # os.getenv('BUCKET', None)
 
