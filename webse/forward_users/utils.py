@@ -14,7 +14,7 @@ import os
 import secrets
 
 # For the GitHub:
-BUCKET="forward-v1-aws"
+BUCKET="forward-v2-aws"
 s3_r = boto3.resource('s3')
 
 
