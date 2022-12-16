@@ -1,3 +1,10 @@
+/* Morning theme 5 -Gender Platform-:
+ mt5-1: #977abf
+ mt5-2: #3854a6
+ mt5-3: #8badd9
+ mt5-4: #a0e3f2
+ mt5-5: #f5f1bf */
+
 /*Container home header*/
 /*color=dark*/
 .home_section_css {
@@ -45,7 +52,6 @@ background: #343a40;
   padding: 15px 20px;
   text-align:center;
 }
-
 
 
 /*Container buttons section header*/
@@ -118,83 +124,131 @@ a.article-title:hover {
   vertical-align: middle;
 }
 
-/*container_gender_poster*/
-.container_gender_poster {
+/* International Womens' Day */
+.women .container {
+  padding: 30px;
   display: flex;
-  background: #343a40;
-  }
-  
-  .container_gender_poster .container_gender_poster {
-  display: flex;
-  background: #343a40;
-  }
-
-  .container_gender_poster .container_gender_poster .header {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-  }
-
-  .container_gender_poster .container_gender_poster .header .box_gender_poster {
-    flex: 1;
-    background-color: #428bca;
-    color: white;
-    border-radius: 10px;
-    margin: 20px 10px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
-    padding: 15px 20px;
-    text-align:center;
-  }
-  
-  .container_gender_poster .container_gender_poster .header .box_gender_poster:nth-of-type(1) {
-    flex-grow: 1;
-    background-color: #f5f1bf;
-  }
-  
-  .container_gender_poster .container_gender_poster .header .box_gender_poster:nth-of-type(2) {
-    flex-grow: 1;
-    background-color: #a0e3f2;
-  }
-
-
-/*container_gender_activities*/
-.container_gender_activities {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 30px;
-  background-color: #28a745;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.section_gender_activities .container_gender_activities {
+.women .container h2 {
+  font-size: 40px;
+  margin: 20px 0;
+}
+
+.women .container {
+  padding: 20px 20px 40px;
+}
+
+.women .container .row {
   display: flex;
-  background-color: #28a745;
-  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
-.box_gender_activities {
-  flex: 1;
-  background-color: #428bca;
-  color: white;
+.women .container .box {
+  background: #fff;
+  color: #fff;
   border-radius: 10px;
   margin: 20px 10px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
   padding: 15px 20px;
+  text-align:center;
+  width: 400px;
 }
 
-.box_gender_activities:nth-of-type(1) {
-  flex-grow: 1;
-  background-color: #f5f1bf;
+.women .container .box:nth-of-type(1) {
+  background: #8badd9;
 }
 
-.box_gender_activities:nth-of-type(2) {
-  flex-grow: 1;
-  background-color: #a0e3f2;
+.women .container .box:nth-of-type(2) {
+  background: #977abf;
 }
 
-.box_gender_activities:nth-of-type(3) {
-  flex-grow: 1;
-  background-color: #8badd9;
+/* Buttons debate */
+.container_buttons_links_debate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
+}
+
+.container_buttons_links_debate a:hover {
+  color: #977abf;
+}
+
+/* Buttons movie */
+.container_buttons_links_movie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
+}
+
+.container_buttons_links_movie a:hover {
+  color: #8badd9;
+}
+
+/* Questionnaire */
+.questionnaire .container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-color: #6c757d;
+}
+
+.questionnaire .container h2 {
+  font-size: 40px;
+  margin: 20px 0;
+}
+
+.questionnaire .container {
+  padding: 20px 20px 40px;
+}
+
+/* Buttons questionnaire */
+.container_buttons_links_questionnaire {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
+}
+
+.container_buttons_links_questionnaire a:hover {
+  color: #6c757d;
+}
+
+/* Analysis */
+.row-container1 {
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.column1 {
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  border: #ccc solid 2px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;      
+  flex:1;
+}
+.column1-1 {
+  flex-shrink: 0;
+}
+.column1-2 {
+}
+.column1-3 {
 }
 
 @media(max-width:768px){
@@ -203,16 +257,13 @@ a.article-title:hover {
     padding-top: 20px;
     text-align: center;
   }
-  .container_gender_poster {
+  .women .container .box {
     flex-direction: column;
-    padding-top: 20px;
-    text-align: center;
   }
-
-  .container_gender_activities {
+  .row-container1 {
     flex-direction: column;
-    padding-top: 20px;
-    text-align: center;
+    flex: 100%;
+    max-width: 100%;
   }
 
 }
