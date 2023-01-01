@@ -20,9 +20,7 @@ s3_r = boto3.resource('s3')
 
 
 # GitHub and Computer
-s3_r = boto3.resource('s3',
-                      aws_access_key_id=ACCESS_KEY,
-                      aws_secret_access_key=SECRET_KEY)
+# s3_r = boto3.resource('s3', aws_access_key_id=ACCESS_KEY, aws_secret_access_key=SECRET_KEY)
 
 
 
