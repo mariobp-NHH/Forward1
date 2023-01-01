@@ -1,0 +1,422 @@
+{% extends "gd_course/gd_course_layout.html" %}
+{% block content %}
+
+  <!-- Introduction -->
+  <section class="home_section_css">
+      <div class="container">
+          <div class="header">
+                <div class="box">
+                      {% with messages = get_flashed_messages(with_categories=true) %}
+                          {% if messages %}
+                              {% for category, message in messages %}
+                                  <div class="alert alert-{{ category }}">
+                                      {{ message }}
+                                  </div> 
+                              {% endfor %}
+                          {% endif %}
+                      {% endwith %}               
+                      <h1 class="text-center"><span class="text-warning"> Green Digitalization </span> Course</h1>
+                      <p class="mb-1">
+                          The Green Digitalization course aims to connect the most salient topics in <strong>green economy</strong> with <strong>digitalization</strong>.
+                          </br>
+                          </br>
+                          To achieve that objective, during the course the students analyze relevant topic in <strong>green economy</strong>, they build an <strong>economic model</strong> to study that topic and they develop an <strong>app</strong> to conduct all the economic simulations in the economic model.
+                        </br>
+                        </br>
+                          To develop the app, the course is organized in three blocks that complement each other. First the students design the <strong>layout of the app</strong> by using HTML, CSS, JavaScript and Flask. Second, they program the <strong>economic simulations</strong> by using Python and SQLAlchemy. Finally, they <strong>deploy their apps</strong> in the server, by using GitGub, Heroku, and Amazon Web Services.
+
+                      </p>
+                </div>
+                <div class="box">
+                  <div class="h1 mb-3">
+                    <i class="bi bi-bell"></i>
+                  </div>
+                  <h3 class="text-center"><span class="text-warning"> Announcements: </span>
+                  </h3>
+                  {% for announcement in announcements.items %}
+                      <article class="media content-section">
+                        <img class="rounded-circle account-img" src="data:image/jpeg;base64,{{ func(announcement.author.image_file) }}">
+                        <div class="media-body">
+                          <div class="article-metadata">
+                            <a class="mr-2" href="{{ url_for('gd_course_announcements.user_announcements', username=announcement.author.username) }}">{{ announcement.author.username }}</a>
+                            <small class="text-muted">{{ announcement.date_posted.strftime('%Y-%m-%d') }}</small>
+                          </div>
+                          <h4><a class="article-title" href="{{ url_for('gd_course_announcements.announcement', announcement_id=announcement.id) }}">{{ announcement.title }}</a></h4>
+                          <p class="text-muted">{{ announcement.content }}</p>
+                        </div>
+                      </article>
+                  {% endfor %}
+                  {% for page_num in announcements.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                    {% if page_num %}
+                      {% if announcements.page == page_num %}
+                        <a class="btn btn-info mb-4" href="{{ url_for('gd_course.gd_course_home', page=page_num) }}">{{ page_num }}</a>
+                      {% else %}
+                        <a class="btn btn-outline-info mb-4" href="{{ url_for('gd_course.gd_course_home', page=page_num) }}">{{ page_num }}</a>
+                      {% endif %}
+                    {% else %}
+                      ...
+                    {% endif %}
+                  {% endfor %}
+                </div>
+            </div>
+        </div>
+      </div>
+    </section> 
+
+    <!-- Section chapters   -->
+    <section class="section_chapter2" style="background-color: #9fa7bf;">
+      <div class="container">
+
+        <div class="column column1">          
+          <div class="column column1 box">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <p><strong>Ch1:</strong> We install Python and Visual Studio Code. We learn to create virtual enviroments, and we create our first Flask app. </p> 
+            
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="#" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 1</a>
+              </div>
+            </div>              
+          </div>
+
+          <div class="column column1 box">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <p><strong>Ch2:</strong> By using Flask routes, we design the basic structure of our app (home page, and app calculator page). <br><br></p>
+
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="#" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 2</a>
+              </div>
+            </div> 
+          </div>           
+
+          <div class="column column1 box">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <p><strong>Ch3:</strong> We learn the basic elements of HTML (navbar, header, section, container...) and we use them to design the layout of our app. </p>
+  
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="#" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 3</a>
+              </div>
+            </div> 
+          </div> 
+        </div>
+        
+
+        <div class="column column2">
+          <div class="column column2 box">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <p><strong>Ch4:</strong> We study the fundamentals of CSS, and we create CSS classes that will be useful to design the layout of our app.</p>
+
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="#" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 4</a>
+              </div>
+            </div> 
+          </div>
+
+          <div class="column column2 box">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <p><strong>Ch5:</strong> We combine our Flask routes structure, the HTML code and the CSS classes to combine the structure and design that define of our app.</p>
+
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="#" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 5</a>
+              </div>
+            </div>  
+          </div>
+
+          <div class="column column2 box">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <p><strong>Ch6:</strong> We create an account in GitHub and Amazon Web Services (AWS). We deploy our app in AWS by using Elastic Beanstalk and CodePipeline.</p>
+
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="#" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 6</a>
+              </div>
+            </div>  
+          </div>
+        </div>
+
+        <div class="column column3">
+          <div class="column column3 box">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <p><strong>Ch7:</strong> We make the mapping between our carbon emission model and the Python code that conducts the simulations in our app.</p>
+
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="#" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 7</a>
+              </div>
+            </div>  
+
+          </div>
+          <div class="column column3 box">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <p><strong>Ch8:</strong> We connect our app to a database by using Flask-MySQL. We create queries to visualize our data by using Chart.js.</p>
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="#" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 8</a>
+              </div>
+            </div>  
+          </div>
+
+          <div class="column column3 box">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <p><strong>Ch9:</strong> We deploy our app connected to a PostgreSQL database in Amazon Web Services by using a Relational Database Service.</p>
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="#" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 9</a>
+              </div>
+            </div>  
+          </div>
+        </div>
+
+        <div class="column column4">
+          <div class="column column4 box" style="background: #6da6a6;">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <p><strong>Ch10:</strong> We deploy our app in Heroku. We create a PostgreSQL database and connect it to our app by using environmental variables. </p>
+
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="#" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 10</a>
+              </div>
+            </div>  
+
+          </div>
+          <div class="column column4 box" style="background: #6da6a6;">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <p><strong>Ch11:</strong> By using Blueprints, we change the structure of our app creating a package that will be hosted in the platform Forward.</p>
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="#" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 11</a>
+              </div>
+            </div>  
+          </div>
+          <div class="column column4 box" style="background: #6da6a6;">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <p><strong>Ch12:</strong> We learn to infer better transport policies by extracting information from the our PostgreSQL database by using different queries.</p>
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="#" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 12</a>
+              </div>
+            </div>  
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  <!-- Question Accordion -->
+  <section id="questions" class="p-5" >
+    <div class="container">
+        <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+    </div>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <!-- Item 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne"
+          >
+            Assignment and final grades.
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+          <p>The assignment of the course consists on two parts.
+          <br>
+          <br>
+          The first module of the course where the students write a <strong>7-8 pages (no more) essay</strong> to work out transport carbon emissions counts for the <strong>40% of the grade</strong>.
+          <br>
+          <br>
+          The second module of the course where the students develop an <strong>app to work out transport carbon emissions</strong> counts for the <strong>50% of the grade</strong>.
+          <br>
+          <br>
+          All the groups will present their theoretical model and their app in a <strong>final conference</strong>. All the groups must attend that conference. Depending on the number of groups, the conference will be organized in two days (one afternoon, and one morning). If some members in the group cannot attend the conference, the other members can assume that duty.
+          <br>
+          <br>
+          The presentation during the "weekly challenge" and the presentation in the final conference account for the 10% of the final grade. In particular, the performance of the students during the <strong>"weekly challenge"</strong> accounts for the <strong>5% of the final grade</strong>, and the presentation in the <strong>final conference</strong> accounts for the <strong>5% of the final grade</strong>.
+          <br>
+          <br>
+          The two modules, the "weekly challenge" and the final conference presentations will be conducted in <strong>groups of 6-7 persons</strong>, and the final grade will be allocated to each group.
+          <br>
+          <br>
+          The essay and the presentation in the final conference will be evaluated by me and an external evaluator. All the assignments (first module, second module, "weekly challenge" and the final conference presentations) are conducted during the same semester. 
+          </p>
+          </div>
+        </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseTwo"
+          >
+            Essay and app.
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+          <p>The students write a <strong>7-8 pages (no more) essay</strong>. To write the essay, the students must search in scientific papers and official documents to develop a solid methodology to work out transport carbon emissions. The quality of the essay will be based on the methodology, and the quality and originality of the exposition. The students can present exclusively the methodology, or can also illustrate the methodology with examples, or any other resource they consider appropriate.
+          <br>
+          <br>
+          Based on the methodology presented in the essay, the students <strong>develop and app</strong>. The app will be developed step by step during the course. At the end of the course each group have its own app running on Heroku and Amazon Web Services. To have a good grade, the apps must have all the functionalities developed during the course. The students could also change the layout of their apps if the want. The students have a lot of freedom to develop their own app. However, to have a good grade, the students must guarantee that the app have all the functionalities learned during the course, and have a nice and intuitive layout.
+          <br>
+          <br>  
+          During the course, I will teach the students to create their own GitHub repository, and their own accounts in Heroku and Amazon Web Service. After each lecture, the students will update the GitHub account based on the content covered in that lecture. By doing that the students will have their own apps running in Heroku and Amazon Web Service. Before to take the exam, each student must send me the links to their GitHub repositories and Heroku and Amazon Web Service, so that I can verify that they have followed the course. 
+          <br>
+          <br>
+          At the end of the course, we will create a package with the students’ apps. Therefore, <strong>each student will have its own app hosted in the platform Forward</strong>. This will help the students to have a portfolio of apps publicly available at no cost, since the students’ apps will use the databases and the resources of Forward.
+          </p>
+          </div>
+        </div>
+      </div>
+      <!-- Item 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingGroups">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseGroups"
+          >
+            Groups.
+          </button>
+        </h2>
+        <div id="flush-collapseGroups" class="accordion-collapse collapse" aria-labelledby="flush-headingGroups" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+          <p>The <strong>essay</strong> and the <strong>development of the app</strong> is conducted in <strong>random groups of 6-7 persons</strong>. In the future the students will need to
+          work with persons from different background, and write and essay and develop in that environment helps them to make that transition smoothly.
+          </p>
+          </div>
+        </div>
+      </div>
+      <!-- Item 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseThree"
+          >
+            Timing, key dates and final exam.
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+          <p>The <strong>approximate timing </strong>for the course is the next one:
+            <ul>
+              <li>Chapter 1: Week 3.</li>
+              <li>Chapter 2: Week 3.</li>
+              <li>Chapter 3: Week 4.</li>
+              <li>Chapter 4: Week 5.</li>
+              <li>Chapter 5: Week 6.</li>
+              <li>Chapter 6: Week 7.</li>
+              <li>Chapter 7: Weeks 8, 9 and 10.</li>
+              <li>Chapter 8: Weeks 11, 12, 13.</li>
+              <li>Chapter 9: Week 14.</li>
+              <li>Chapter 10: Week 15.</li>
+              <li>Chapter 11: Week 16.</li>
+              <li>Chapter 12: Weeks 16 and 17.</li>
+              </li>
+            </ul>        
+          It is important to notice that we have the Easter break in April. So, the timing will be affected by that event.
+          <br>
+          <br>
+          In chapter 7 <strong>(week 8, February 20th, 2023)</strong>, we connect the economic model to work out transport carbon emissions with the app simulations. Therefore, by that date, the economic model must be ready. Otherwise, the students will not have the tools necessary to continue the course. 
+          <br>
+          <br>
+          There are two important dates where we <strong>deploy the app</strong> (chapter 6, week 7, February 13th, 2023; chapter 9, week 14, April 3rd, 2023). It is probable, that during those two weeks, we will organize a join lecture between HVL and NHH. Ideally, the lecture will be presential, one time at HVL and another time at NHH, so that the students can know each other and present their apps in person. Those two join lectures will be a small conference where the students will present their apps in 5-6 minutes. So, the students can train for the final conference.
+          <br>
+          <br>
+          The <strong>final exam (conference)</strong> will take place during week 19 (May 8th, 2023). The conference will take place one day at HVL and another day at NHH. All the students from HVL must attend the conference at HVL, and all the students at NHH must attend the conference at NHH. 
+          </p>
+          </div>
+        </div>
+      </div>
+      <!-- Item 5 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFour">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseFour"
+          >
+            Lectures.
+          </button>
+        </h2>
+        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+          <p>At <strong>HVL</strong>, the lectures are on Mondays (14.15-16.00) and Fridays (10.15-12.00) at room M503. At <strong>NHH</strong>, the lectures are on Tuesdays (10.15–12.00) in Aud J and on Thursdays (08.15–10.00) in Aud H).            
+          <br>
+          <br>  
+          Each chapter has its own <strong>webpage</strong>. To make the course more effective, and to facilitate the learning process, each chapter has its own <strong>YouTube video(s)</strong>, and its own <strong>GitHub repository(ies)</strong>. The students must watch the videos and follow the directions in the videos before each lecture.
+          <br>
+          <br>
+          In each lecture, we go through the material covered in the videos, and we will type all the code. So, that at the end of the lecture we are sure that all the students understand the material covered in each chapter. In the lectures, we will work in groups. So, the students can help each other. 
+          <br>
+          <br>
+          Each week, I will propose a “weekly challenge” to the students. The students will work on that challenge together, and the subsequent week we will propose the solutions to the challenge in the lecture. Each week, one group will be randomly selected to present its solution in the weekly challenge. To facilitate the cooperation to solve the weekly challenge, we will use a <strong>chat</strong> where all the students from HVL and NHH will participate. I will participate also in that chat proposing ideas to solve the weekly challenge. 
+          <br>
+          <br>
+          All the lectures will be <strong>streamed by using Zoom (https://nhh.zoom.us/j/6343089435)</strong>.
+          </p>
+          </div>
+        </div>
+      </div>
+      <!-- Item 6 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFive">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseFive"
+          >
+            Tutorials.
+          </button>
+        </h2>
+        <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+          <p>At <strong>HVL</strong>, the tutorials will take place on <strong>Mondays from 16.00 to 17.00</strong> at the students bar in the main entrance. I will be sitting there during that time, and I will help you with your doubts. The bar is a quiet and open space and helps to create a relaxed and comfortable environment for the students to talk openly about their questions, doubts, ideas.
+              <br>
+              <br>
+              At <strong>NHH</strong>, the tutorials will take place on <strong>Thursdays from 10.00 to 11.00</strong> at the small students bar in the main building (the bar close to the small staff canteen). I will be sitting there during that time, and I will help you with your doubts. The bar is a quiet and open space and helps to create a relaxed and comfortable environment for the students to talk openly about their questions, doubts, ideas.
+              <br>
+              <br>
+              If you cannot meet those days, or you cannot meet physically, please drop me a line, and we set an appointment at a different time, or by using Zoom (https://nhh.zoom.us/j/6343089435)
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
