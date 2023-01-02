@@ -287,6 +287,55 @@
 }
 /*End container buttons section chats NHH*/
 
+/*Container gd_course_chat */
+.gd_course_chat {
+  display: flex;
+  background: #466fa6;
+  }  
+.gd_course_chat .container {
+  display: flex;
+  background: #466fa6;
+}
+.gd_course_chat .container {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.gd_course_chat .container .box {
+  flex: 1;
+  background: #466fa6;
+  border-radius: 2px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align:center;
+}  
+.gd_course_chat .container  .box:nth-of-type(1) {
+  flex-grow:1;
+  background: #fff;
+  border-radius: 10px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  text-align:left;
+}  
+.gd_course_chat .container  .box:nth-of-type(2) {
+  flex-grow:6;
+  max-width: 450px;
+  background: #8badd9;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align:center;
+}  
+.gd_course_chat .container  .box:nth-of-type(3) {
+  flex-grow:1;
+  background: #fff;
+  border-radius: 10px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  text-align:left;
+}
+/*End container gd_course_chat*/
+
 
 @media(max-width:768px){
   .section_chatsHVL .container {
@@ -338,5 +387,10 @@
     flex: 1;
     min-width: 250px;
     max-width: 300px;
+  }
+  .gd_course_chat .container {
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
   }
 }
