@@ -63,7 +63,7 @@
                     </div>
                     <div class="menu">
                         {% if current_user.is_authenticated %}
-                            {% if current_user.email=='admin_se_course@demo.com' %}
+                            {% if current_user.email=='admin_gd_course@demo.com' %}
                                 <ul class="nav">
                                     <li class="nav-item">
                                         <a href="{{ url_for('gd_course_announcements.gd_course_announcements_new_announcement') }}">Announcement</a> 
@@ -189,5 +189,3 @@
 
     </body>
 </html>
-
-
