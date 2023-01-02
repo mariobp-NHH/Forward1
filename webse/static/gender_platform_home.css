@@ -436,6 +436,66 @@ a.article-title:hover {
 }
 /*End container buttons section IWD_questionnaire*/
 
+/*Container gender_platform_chat */
+.gender_platform_chat {
+  display: flex;
+  background: #466fa6;
+  }  
+.gender_platform_chat .container {
+  display: flex;
+  background: #466fa6;
+}
+.gender_platform_chat .container {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.gender_platform_chat .container .box {
+  flex: 1;
+  background: #466fa6;
+  border-radius: 2px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align:center;
+}  
+.gender_platform_chat .container  .box:nth-of-type(1) {
+  flex-grow:1;
+  background: #fff;
+  border-radius: 10px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  text-align:left;
+}  
+.gender_platform_chat .container  .box:nth-of-type(2) {
+  flex-grow:6;
+  max-width: 450px;
+  background: #977abf;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align:center;
+}  
+.gender_platform_chat .container  .box:nth-of-type(3) {
+  flex-grow:1;
+  background: #fff;
+  border-radius: 10px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  text-align:left;
+}
+/*End container gender_platform_chat*/
+/*Container buttons section gender_platform_chat */
+.container_buttons_links_gender_platform_chat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
+}
+.container_buttons_links_gender_platform_chat a:hover {
+  color: #977abf;
+}
+/*End container buttons section gender_platform_chat*/
+
 
 /*Container questionnaire 1 */
 .questionnaire1 {
@@ -762,6 +822,11 @@ a.article-title:hover {
     text-align: center;
   }
   .questionnaire4 .container {
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+  }
+  .gender_platform_chat .container {
     flex-direction: column;
     padding: 10px;
     text-align: center;
