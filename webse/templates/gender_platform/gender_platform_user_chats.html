@@ -1,11 +1,13 @@
 {% extends "gender_platform/gender_platform_layout.html" %}
 {% block content %}
-<section class="chat_section_css">
+
+
+<section class="gender_platform_chat">
   <div class="container">
       <div class="box">
 
       </div>
-      <div class="box">
+      <div class="box"> 
         <h1 class="mb-3">Chats by {{ user.username }} ({{ chats.total }})</h1>
         {% for chat in chats.items %}
             <article class="media content-section">
@@ -30,14 +32,12 @@
           {% else %}
             ...
           {% endif %}
-        {% endfor %}
-        
+        {% endfor %} 
       </div>
       <div class="box">
-      ..
+
       </div>
   </div>
-</section>
-
+</section> 
 
 {% endblock content %}
