@@ -1016,12 +1016,12 @@ def gender_platform_questionnaire4_summary_chat():
                            form=form, legend='Questionnaire 4 - Maintenance Staff')
                                                      
 # These routes are common for all the chats
-@gender_platform_questionnaires.route("/green_digitalization_course/questionnaire/summary/chat/<int:chat_id>") 
+@gender_platform_questionnaires.route("/gender_platform/IWD/2023/questionnaire4/summary/chat/<int:chat_id>") 
 def chat(chat_id):
     chat = QuestionnaireGenderChat.query.get_or_404(chat_id)
     return render_template('gender_platform/questionnaires/gender_platform_questionnaire_chat.html', title=chat.title_chat, chat=chat, func=read_image)    
 
-@gender_platform_questionnaires.route("/green_digitalization_course/questionnaire/summary/chat/<int:chat_id>/update", methods=['GET', 'POST'])
+@gender_platform_questionnaires.route("/gender_platform/IWD/2023/questionnaire4/summary/chat/<int:chat_id>/update", methods=['GET', 'POST'])
 @login_required
 def update_chat(chat_id):
     chat = QuestionnaireGenderChat.query.get_or_404(chat_id)
@@ -1071,7 +1071,7 @@ def update_chat(chat_id):
     return render_template('gender_platform/questionnaires/gender_platform_questionnaire_create_chat.html', title='Update Chat',
                            form=form, legend='Update Chat')    
 
-@gender_platform_questionnaires.route("/green_digitalization_course/questionnaire/summary/chat/<int:chat_id>/delete", methods=['GET', 'POST'])
+@gender_platform_questionnaires.route("/gender_platform/IWD/2023/questionnaire4/summary/chat/<int:chat_id>/delete", methods=['GET', 'POST'])
 @login_required
 def delete_chat(chat_id):
     chat = QuestionnaireGenderChat.query.get_or_404(chat_id)
@@ -1104,7 +1104,7 @@ def delete_chat(chat_id):
         flash('Your chat has been deleted!', 'success')
         return redirect(url_for('gender_platform_questionnaires.gender_platform_questionnaire4_summary'))            
 
-@gender_platform_questionnaires.route("/green_digitalization_course/questionnaire/summary/chat/<string:username>")
+@gender_platform_questionnaires.route("/gender_platform/IWD/2023/questionnaire4/summary/chat/<string:username>")
 @login_required
 def user_chats(username):
     page = request.args.get('page', 1, type=int)
