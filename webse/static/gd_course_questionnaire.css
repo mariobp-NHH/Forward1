@@ -72,7 +72,20 @@
  @media(max-width: 768px) {
   .section_gd_course_questionnaire .container {
     flex-direction: column;
-    flex: 100%;
-    max-width: 100%;
+    /* flex: 100%;
+    max-width: 100%; */
+  }
+  .column {
+    margin: 0px;
+    padding: 0px;
+  }
+  .column1 .box {
+    padding: 5px;
+  }
+  .column2 .box {
+    padding: 5px;
+  }
+  .column3 .box {
+    padding: 5px;
   }
 } 
