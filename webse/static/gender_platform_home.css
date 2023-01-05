@@ -349,10 +349,6 @@ a.article-title:hover {
   padding: 15px 20px;
   text-align:center;
 }
-.IWD_2023_img {
-  width: (325*297/210)px; 
-  height: (325)px;
-}  
 /*End container IWD_movie_debate*/
 /*Container buttons section IWD_movie_debate*/
 .container_buttons_links_IWD_movie_debate {
@@ -420,10 +416,6 @@ a.article-title:hover {
   padding: 15px 20px;
   text-align:center;
 }
-.IWD_2023_img {
-  width: (325*297/210)px; 
-  height: (325)px;
-}  
 /*End container IWD_questionnaire*/
 /*Container buttons section IWD_questionnaire*/
 .container_buttons_links_IWD_questionnaire {
@@ -776,8 +768,9 @@ a.article-title:hover {
     max-width: 400px;
   }  
   .IWD_2023_img {
-    width: (325*297/210)px; 
-    height: (325)px;
+    width: 300px;
+    /* width: (100*297/210)px; 
+    height: (100)px; */
   }  
   .IWD_movie_debate .container {
     flex-direction: column;
