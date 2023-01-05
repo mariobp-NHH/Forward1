@@ -76,7 +76,7 @@
               <small class="text-muted">{{ chat.date_chat.strftime('%Y-%m-%d') }}</small>
               </div>
               <h4><a class="article-title" href="{{ url_for('gd_course_questionnaires.chat', chat_id=chat.id) }}">{{ chat.title_chat }}</a></h4>
-              <p class="text-muted">{{ chat.content }}</p>
+              <p class="article-content">{{ chat.content }}</p>
           </div>
           </article>
         {% endfor %}
