@@ -103,6 +103,7 @@ a.article-title:hover {
 .article-content {
   white-space: pre-line;
   color: black;
+  text-align: left;
 }
 
 .article-img {
