@@ -1441,6 +1441,7 @@ a.article-title:hover {
 
 .article-content {
   white-space: pre-line;
+  text-align: left;
 }
 
 .article-img {
