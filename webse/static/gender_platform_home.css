@@ -15,7 +15,6 @@
 display: flex;
 background: #343a40;
 }
-
 .home_section_css .container {
 display: flex;
 background: #343a40;
@@ -26,7 +25,6 @@ background: #343a40;
   align-items: start;
   justify-content: space-between;
 }
-    /*color=dark*/
 .home_section_css .container .header .box {
   flex: 1;
   background: #343a40;
@@ -46,7 +44,6 @@ background: #343a40;
   padding: 15px 20px;
   text-align:left;
 }
-
 .home_section_css .container .header .box:nth-of-type(2) {
   flex-grow:1;
   background: #343a40;
@@ -748,7 +745,7 @@ a.article-title:hover {
     padding-top: 20px;
     text-align: center;
   }
- .home_section_css .container .header .box:nth-of-type(2) {
+  .home_section_css .container .header .box:nth-of-type(2) {
     flex-grow:1;
     background: #343a40;
     color: #fff;
@@ -835,5 +832,9 @@ a.article-title:hover {
     padding: 10px;
     text-align: center;
   }
+  .gender_platform_chat .container  .box:nth-of-type(2) {
+    max-width: 325px;
+    margin: 0px 10px;
+  }  
 }
 
