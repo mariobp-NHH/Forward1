@@ -22,7 +22,6 @@ login_manager= LoginManager(application)
 login_manager.login_view = 'forward_users.forward_users_login'
 login_manager.login_message_category = 'info'
 
-
 from webse.forward_home.routes import forward_home
 from webse.forward_users.routes import forward_users
 from webse.se_course_routes.routes import se_course
@@ -42,6 +41,8 @@ from webse.gd_course_announcements.routes import gd_course_announcements
 from webse.gd_course_app_calculator.routes import gd_course_app_calculator
 from webse.gd_course_questionnaires.routes import gd_course_questionnaires
 from webse.gd_course_students_apps.routes import gd_course_students_apps
+from webse.gd_course_chapters.routes import gd_course_chapters
+from webse.gd_course_statistics.routes import gd_course_statistics
 from webse.gd_course_app_calculator_HVL_2023_student1.routes import gd_course_app_calculator_HVL_2023_student1
 from webse.boilerplates.routes import boilerplates
 
@@ -64,5 +65,7 @@ application.register_blueprint(gd_course_announcements)
 application.register_blueprint(gd_course_app_calculator)
 application.register_blueprint(gd_course_questionnaires)
 application.register_blueprint(gd_course_students_apps)
+application.register_blueprint(gd_course_chapters)
+application.register_blueprint(gd_course_statistics)
 application.register_blueprint(gd_course_app_calculator_HVL_2023_student1)
 application.register_blueprint(boilerplates)
