@@ -1,0 +1,91 @@
+import os
+import secrets
+import json
+from datetime import timedelta, datetime
+from PIL import Image
+from flask import render_template, url_for, flash, redirect, request, abort, jsonify, Blueprint
+from webse import application, db, bcrypt, DBVAR
+from webse.models import  ModulsGD
+from flask_login import login_user, current_user, logout_user, login_required
+
+
+gd_course_statistics = Blueprint('gd_course_statistics', __name__)
+
+##################################
+####   Block 11. Statistics   ####
+##################################
+
+@gd_course_statistics.route('/green_digitalization_course/statistics', methods=['GET', 'POST'])
+@login_required
+def statistics():
+    return render_template('gd_course/statistics/statistics.html')
+
+@gd_course_statistics.route('/green_digitalization_course/statistics/ch1', methods=['GET', 'POST'])
+@login_required
+def statistics_ch1():
+    entries = ModulsGD.query.filter_by(author=current_user). \
+        filter(ModulsGD.title_mo=='ch1'). \
+        filter(ModulsGD.title_ch=='Chapter 1. Installation and First Flask App'). \
+        filter(ModulsGD.question_option==50). \
+        order_by(ModulsGD.question_num.asc()).all()
+
+    incorrect = ModulsGD.query.filter_by(author=current_user). \
+        filter(ModulsGD.question_result==0). \
+        filter(ModulsGD.title_mo=='ch1'). \
+        filter(ModulsGD.title_ch=='Chapter 1. Installation and First Flask App'). \
+        filter(ModulsGD.question_option==50). \
+        order_by(ModulsGD.question_num.asc()).count()
+
+    correct = ModulsGD.query.filter_by(author=current_user). \
+        filter(ModulsGD.question_result==1). \
+        filter(ModulsGD.title_mo=='ch1'). \
+        filter(ModulsGD.title_ch=='Chapter 1. Installation and First Flask App'). \
+        filter(ModulsGD.question_option==50). \
+        order_by(ModulsGD.question_num.asc()).count()
+
+    incorrect_q1 = ModulsGD.query.filter(ModulsGD.question_num == 1). \
+        filter(ModulsGD.question_result == 0). \
+        filter(ModulsGD.title_mo == 'ch1'). \
+        filter(ModulsGD.title_ch == 'Chapter 1. Installation and First Flask App'). \
+        filter(ModulsGD.question_option == 50). \
+        order_by(ModulsGD.question_num.asc()).count()
+
+    correct_q1 = ModulsGD.query.filter(ModulsGD.question_num == 1). \
+        filter(ModulsGD.question_result == 1). \
+        filter(ModulsGD.title_mo == 'ch1'). \
+        filter(ModulsGD.title_ch == 'Chapter 1. Installation and First Flask App'). \
+        filter(ModulsGD.question_option == 50). \
+        order_by(ModulsGD.question_num.asc()).count()
+
+    incorrect_q2 = ModulsGD.query.filter(ModulsGD.question_num == 2). \
+        filter(ModulsGD.question_result == 0). \
+        filter(ModulsGD.title_mo == 'ch1'). \
+        filter(ModulsGD.title_ch == 'Chapter 1. Installation and First Flask App'). \
+        filter(ModulsGD.question_option == 50). \
+        order_by(ModulsGD.question_num.asc()).count()
+
+    correct_q2 = ModulsGD.query.filter(ModulsGD.question_num == 2). \
+        filter(ModulsGD.question_result == 1). \
+        filter(ModulsGD.title_mo == 'ch1'). \
+        filter(ModulsGD.title_ch == 'Chapter 1. Installation and First Flask App'). \
+        filter(ModulsGD.question_option == 50). \
+        order_by(ModulsGD.question_num.asc()).count()
+
+    incorrect_q3 = ModulsGD.query.filter(ModulsGD.question_num == 3). \
+        filter(ModulsGD.question_result == 0). \
+        filter(ModulsGD.title_mo == 'ch1'). \
+        filter(ModulsGD.title_ch == 'Chapter 1. Installation and First Flask App'). \
+        filter(ModulsGD.question_option == 50). \
+        order_by(ModulsGD.question_num.asc()).count()
+
+    correct_q3 = ModulsGD.query.filter(ModulsGD.question_num == 3). \
+        filter(ModulsGD.question_result == 1). \
+        filter(ModulsGD.title_mo == 'ch1'). \
+        filter(ModulsGD.title_ch == 'Chapter 1. Installation and First Flask App'). \
+        filter(ModulsGD.question_option == 50). \
+        order_by(ModulsGD.question_num.asc()).count()
+
+    return render_template('gd_course/statistics/statistics_ch1.html', entries=entries, correct=correct, incorrect=incorrect,
+                           correct_q1=correct_q1, incorrect_q1=incorrect_q1,
+                           correct_q2=correct_q2, incorrect_q2=incorrect_q2,
+                           correct_q3=correct_q3, incorrect_q3=incorrect_q3)
