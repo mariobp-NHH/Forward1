@@ -18,9 +18,6 @@
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
         />
 
-        <!--For the plots-->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
         <!--Import the FullCalendar js and CSS file:-->
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
@@ -29,23 +26,15 @@
         <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
         <!--Import the CSS file with the style:-->
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gd_course_layout.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gd_course_home.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gd_course_register.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gd_course_account.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gd_course_chat.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gd_course_app_calculator.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gd_course_questionnaire.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gd_course_chapters.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gd_course_statistics.css') }}">
-
-        <!-- To activate media queries -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='forward_home_main.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='forward_home_layout.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='forward_home_home.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='forward_home_user.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='forward_home_account.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='forward_home_chat.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='forward_home_register.css') }}">
+        
         <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1">
-
-        <!-- To use  highlightjs.org and type code inside HTML -->
-        <link rel="stylesheet" href="/path/to/styles/default.min.css">
-        
-        
 
 
         {% if title %}
@@ -55,7 +44,7 @@
         {% endif %}
 
     </head>
-    <body>        
+    <body>
         <nav class="navbar">
             <div class="container"> <!--class="container_layout"-->
                 <div class="menu_left">
@@ -65,97 +54,39 @@
                             width="50" 
                             height="50"
                         alt=""/></a>
-                        <a href="{{ url_for('gd_course.gd_course_home') }}"><img
-                            src="{{url_for('static', filename='figures/forward/gd_course_icon.svg')}}"
-                            width="50" 
-                            height="50"
-                        alt=""/></a>
-                    </div>
+                    </div> 
                     <div class="menu">
                         {% if current_user.is_authenticated %}
-                            {% if current_user.email=='admin@demo.com' %}
-                                <ul class="nav">
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('gd_course_announcements.gd_course_announcements_new_announcement') }}">Announcement</a> 
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('gd_course_chats.gd_course_chats_create_chat') }}">Create-Chat</a> 
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('gd_course_chats.gd_course_chats_view_chat') }}">View-Chats</a> 
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('gd_course_statistics.statistics') }}">Statistics</a> 
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('gd_course_students_apps.gd_students_apps_home') }}">Students-apps</a> 
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('gd_course_app_calculator.app_calculator_entry') }}">Carbon-app</a> 
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('forward_users.forward_users_logout') }}">Logout</a>
-                                    </li>
-                                </ul>
-                            {% else %}
-                                <ul class="nav">
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('gd_course_chats.gd_course_chats_create_chat') }}">Create-Chat</a> 
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('gd_course_chats.gd_course_chats_view_chat') }}">View-Chats</a> 
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('gd_course_statistics.statistics') }}">Statistics</a> 
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('gd_course_students_apps.gd_students_apps_home') }}">Students-apps</a> 
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('gd_course_app_calculator.app_calculator_entry') }}">Carbon-app</a> 
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url_for('forward_users.forward_users_logout') }}">Logout</a>
-                                    </li>
-                                </ul>
-                            {% endif %} 
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <a href="{{ url_for('forward_users.forward_users_account') }}">Account</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url_for('forward_users.forward_users_logout') }}">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url_for('forward_home.developers') }}">Developers</a>
+                                </li>
+                            </ul>
                         {% else %}
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a href="{{ url_for('gd_course_chats.gd_course_chats_create_chat') }}">Create-Chat</a> 
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ url_for('gd_course_chats.gd_course_chats_view_chat') }}">View-Chats</a> 
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ url_for('gd_course_statistics.statistics') }}">Statistics</a> 
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ url_for('gd_course_students_apps.gd_students_apps_home') }}">Students-apps</a> 
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ url_for('gd_course_app_calculator.app_calculator_entry') }}">Carbon-app</a> 
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{url_for('forward_users.forward_users_login')}}">Login</a> 
-                            </li>
-                        </ul>
-                        {% endif %}    
-                    </div>                    
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <a href="{{url_for('forward_users.forward_users_register')}}">Register</a> 
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url_for('forward_users.forward_users_login')}}">Login</a> 
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url_for('forward_home.developers') }}">Developers</a>
+                                </li>
+                            </ul> 
+                        {% endif %}                          
+                    </div>                   
                 </div>
                 <!-- <div class="menu_right">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a href="#">Students-apps</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#">Students-thesis</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#">Research</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#">Collaborators</a>
+                            <a href="{{ url_for('forward_home.developers') }}">Developers</a>
                         </li>
                     </ul>
                 </div> -->
@@ -175,7 +106,7 @@
         <div class="container">  
             <div class="item">
                 <p class="lead">
-                Green Digitalization Course
+                Forward: Connecting Education and Society
                 </p> 
             </div>              
             <div class="item">
@@ -190,16 +121,11 @@
     <!--Menu JavaScript-->
     <script src="static/forward_home_main.js"></script>
 
-    <!-- To use  highlightjs.org and type code inside HTML -->
-    <script src="/path/to/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-     
-
     <!-- Question Accordion -->
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-      crossorigin="anonymous"
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"
     ></script>
 
 
