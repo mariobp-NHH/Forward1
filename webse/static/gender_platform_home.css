@@ -836,5 +836,8 @@ a.article-title:hover {
     max-width: 325px;
     margin: 0px 10px;
   }  
+  #instructionsModalInstructions1 {
+    max-width:325px;
+  }
 }
 
