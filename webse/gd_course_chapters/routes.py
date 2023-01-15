@@ -182,7 +182,7 @@ def gd_course_chapters_ch2():
             filter(ModulsGD.question_num == 5).delete()
         db.session.commit()
         moduls = ModulsGD(question_str=form_gdc_ch2_q4.type.data, author=current_user)
-        if moduls.question_str == 'Jinja2 is the Flask template engine that allows us to render variables and logical statements in our html files':
+        if moduls.question_str == 'Jinja2 is the Flask template engine that allows us to render logical statements in our html files':
             moduls.question_result = 1
         else:
             moduls.question_result = 0
