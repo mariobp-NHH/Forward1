@@ -87,8 +87,8 @@ class ModulsForm_gdc_ch2_q5(FlaskForm):
                                  'Jinja2 main objective is to facilitate the introduction of JavaScript code in our templates'),
                                 ('Jinja2 aims the introduction of CSS code in our templates',
                                  'Jinja2 aims the introduction of CSS code in our templates'),
-                                ('Jinja2 is the Flask template engine that allows us to render variables and logical statements in our html files',
-                                 'Jinja2 is the Flask template engine that allows us to render variables and logical statements in our html files')])
+                                ('Jinja2 is the Flask template engine that allows us to render logical statements in our html files',
+                                 'Jinja2 is the Flask template engine that allows us to render logical statements in our html files')])
     submit = SubmitField('Submit')   
 
 class ModulsForm_gdc_ch2_q6(FlaskForm):
