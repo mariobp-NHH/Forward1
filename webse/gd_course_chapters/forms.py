@@ -39,3 +39,64 @@ class ModulsForm_gdc_ch1_q3(FlaskForm):
                                 ('Both lines of code',
                                  'Both lines of code')])
     submit = SubmitField('Submit') 
+
+#Chapter 2
+class ModulsForm_gdc_ch2_q1(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('redirect',
+                                 'redirect'),
+                                ('render_template',
+                                 'render_template'),
+                                ('submit',
+                                 'submit')])
+    submit = SubmitField('Submit')  
+
+class ModulsForm_gdc_ch2_q2(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('<title>{title}</title>',
+                                 '<title>{title}</title>'),
+                                ('<title>(title)</title>',
+                                 '<title>(title)</title>'),
+                                ('<title>{{title}}</title>',
+                                 '<title>{{title}}</title>')])
+    submit = SubmitField('Submit')    
+
+class ModulsForm_gdc_ch2_q3(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('<ul><li>...</li></ul>',
+                                 '<ul><li>...</li></ul>'),
+                                ('<ol><li>...</li></ol>',
+                                 '<ol><li>...</li></ol>'),
+                                ('<p><li>...</li></p>',
+                                 '<p><li>...</li></p>')])
+    submit = SubmitField('Submit') 
+
+class ModulsForm_gdc_ch2_q4(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('forward',
+                                 'forward'),
+                                ('url_for',
+                                 'url_for'),
+                                ('redirect',
+                                 'redirect')])
+    submit = SubmitField('Submit')   
+
+class ModulsForm_gdc_ch2_q5(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Jinja2 main objective is to facilitate the introduction of JavaScript code in our templates',
+                                 'Jinja2 main objective is to facilitate the introduction of JavaScript code in our templates'),
+                                ('Jinja2 aims the introduction of CSS code in our templates',
+                                 'Jinja2 aims the introduction of CSS code in our templates'),
+                                ('Jinja2 is the Flask template engine that allows us to render variables and logical statements in our html files',
+                                 'Jinja2 is the Flask template engine that allows us to render variables and logical statements in our html files')])
+    submit = SubmitField('Submit')   
+
+class ModulsForm_gdc_ch2_q6(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('{% block content %} {% endblock %}',
+                                 '{% block content %} {% endblock %}'),
+                                ('{% extends %} {% extends %}',
+                                 '{% extends %} {% extends %}'),
+                                ('{% if statement %} {% endif statement %}',
+                                 '{% if statement %} {% endif statement %}')])
+    submit = SubmitField('Submit')           
