@@ -153,6 +153,50 @@
 }
 /*Container statistics summary 2 boxes*/
 
+/*Container statistics summary 1 box*/
+.statistics_summary1_css {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  justify-content: space-between;
+}     
+.statistics_summary1_css .box {
+  flex: 1;
+  background: #6da6a6;
+  color: #fff;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+}
+.statistics_summary1_css .box:nth-of-type(1) {
+  flex-grow:1;
+  background: #6da6a6;
+  color: #fff;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align:left;
+}
+.statistics_summary1_css .box:nth-of-type(2) {
+  flex-grow:1;
+  background: #9fa7bf;
+  color: #fff;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align:center;
+}
+.statistics_summary1_css .box:nth-of-type(3) {
+  flex-grow:1;
+  background: #9fa7bf;
+  color: #fff;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align:left;
+}
+/*Container statistics summary 1 box*/
+
 
 @media(max-width:768px){
   .section_statistics .container {
@@ -186,6 +230,11 @@
     text-align: center;
   }
   .statistics_summary2_css {
+    flex-direction: column;
+    padding: 0px 0px;
+    text-align: center;
+  }
+  .statistics_summary1_css {
     flex-direction: column;
     padding: 0px 0px;
     text-align: center;
