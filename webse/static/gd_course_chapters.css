@@ -378,6 +378,23 @@
 }
 /* End btn-section2 */
 
+/* btn-section2_box */
+.btn-section2_box {
+  padding: 10px 10px;
+  margin: 10px 10px 10px 10px;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #49736f;
+  border: 2px solid #c5c8d9;
+}
+.btn-section2_box:hover {
+  color: #fff;
+  background-color: #c5c8d9;
+  border: 2px solid #c5c8d9;
+}
+/* End btn-section2_box */
+
 /* section_3:  rt4-3: #6da6a6 */
 .section_3 {
   margin: 0 auto;
@@ -433,7 +450,27 @@
   flex-grow: 1;
   text-align: left;
 }
-.section_3 .container .box_questions {
+.section_3 .container .boxa {
+  flex: 1;
+  background: #c5c8d9;
+  color: black;
+  border-radius: 5px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align:center;
+}  
+.section_3 .container .boxa:nth-of-type(1) {
+  background: #6da6a6; 
+  flex-grow: 1;
+  text-align: left;
+}  
+.section_3 .container .boxa:nth-of-type(2) {
+  background: #789091;
+  flex-grow: 1;
+  padding: 15px 20px;
+  text-align:left;
+} 
+.section_3 .container .box_questions_one {
   flex: 1;
   background: #6da6a6;
   color: #fff;
@@ -442,21 +479,50 @@
   padding: 15px 20px;
   text-align:center;
 }  
-.section_3 .container .box_questions:nth-of-type(1) {
+.section_3 .container .box_questions_one:nth-of-type(1) {
   background: #6da6a6; 
   flex-grow: 4;
   text-align: left;
 }  
-.section_3 .container .box_questions:nth-of-type(2) {
+.section_3 .container .box_questions_one:nth-of-type(2) {
   background: #f2b84b;
   flex-grow: 6;
   padding: 15px 20px;
 } 
-.section_3 .container .box_questions:nth-of-type(3) {
+.section_3 .container .box_questions_one:nth-of-type(3) {
   background: #6da6a6;
   flex-grow: 4;
   padding: 15px 20px;
 } 
+.section_3 .container .box_questions_two {
+  flex: 1;
+  background: #6da6a6;
+  color: #fff;
+  border-radius: 5px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align:center;
+}  
+.section_3 .container .box_questions_two:nth-of-type(1) {
+  background: #6da6a6; 
+  flex-grow: 1;
+  text-align: left;
+}  
+.section_3 .container .box_questions_two:nth-of-type(2) {
+  background: #f2b84b;
+  flex-grow: 6;
+  padding: 15px 20px;
+} 
+.section_3 .container .box_questions_two:nth-of-type(3) {
+  background: #f2b84b;
+  flex-grow: 6;
+  padding: 15px 20px;
+}
+.section_3 .container .box_questions_two:nth-of-type(4) {
+  background: #6da6a6; 
+  flex-grow: 1;
+  text-align: left;
+}   
 /* End section_3 */
 /*Container buttons section section_3a*/
 .container_buttons_links_section_3a {
@@ -483,18 +549,36 @@
 /* btn-section3 */
 .btn-section3 {
   padding: 10px 10px;
+  margin: 10px 10px 10px 10px;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #6da6a6;
+  border: 2px solid #789091;
+}
+.btn-section3:hover {
+  color: #fff;
+  background-color: #789091;
+  border: 2px solid #789091;
+}
+/* End btn-section3 */
+/* btn-section3_box */
+.btn-section3_box {
+  padding: 10px 10px;
+  margin: 10px 10px 10px 10px;
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
   background-color: #789091;
   border: 2px solid #6da6a6;
 }
-.btn-section3:hover {
+.btn-section3_box:hover {
   color: #fff;
   background-color: #6da6a6;
   border: 2px solid #6da6a6;
 }
-/* End btn-section3 */
+/* End btn-section3_box */
+
 
 /* section_4:  rt1-3: #96aeaf  */
 .section_4 {
@@ -527,6 +611,30 @@
   flex-grow: 2;
   padding: 15px 20px;
 } 
+.section_4 .container .onebox {
+  flex: 1;
+  background: #96aeaf;
+  color: #fff;
+  border-radius: 5px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align:center;
+}  
+.section_4 .container .onebox:nth-of-type(1) {
+  background: #96aeaf; 
+  flex-grow: 1;
+  text-align: left;
+}  
+.section_4 .container .onebox:nth-of-type(2) {
+  background: #789091;
+  flex-grow: 6;
+  padding: 15px 20px;
+} 
+.section_4 .container .onebox:nth-of-type(3) {
+  background: #96aeaf; 
+  flex-grow: 1;
+  text-align: left;
+}
 .section_4 .container .box_questions {
   flex: 1;
   background: #9fa7bf;
@@ -608,6 +716,9 @@
     max-width: 300px;
   } 
   .section_2 .container .boxa:nth-of-type(2) {
+    max-width: 300px;
+  } 
+  .section_3 .container .boxa:nth-of-type(2) {
     max-width: 300px;
   }    
   .header_css .container {
