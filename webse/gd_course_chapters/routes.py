@@ -481,3 +481,39 @@ def gd_course_chapters_ch3_week1():
 @login_required
 def gd_course_chapters_ch3_week2():  
     return render_template('gd_course/chapters/ch3_week2.html', title='Green Digitalization Course, ch3, week2')
+
+#Chapter 4
+@gd_course_chapters.route('/green_digitalization_course/chapter4', methods=['GET', 'POST'])
+@login_required
+def gd_course_chapters_ch4(): 
+    return render_template('gd_course/chapters/ch4.html', title='Green Digitalization Course, ch4') 
+
+@gd_course_chapters.route('/green_digitalization_course/chapter4/home1')
+@login_required
+def gd_course_chapters_ch4_home1():  
+    return render_template('gd_course/chapters/ch4_home1.html', title='Green Digitalization Course, ch4, home1') 
+
+@gd_course_chapters.route('/green_digitalization_course/chapter4/methodology1')
+@login_required
+def gd_course_chapters_ch4_methodology1():  
+    return render_template('gd_course/chapters/ch4_methodology1.html', title='Green Digitalization Course, ch4, methodology1') 
+
+@gd_course_chapters.route('/green_digitalization_course/chapter4/carbon_app1')
+@login_required
+def gd_course_chapters_ch4_carbon_app1():  
+    return render_template('gd_course/chapters/ch4_carbon_app1.html', title='Green Digitalization Course, ch4, carbon_app1')  
+
+@gd_course_chapters.route('/green_digitalization_course/chapter4/home2')
+@login_required
+def gd_course_chapters_ch4_home2():  
+    return render_template('gd_course/chapters/ch4_home2.html', title='Green Digitalization Course, ch4, home2') 
+
+@gd_course_chapters.route('/green_digitalization_course/chapter4/methodology2')
+@login_required
+def gd_course_chapters_ch4_methodology2():  
+    return render_template('gd_course/chapters/ch4_methodology2.html', title='Green Digitalization Course, ch4, methodology2') 
+
+@gd_course_chapters.route('/green_digitalization_course/chapter4/carbon_app2')
+@login_required
+def gd_course_chapters_ch4_carbon_app2():  
+    return render_template('gd_course/chapters/ch4_carbon_app2.html', title='Green Digitalization Course, ch4, carbon_app2')     
