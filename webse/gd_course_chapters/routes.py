@@ -516,4 +516,25 @@ def gd_course_chapters_ch4_methodology2():
 @gd_course_chapters.route('/green_digitalization_course/chapter4/carbon_app2')
 @login_required
 def gd_course_chapters_ch4_carbon_app2():  
-    return render_template('gd_course/chapters/ch4_carbon_app2.html', title='Green Digitalization Course, ch4, carbon_app2')     
+    return render_template('gd_course/chapters/ch4_carbon_app2.html', title='Green Digitalization Course, ch4, carbon_app2')  
+
+#Chapter 5
+@gd_course_chapters.route('/green_digitalization_course/chapter5', methods=['GET', 'POST'])
+@login_required
+def gd_course_chapters_ch5(): 
+    return render_template('gd_course/chapters/ch5.html', title='Green Digitalization Course, ch5')   
+
+@gd_course_chapters.route('/green_digitalization_course/chapter5/home')
+@login_required
+def gd_course_chapters_ch5_home():  
+    return render_template('gd_course/chapters/ch5_home.html', title='Green Digitalization Course, ch5, home') 
+
+@gd_course_chapters.route('/green_digitalization_course/chapter5/methodology')
+@login_required
+def gd_course_chapters_ch5_methodology():  
+    return render_template('gd_course/chapters/ch5_methodology.html', title='Green Digitalization Course, ch5, methodology') 
+
+@gd_course_chapters.route('/green_digitalization_course/chapter5/carbon_app')
+@login_required
+def gd_course_chapters_ch5_carbon_app():  
+    return render_template('gd_course/chapters/ch5_carbon_app.html', title='Green Digitalization Course, ch5, carbon_app')   
