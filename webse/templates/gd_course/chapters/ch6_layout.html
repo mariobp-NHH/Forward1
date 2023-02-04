@@ -35,34 +35,35 @@
         
     </head>
     <body>
-        <section class="section_navbar">
-          <div class="container">
-            <div class="navbar">
-              <h1 class="logo">
-                <span class="text-logo"><i class="fa-solid fa-leaf"></i> Carbon</span> App
-              </h1>
-              <nav>
-                <ul>
-                    <li>
-                      <a href="{{url_for('gd_course_app_carbon_app_2023_ch6.register')}}">Register</a>
-                    </li>
-                    <li>
-                      <a href="{{url_for('gd_course_app_carbon_app_2023_ch6.login')}}">Login</a>
-                    </li>
-                    <li>
-                        <a href="{{url_for('gd_course_app_carbon_app_2023_ch6.home')}}">Home</a>
-                    </li>
-                    <li>
-                        <a href="{{url_for('gd_course_app_carbon_app_2023_ch6.methodology')}}">Methology</a>
-                    </li>
-                    <li>
-                        <a href="{{url_for('gd_course_app_carbon_app_2023_ch6.carbon_app')}}">Carbon App</a>
-                    </li>
-                </ul>
-              </nav> 
-            </div>
+
+      <section class="section_carbon_app_navbar">
+        <div class="container">
+          <div class="carbon_app_navbar">
+            <h1 class="logo">
+              <span class="text-logo"><i class="fa-solid fa-leaf"></i> Carbon</span> App
+            </h1>
+            <nav>
+              <ul>
+                <li>
+                  <a href="{{url_for('gd_course_app_carbon_app_2023_ch6.register')}}">Register</a>
+                </li>
+                <li>
+                  <a href="{{url_for('gd_course_app_carbon_app_2023_ch6.login')}}">Login</a>
+                </li>
+                <li>
+                    <a href="{{url_for('gd_course_app_carbon_app_2023_ch6.home')}}">Home</a>
+                </li>
+                <li>
+                    <a href="{{url_for('gd_course_app_carbon_app_2023_ch6.methodology')}}">Methology</a>
+                </li>
+                <li>
+                    <a href="{{url_for('gd_course_app_carbon_app_2023_ch6.carbon_app')}}">Carbon App</a>
+                </li>
+              </ul>
+            </nav> 
           </div>
-        </section>
+        </div>
+      </section>      
 
         {% block content %} {% endblock %}
 
