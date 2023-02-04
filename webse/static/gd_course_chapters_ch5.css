@@ -1,11 +1,9 @@
-/* Layout */
 /* Colors */
 /* Rainy theme 5 -Green Digitalization Course and Students Apps-:
 Navbar (background): #8bbbd9
 Navbar (a hover): #466fa6
 Navbar (logo): #568c63
 Navbar (a menu): #2a4359
-Footer (background): #8bbbd9
 */
 
 /* Google fonts Roboto  */
@@ -40,16 +38,16 @@ h1, h2 {
 }
 p {
   margin: 10px 0;
-  font-size: 18px;
+  font-size: 14px;
 }
 img {
   width: 100%;
 }
 /* Navbar  */
-.section_navbar {
+.section_carbon_app_navbar {
   background-color:#8bbbd9;
 }
-.navbar {
+.carbon_app_navbar {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -58,21 +56,21 @@ img {
   background-color: #8bbbd9;
   padding: 0 0px;
 }
-.navbar a {
+.carbon_app_navbar a {
   color: #2a4359;
   padding: 10px 20px;
   margin: 0 5px;
   font-size: 20px;
   text-decoration: none;
 }
-.navbar a:hover{
+.carbon_app_navbar a:hover{
   border-bottom: #2a4359 4px solid;
 }
-.navbar ul {
+.carbon_app_navbar ul {
   display: flex;
   flex-direction: row;
 }
-.navbar .logo {
+.carbon_app_navbar .logo {
   font-weight: 400;
 }
 .text-logo {
@@ -91,10 +89,11 @@ img {
   background-color: #8bbbd9;
   padding: 0 0px;
 }
+
 /* Home */
 /* Colors 
-Home, section 1 (header, background): #9fa7bf
-Home, section 1 (header, boxes): #568c63
+Home, section 1 (head, background): #9fa7bf
+Home, section 1 (head, boxes): #568c63
 Home, section 2 (developers, background): #c5c8d9 
 Home, section 2 (developers, boxes): #49736f
  */
@@ -130,16 +129,16 @@ p {
 .header_home .box:nth-of-type(2) {
   flex-grow:1;
 }
-.container_buttons_header_home {
+.container_buttons_links_header_home {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap:wrap;
 }
-.container_buttons_header_home a:hover {
+.container_buttons_links_header_home a:hover {
   color: #9fa7bf;
 }
-.container_buttons_header_home btn {
+.container_buttons_links_header_home btn {
   width: 100px;
   height: 100px;
   background: #9fa7bf;
@@ -198,7 +197,7 @@ p {
   flex-grow:4;
   background: #c5c8d9;
 }
-.container_buttons_developers {
+.section_container_buttons_developers {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -222,8 +221,7 @@ p {
   border: 2px solid #c5c8d9;
   text-decoration: none;
 }
-
-/* Methodology   */
+/* Methodology */
 /* Colors 
 Methodology, section 1 (header, background): #2a4359
 Methodology, section 1 (header, boxes): #6da6a6
@@ -340,7 +338,6 @@ ol {
   flex-grow:1;
   background: #8badd9;
 }
-
 /* Carbon app */
 /* Colors 
 Carbon App, section 1 (header, background): #2a4359
@@ -406,41 +403,47 @@ h4 {
 }
 
 
-@media (max-width:768px) { 
-  .navbar {
-    height: 160px;
+
+
+/* Media query */
+@media(max-width:768px){
+  .carbon_app_navbar {
+    height: 170px;
     flex-direction: column;
   }
-  .navbar a {
+  .carbon_app_navbar a {
     font-size: 15px;
     padding: 5px 20px;
   }
-  .navbar ul {
+  .carbon_app_navbar ul {
     display: flex;
     flex-direction: column;
   }
-  .navbar a:hover{
+  .carbon_app_navbar a:hover{
     color: #568c63;
     border-bottom: #2a4359 2px solid;
   }
+  /* Home */
   .header_home {
     flex-direction: column;
   } 
   .developers {
     flex-direction: column;
   } 
-  .container_buttons_developers {
+  .section_container_buttons_developers {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+  /* Methodology */
   .header {
     flex-direction: column;
   } 
   .methodology {
     flex-direction: column;
-  }
+  } 
+  /* Carbon appearance */
   .header_carbon_app {
     flex-direction: column;
-  }  
+  } 
 }
