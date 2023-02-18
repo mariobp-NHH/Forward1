@@ -555,4 +555,10 @@ def gd_course_chapters_ch7():
 @gd_course_chapters.route('/green_digitalization_course/chapter8', methods=['GET', 'POST'])
 @login_required
 def gd_course_chapters_ch8(): 
-    return render_template('gd_course/chapters/ch8.html', title='Green Digitalization Course, ch8')   
+    return render_template('gd_course/chapters/ch8.html', title='Green Digitalization Course, ch8') 
+
+#Chapter 9
+@gd_course_chapters.route('/green_digitalization_course/chapter9', methods=['GET', 'POST'])
+@login_required
+def gd_course_chapters_ch9(): 
+    return render_template('gd_course/chapters/ch9.html', title='Green Digitalization Course, ch9')   
