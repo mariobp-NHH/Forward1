@@ -13,16 +13,16 @@
                     <br>
                     <div class="container_buttons_links_header">
                     <div class="btn">
-                        <a href="#"  target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">YouTube (Section 1)</a>
+                        <a href="https://youtu.be/i4fdNUPN36g"  target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">YouTube (Section 1)</a>
                     </div>
                     <div class="btn">
-                        <a href="#" target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">YouTube (Section 2a)</a>
+                        <a href="https://youtu.be/7nf5lG1Hp8w" target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">YouTube (Section 2a)</a>
                     </div>
                     <div class="btn">
-                        <a href="#" target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">YouTube (Section 2b)</a>
+                        <a href="https://youtu.be/UXKL27XKYlQ" target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">YouTube (Section 2b)</a>
                     </div>
                     <div class="btn">
-                        <a href="#" target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">YouTube (Section 2c)</a>
+                        <a href="https://youtu.be/CMlVF0_fFC0" target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">YouTube (Section 2c)</a>
                     </div>
                     <div class="btn">
                         <a href="https://github.com/mariobp-NHH/GreenDigitalizationCourse2023/tree/main/Ch10%20Login" target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">GitHub</a>
@@ -96,7 +96,7 @@
                     We customize the messages disclosed to the user. If for example, we try to register by using the same username or email, we get an ugly message. To avoid those messages that could not be very useful for the users of our app, we can customize our WTF Forms Validators.                    
                 </p> 
                 <div class="section_container_buttons_chapters">
-                    <a class="btn-section1" href="#" target="_blank">YouTube (Section 1a)</a>
+                    <a class="btn-section1" href="https://youtu.be/i4fdNUPN36g" target="_blank">YouTube (Section 1a)</a>
                 </div>
                 <p class="text-left">
                     In the <strong>package users</strong>, in the forms.py file. 
@@ -187,9 +187,9 @@ class RegistrationForm(FlaskForm):
                 The links to the YouTube video, and the GitHub account for this section are below:
             </p>
             <div class="section_container_buttons_chapters">
-                <a class="btn-section2" href="#" target="_blank">YouTube (Section 2a)</a>
-                <a class="btn-section2" href="#" target="_blank">YouTube (Section 2b)</a>
-                <a class="btn-section2" href="#" target="_blank">YouTube (Section 2c)</a>
+                <a class="btn-section2" href="https://youtu.be/7nf5lG1Hp8w" target="_blank">YouTube (Section 2a)</a>
+                <a class="btn-section2" href="https://youtu.be/UXKL27XKYlQ" target="_blank">YouTube (Section 2b)</a>
+                <a class="btn-section2" href="https://youtu.be/CMlVF0_fFC0" target="_blank">YouTube (Section 2c)</a>
                 <a class="btn-section2" href="https://github.com/mariobp-NHH/GreenDigitalizationCourse2023/tree/main/Ch10%20Login/DB_Boilerplate2" target="_blank">GitHub (Boilerplate2)</a>
                 <a class="btn-section2" href="https://github.com/mariobp-NHH/GreenDigitalizationCourse2023/tree/main/Ch10%20Login/DB_Final2" target="_blank">GitHub (Final2)</a>
                 <a class="btn-section2" href="https://github.com/mariobp-NHH/GreenDigitalizationCourse2023/tree/main/Ch10%20Login/DB_Boilerplate3" target="_blank">GitHub (Boilerplate3)</a>
@@ -348,7 +348,7 @@ def load_user(user_id):
             <div class="boxa" style="text-align: left; margin:0px; padding:0px;">
                 <h4>Flask-login in our app.</h4>
                 <div class="section_container_buttons_chapters">
-                    <a class="btn-section2" href="#" target="_blank">YouTube (Section 2a)</a>
+                    <a class="btn-section2" href="https://youtu.be/7nf5lG1Hp8w" target="_blank">YouTube (Section 2a)</a>
                     <a class="btn-section2" href="https://github.com/mariobp-NHH/GreenDigitalizationCourse2023/tree/main/Ch10%20Login/DB_Boilerplate2" target="_blank">GitHub (Boilerplate2)</a>
                     <a class="btn-section2" href="https://github.com/mariobp-NHH/GreenDigitalizationCourse2023/tree/main/Ch10%20Login/DB_Final2" target="_blank">GitHub (Final2)</a>
                 </div> 
@@ -368,6 +368,8 @@ pip install flask-login
                                     Import the tools that we need:
                                     <pre><code class="html"></code>
 from flask_login import LoginManager
+login_manager.login_view = 'users.login'
+login_manager.login_message_category = 'info'
                                     </code></pre> 
                                 </li>
                                 <li>
@@ -413,12 +415,14 @@ login_manager= LoginManager(application)
                     </ol>
                 </p>      
             </div>
-            <div class="boxa" style="height:865px;">
+            <div class="boxa" style="height:900px;">
                 <h5>In the __init__.py file:</h5>
 <pre><code class="html">
 from flask_login import LoginManager
 
 login_manager= LoginManager(application)
+login_manager.login_view = 'users.login'
+login_manager.login_message_category = 'info'
 </code></pre>   
 <h5>In the models.py file:</h5>
 <pre><code class="html">
@@ -498,7 +502,7 @@ def register():
             <div class="boxa" style="text-align: left; margin:0px; padding:0px;">
                 <h4>User authenticated, log out and redirect to the last page visited</h4>
                 <div class="section_container_buttons_chapters">
-                    <a class="btn-section2" href="#" target="_blank">YouTube (Section 2b)</a>
+                    <a class="btn-section2" href="https://youtu.be/UXKL27XKYlQ" target="_blank">YouTube (Section 2b)</a>
                     <a class="btn-section2" href="https://github.com/mariobp-NHH/GreenDigitalizationCourse2023/tree/main/Ch10%20Login/DB_Boilerplate3" target="_blank">GitHub (Boilerplate3)</a>
                     <a class="btn-section2" href="https://github.com/mariobp-NHH/GreenDigitalizationCourse2023/tree/main/Ch10%20Login/DB_Final3" target="_blank">GitHub (Final3)</a>
                 </div> 
@@ -660,7 +664,7 @@ else:
                 The links to the YouTube video, and the GitHub account for this section are below:
             </p>
             <div class="section_container_buttons_chapters">
-                <a class="btn-section2" href="#" target="_blank">YouTube (Section 2c)</a>
+                <a class="btn-section2" href="https://youtu.be/CMlVF0_fFC0" target="_blank">YouTube (Section 2c)</a>
                 <a class="btn-section2" href="https://github.com/mariobp-NHH/GreenDigitalizationCourse2023/tree/main/Ch10%20Login/DB_Boilerplate4" target="_blank">GitHub (Boilerplate4)</a>
                 <a class="btn-section2" href="https://github.com/mariobp-NHH/GreenDigitalizationCourse2023/tree/main/Ch10%20Login/DB_Final4" target="_blank">GitHub (Final4)</a>
             </div> 
