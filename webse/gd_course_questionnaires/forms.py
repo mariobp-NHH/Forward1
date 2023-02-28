@@ -5,7 +5,7 @@ from wtforms import StringField, PasswordField, TextAreaField, SubmitField, Bool
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 
 
-#International Women's Day. Questionnaires
+#App Calculator. Questionnaires
 class QuestionnaireForm_1_q1(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
                        choices=[('Bus', 'Bus'),
@@ -56,8 +56,58 @@ class QuestionnaireForm_1_q4(FlaskForm):
                                 ('Motorbike', "Motorbike"),
                                 ('Walk', 'Walk'),
                                 ('Other', 'Other')])
+    submit = SubmitField('Submit')
+
+#Midway Conference (mc)
+class QuestionnaireForm_mc_q1(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Strongly agree', 'Strongly agree'),
+                                ('Agree', 'Agree'),
+                                ('Disagree', 'Disagree'),
+                                ('Stongly disagree', 'Strongly disagree')])
+    submit = SubmitField('Submit')
+
+class QuestionnaireForm_mc_q2(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Strongly agree', 'Strongly agree'),
+                                ('Agree', 'Agree'),
+                                ('Disagree', 'Disagree'),
+                                ('Stongly disagree', 'Strongly disagree')])
+    submit = SubmitField('Submit')
+
+class QuestionnaireForm_mc_q3(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Strongly agree', 'Strongly agree'),
+                                ('Agree', 'Agree'),
+                                ('Disagree', 'Disagree'),
+                                ('Stongly disagree', 'Strongly disagree')])
+    submit = SubmitField('Submit')         
+
+class QuestionnaireForm_mc_q4(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Strongly agree', 'Strongly agree'),
+                                ('Agree', 'Agree'),
+                                ('Disagree', 'Disagree'),
+                                ('Stongly disagree', 'Strongly disagree')])
     submit = SubmitField('Submit') 
 
+class QuestionnaireForm_mc_q5(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Strongly agree', 'Strongly agree'),
+                                ('Agree', 'Agree'),
+                                ('Disagree', 'Disagree'),
+                                ('Stongly disagree', 'Strongly disagree')])
+    submit = SubmitField('Submit') 
+
+class QuestionnaireForm_mc_q6(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Strongly agree', 'Strongly agree'),
+                                ('Agree', 'Agree'),
+                                ('Disagree', 'Disagree'),
+                                ('Stongly disagree', 'Strongly disagree')])
+    submit = SubmitField('Submit') 
+    
+# Chat Questionnaire
 class ChatFormQuestionnaire(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     content = TextAreaField('Content', validators=[DataRequired()])
