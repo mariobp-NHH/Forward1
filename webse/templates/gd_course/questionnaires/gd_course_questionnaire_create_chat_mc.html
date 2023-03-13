@@ -11,9 +11,25 @@
                 <form method="POST" action="">
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
-                        <p class="card-text">
-                            Which policies could be implemented to reduce transport carbon emissions?
-                        </p>
+                        <h5>Changes to improve the course</h5>
+                        <p>
+                        <ol style="text-align: left;">
+                            <li>
+                                <strong>Teaching</strong>: Which teaching material do you like the most (and the least)?  
+                                Which thing(s) do you like the most (and the least) in the lectures?
+                                How could I improve the lectures?
+                            </li>
+                            <li>
+                                <strong>Entrepreneurship</strong>. How could I organize the course to help you to found your own startups/cooperatives/companies in the future?
+                            </li>
+                            <li>
+                                <strong>Cooperation</strong>. How could I organize the course to help students from HVL and NHH to cooperate?
+                            </li>
+                            <li>
+                                <strong>Gender</strong>. Which changes in the curriculum/methodology/pedagogy could I introduce in the course to foster gender balance?
+                            </li>
+                        </ol>
+                        </p> 
                         <div class="form-group">
                             {{ form.title.label(class="form-control-label") }}
                             {% if form.title.errors %}
