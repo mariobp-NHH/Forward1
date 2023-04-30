@@ -1,0 +1,28 @@
+{% extends "gd_course/NHH_2023_group2/carbon_calculator/new_entry.html" %}
+{% block f %}
+<form method="POST" action="">
+    {{form.csrf_token}}
+    <fieldset class="form-group">
+        <div class="form-group">
+            {{form.fuel.label(class="form_label")}}
+            {{form.fuel(class="form-control form-control-lg")}}
+        </div>
+        {{form.kms.label(class="form_label")}}
+            {% if form.kms.errors %}
+                {{ form.kms(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                {% for error in form.kms.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+                </div>
+            {% else %}
+                {{form.kms(class="form-control form-control-lg")}}
+            {% endif %}
+    </fieldset>
+    <br>
+    <div class="form-group-1">
+        {{ form.submit(class="btn btn-success") }}
+    </div>
+</form>
+{% endblock%}
+

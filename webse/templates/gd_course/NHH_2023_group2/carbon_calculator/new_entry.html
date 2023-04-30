@@ -1,0 +1,74 @@
+{% extends "gd_course/NHH_2023_group2/layout.html" %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gd_course_NHH_2023_group2_carbon_calculator.css') }}">
+
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+<section class="register">
+    <div class="container">
+        <div class="form_div">
+            <!-- Button trigger modal -->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <legend class="div_high">New Entry</legend>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Instructions
+                </button>
+            </div>
+    
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <p>The following steps tells how to add and remove a new entry.</p>
+                    <ol>
+                        <li>Click button with the used transport</li>
+                        <li>If optional, pick transport specifications: fuel, etc.</li>
+                        <li>Input the traveled distance by the transport in kilometers</li>
+                        <li>Click <b>New Entry</b> to add entry </li>
+                    </ol>
+                    <p>If the entry is wrong, click the <b>Your Data</b>-button to view your entries,
+                        and click the Delete to remove the wrong entry. To add the right entry, follow the steps over.</p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>  
+                <!--Pick Transport buttons-->
+                <div class="form-group">
+                    <label class="form_label">Transportation Method:</label>
+                    <div class="btn-group" style="width: 100%; margin-bottom: 5px;">
+                        <a type="button" style="width: 100%;" class="btn btn-success" href="{{url_for('gd_course_NHH_2023_group2.new_entry_walk')}}">Walk</a>
+                        <a type="button" style="width: 100%;" class="btn btn-success" href="{{url_for('gd_course_NHH_2023_group2.new_entry_bike')}}">Bike</a>
+                        <a type="button" style="width: 100%;" class="btn btn-success" href="{{url_for('gd_course_NHH_2023_group2.new_entry_car')}}">Car</a>
+                        <a type="button" style="width: 100%;" class="btn btn-success" href="{{url_for('gd_course_NHH_2023_group2.new_entry_motorcycle')}}">Motorcycle</a>
+                        <a type="button" style="width: 100%;" class="btn btn-success" href="{{url_for('gd_course_NHH_2023_group2.new_entry_bus')}}">Bus</a>
+                    </div>
+                
+                    <div class="btn-group" style="width: 100%;">
+                        <a type="button" style="width: 100%;" class="btn btn-success" href="{{url_for('gd_course_NHH_2023_group2.new_entry_ferry')}}">Ferry</a>
+                        <a type="button" style="width: 100%;" class="btn btn-success" href="{{url_for('gd_course_NHH_2023_group2.new_entry_plane')}}">Plane</a>
+                        <a type="button" style="width: 100%;" class="btn btn-success" href="{{url_for('gd_course_NHH_2023_group2.new_entry_train')}}">Train</a>
+                        <a type="button" style="width: 100%;" class="btn btn-success" href="{{url_for('gd_course_NHH_2023_group2.new_entry_tram')}}">Tram</a>
+                        <a type="button" style="width: 100%;" class="btn btn-success" href="{{url_for('gd_course_NHH_2023_group2.new_entry_metro')}}">Metro</a>
+                    </div>
+                </div>
+                    
+                {% block f %}
+                {% endblock %}  
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
