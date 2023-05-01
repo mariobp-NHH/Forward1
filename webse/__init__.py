@@ -13,8 +13,15 @@ application.config['SQLALCHEMY_BINDS'] ={'se_course': DBVAR, 'gd_course': DBVAR 
 
 db = SQLAlchemy(application)
 bcrypt = Bcrypt(application)
+#login_manager= LoginManager(application)
+#login_manager.login_view = 'forward_users.forward_users_login'
+#login_manager.login_message_category = 'info'
 login_manager= LoginManager(application)
-login_manager.login_view = 'forward_users.forward_users_login'
+login_manager.blueprint_login_views = {
+    'forward_users': 'forward_users.forward_users_login',
+    'gd_course_NHH_2023_group2': 'gd_course_NHH_2023_group2.login',
+    'gd_course_NHH_2023_group3' : 'gd_course_NHH_2023_group3.login',
+}
 login_manager.login_message_category = 'info'
 
 
