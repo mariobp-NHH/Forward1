@@ -62,7 +62,7 @@ filter_date.addEventListener('click', (event) => {
 
 const newEntry = () => {
     $.ajax({
-        url: '/newEntry',
+        url: '/green_digitalization_course/NHH/2023/group1/newEntry',
         type: 'POST',
         data: {
             transport: document.getElementById('transport').value,
@@ -106,7 +106,7 @@ const emissions_by_transport = (arg, start, date) =>{
     const ctx = document.getElementById('emissions_by_transport').getContext('2d');
     let chart = null;
 
-    fetch('/my_data/1/' + arg + '/' + start + '/' + date)
+    fetch('/green_digitalization_course/NHH/2023/group1/my_data/1/' + arg + '/' + start + '/' + date)
         .then(response => response.json())
         .then(data => {
             chart = new Chart(ctx, {
@@ -155,7 +155,7 @@ const emissions_by_transport = (arg, start, date) =>{
 const over_time_emissions = (arg, start, end) =>{
     const ctx = document.getElementById('over_time_emissions').getContext('2d');
     let chart = null;
-    fetch('/my_data/2/' +arg + '/' + start + '/' + end)  
+    fetch('/green_digitalization_course/NHH/2023/group1/my_data/2/' +arg + '/' + start + '/' + end)  
         .then(response => response.json())
         .then(data => {
             console.log(data)
@@ -184,7 +184,7 @@ const over_time_emissions = (arg, start, end) =>{
 
 const kms_transport_data = (arg, start, end) => { 
     const kms_by_transport = document.getElementById('kms_by_transport').getContext('2d');
-    fetch('/my_data/3/' + arg + '/' + start + '/' + end)
+    fetch('/green_digitalization_course/NHH/2023/group1/my_data/3/' + arg + '/' + start + '/' + end)
         .then(response => response.json())
         .then(data => {
              new Chart(kms_by_transport, {
@@ -233,7 +233,7 @@ const kms_transport_data = (arg, start, end) => {
 
 const over_time_kms = (arg, start, end) => {
     const over_time_kms = document.getElementById("over_time_kms").getContext("2d");
-    fetch('/my_data/4/' + arg + '/' + start + '/' + end)
+    fetch('/green_digitalization_course/NHH/2023/group1/my_data/4/' + arg + '/' + start + '/' + end)
         .then(response => response.json())
         .then(data => {
             new Chart(over_time_kms, {
@@ -264,7 +264,7 @@ del_button.classList.add("btn", "btn-danger", "btn-sm");
 del_button.innerHTML = "Delete";
 
 const get_anf_fill_table = (arg, start, end) => {
-    fetch('/my_data/5/' + arg + '/' + start + '/' + end)
+    fetch('/green_digitalization_course/NHH/2023/group1/my_data/5/' + arg + '/' + start + '/' + end)
         .then(response => response.json())
         .then(data => {
             console.log(data)
