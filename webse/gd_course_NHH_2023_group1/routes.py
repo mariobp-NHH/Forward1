@@ -136,7 +136,7 @@ def my_data(arg, key, start, end):
             print(emissions_by_date)
             over_time_emissions = {'labels': [], 'values': []}
             for total, date in emissions_by_date:
-                over_time_emissions['labels'].append(date.strftime("%m-%d-%y"))
+                over_time_emissions['labels'].append(date)
                 over_time_emissions['values'].append(total)
             print(over_time_emissions)
             return jsonify(over_time_emissions)
@@ -159,7 +159,8 @@ def my_data(arg, key, start, end):
             group_by(func.date(EmissionsGD.date)).order_by(func.date(EmissionsGD.date).asc()).all()
             over_time_kms = {'labels': [], 'values': []}
             for total, date in kms_by_date:
-                over_time_kms['labels'].append(date.strftime("%m-%d-%y"))
+                print(type(date))
+                over_time_kms['labels'].append(date)
                 over_time_kms['values'].append(total)
             return jsonify(over_time_kms)
         elif int(arg) == 5:
@@ -192,7 +193,7 @@ def my_data(arg, key, start, end):
             print(emissions_by_date)
             over_time_emissions = {'labels': [], 'values': []}
             for total, date in emissions_by_date:
-                over_time_emissions['labels'].append(date.strftime("%m-%d-%y"))
+                over_time_emissions['labels'].append(date)
                 over_time_emissions['values'].append(total)
             print(over_time_emissions)
             return jsonify(over_time_emissions)
@@ -214,7 +215,7 @@ def my_data(arg, key, start, end):
             group_by(func.date(EmissionsGD.date)).order_by(func.date(EmissionsGD.date).asc()).all()
             over_time_kms = {'labels': [], 'values': []}
             for total, date in kms_by_date:
-                over_time_kms['labels'].append(date.strftime("%m-%d-%y"))
+                over_time_kms['labels'].append(date)
                 over_time_kms['values'].append(total)
             return jsonify(over_time_kms)
         elif int(arg) == 5:
@@ -238,11 +239,12 @@ def newEntry():
             transport = transport_dict[data['transport']]
             co2 = round(float(data['kms']) * efco2[transport][data['fuel']], 2)
             ch4 = round(float(data['kms']) * efch4[transport][data['fuel']],2)
-            emissions = EmissionsGD(data['kms'],transport, data['fuel'], co2, ch4, co2+ch4, current_user.id)
+            emissions = EmissionsGD(kms=data['kms'],transport=transport, fuel=data['fuel'],co2=co2,ch4=ch4,total= co2+ch4,student="NHH_2023_group1",institution= "NHH_2023_group1",year= 2023, author=current_user)
             db.session.add(emissions)
             db.session.commit()
             return jsonify({'success': "Data received successfully!"})
         except Exception as e:
+            print(e)
             return jsonify({'error': str(e)})
     return render_template("gd_course/NHH_2023_group1/new_entry.html")
 
