@@ -73,3 +73,7 @@
     background-color: #71a959;
     color: white;
 }
+
+.section_navbar{
+    z-index: 2;   
+}
