@@ -287,7 +287,7 @@ const get_anf_fill_table = (arg, start, end) => {
 
 const delete_row = (row) => {
     $.ajax({
-        url: '/deleteEntry',
+        url: '/green_digitalization_course/NHH/2023/group1/deleteEntry',
         type: 'POST',
         data: {
            id:row           
