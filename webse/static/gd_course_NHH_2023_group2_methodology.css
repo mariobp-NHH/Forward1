@@ -32,3 +32,14 @@
         max-width:90dvw;
     }
 }
+
+.table_bot:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.table_top{
+    background-color: #71a959;
+    color: white;
+}
+th, td{
+    padding:3px;
+}
