@@ -175,20 +175,26 @@ img {
 p {
   margin: 10px 0;
   font-size: 18px;
+  color: black;
 }
+#htext {
+  color: white;
+}
+
 /* Section header_home */
 .section_header_home {
-  background-color:#D0D0CE;
+  background-color:#046A38;
 }
 .header_home {
   display: flex;  
   align-items: start;
-  background: #D0D0CE;
+  background: #046A38;
 }
+
 .header_home .box {
   flex: 1;
-  background: #D0D0CE;
-  color: black;
+  background: #046A38;
+  color: white;
   border-radius: 10px;
   margin: 20px 10px;
   padding: 15px 20px;
@@ -209,7 +215,7 @@ p {
   flex-wrap:wrap;
 }
 .container_buttons_links_header_home a:hover {
-  color: #9fa7bf;
+  color: #ffffff;
 }
 .container_buttons_links_header_home btn {
   width: 100px;
@@ -220,22 +226,19 @@ p {
   justify-content:center;
   align-items:center;
 }
-
-
-/* Section developers */
-.section_developers {
-  background-color:#fff;
+/* Section links */
+.section_links {
+  background-color:#ffff;
 }
-.developers {
+.links {
   display: flex;  
   align-items: start;
-  background: #fff;
+  background: #ffff;
 }
-.developers .box {
+.links .box {
   flex: 1;
-  background: #046A38;
+  background: #ffff;
   color: black;
-  border: 3px solid #D0D0CE;
   border-radius: 10px;
   margin: 20px 10px;
   padding: 15px 20px;
@@ -243,20 +246,19 @@ p {
   align-items: center;
   justify-content: center;
 }
-.developers .box:nth-of-type(1) {
+.links .box:nth-of-type(1) {
   flex-grow:4;
 }
-.developers .box:nth-of-type(2) {
+.links .box:nth-of-type(2) {
   flex-grow:4;
 }
-.developers .box:nth-of-type(3) {
+.links .box:nth-of-type(3) {
   flex-grow:4;
 }
 .developers .box2 {
   flex: 1;
-  background:#046A38;
+  background: #ffff;
   color: black;
-  border: 3px solid #D0D0CE;  
   border-radius: 10px;
   margin: 20px 10px;
   padding: 15px 20px;
@@ -272,7 +274,7 @@ p {
 }
 .developers .box2:nth-of-type(3) {
   flex-grow:4;
-  
+  background: #c5c8d9;
 }
 .section_container_buttons_developers {
   display: flex;
@@ -289,13 +291,13 @@ p {
   border-radius: 5px;
   text-decoration: none;
   font-size: 18px;
-  background-color: #86BC25;
-  border: 2px solid  #fff;
+  background-color: #046A38;
+  border: 2px solid  #c5c8d9;
 }
 .btn_developers:hover {
   color: #fff;
-  background-color: #c5c8d9;
-  border: 2px solid #c5c8d9;
+  background-color: #046A38;
+  border: 2px solid #046A38;
   text-decoration: none;
 }
 
@@ -315,7 +317,7 @@ ol {
 }
 /* Section header */
 .section_header_methodology {
-  background-color:white;
+  background-color: white;
 }
 .header {
   display: flex;  
@@ -323,15 +325,16 @@ ol {
   background: white;
 }
 .header .box {
-  flex: 1;
-  background: #43B02A;
-  color: black;
-  border-radius: 10px;
-  margin: 20px 10px;
-  padding: 15px 20px;
+  flex-grow:1;
+  border: 1px solid #808080;
+  border-top: 10px solid #046A38;
+  background: #FAF9F9;
+  border-radius: 0px;
+  margin: 0px 0px;
+  padding: 0px 20px;
   text-align:center;
-  align-items: center;
-  justify-content: center;
+  border-radius: 0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
 }
 .header .box:nth-of-type(1) {
   flex-grow:2;
@@ -346,12 +349,12 @@ ol {
   flex-wrap:wrap;
 }
 .container_buttons_links_header a:hover {
-  color: #86BC25;
+  color: #43B02A;
 }
 .container_buttons_links_header btn {
   width: 100px;
   height: 100px;
-  background: #86BC25;
+  background: #43B02A;
   color: black;
   display: flex;
   justify-content:center;
@@ -368,46 +371,44 @@ ol {
 }
 /* Table with one column */
 .methodology .box_table1 {
-  flex: 1;
-  background: #86BC25;
-  color: black;
-  border-radius: 10px;
-  margin: 10px 10px 10px 10px;
-  padding: 15px 15px;
+  flex-grow:1;
+  border: 1px solid #808080;
+  border-top: 10px solid #046A38;
+  background: #FAF9F9;
+  border-radius: 0px;
+  margin: 0px 0px;
+  padding: 0px 20px;
   text-align:center;
-  align-items: center;
-  justify-content: center;
+  border-radius: 0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
 }
 .methodology .box_table1:nth-of-type(1) {
   flex-grow:1;
-  background: white;
 }
 .methodology .box_table1:nth-of-type(2) {
   flex-grow:4;
 }
 .methodology .box_table1:nth-of-type(3) {
   flex-grow:1;
-  background: white;
 }
 /* Table with two columns */
 .methodology .box_table2 {
   flex: 1;
-  background: #43B02A;
-  color: black;
-  border-radius: 10px;
-  margin: 10px 10px 10px 10px;
-  padding: 15px 15px;
+  border: 1px solid #808080;
+  border-top: 10px solid #046A38;
+  background: #FAF9F9;
+  border-radius: 0px;
+  margin: 0px 5px; /* add 5px margin on the left and right */
+  padding: 0px 20px;
   text-align:center;
-  align-items: center;
-  justify-content: center;
+  border-radius: 0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
 }
 .methodology .box_table2:nth-of-type(1) {
   flex-grow:1;
-  background: #86BC25;
 }
 .methodology .box_table2:nth-of-type(2) {
   flex-grow:1;
-  background: #86BC25;
 }
 
 /* Carbon app CSS file */
@@ -510,8 +511,11 @@ input.form-control:focus {
 /*Container two_emissions_graphs */
 .two_emissions_graphs {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
   background: #FAF9F9;
-  }  
+}
 
 .two_emissions_graphs .container {
   display: flex;
@@ -554,7 +558,6 @@ input.form-control:focus {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
 }  
 
-
 /*End container main menu*/
 /*Container buttons section main menu */
 .container_buttons_links_main_menu {
@@ -570,61 +573,18 @@ input.form-control:focus {
 
 
 /* Users CSS file */
-.register_section_css {
-  display: flex;
-  background: #ffff;
-  }
-  
-  .register_section_css .container {
-  display: flex;
-  background: #ffff;
-  }
-  
-  .register_section_css .container {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-  }
-      /*color=dark*/
-  .register_section_css .container .box {
-    flex: 1;
-    background: #fff;
-    color: #000;
-    border-radius: 2px;
-    margin: 20px 10px;
-    padding: 15px 20px;
-    text-align:center;
-  }
-  
-  .register_section_css .container  .box:nth-of-type(1) {
-    flex-grow:1;
-    background: #ffff;
-    color: #000;
-    border-radius: 10px;
-    margin: 0px 0px;
-    padding: 0px 0px;
-    text-align:left;
-  }
-  
-  .register_section_css .container  .box:nth-of-type(2) {
-    flex-grow:3;
-  background: #43B02A;
-  color: #000;
+.box_user {
+  flex-grow:1;
+  border: 1px solid #8d8d8d;
+  border-top: 10px solid #046A38;
+  background: #FAF9F9;
   border-radius: 10px;
   margin: 20px 10px;
-  padding: 15px 20px;
+  padding: 0px 20px;
   text-align:center;
-  }
-  
-  .register_section_css .container  .box:nth-of-type(3) {
-    flex-grow:1;
-  background: #ffff;
-  color: #000;
-  border-radius: 10px;
-  margin: 0px 0px;
-  padding: 0px 0px;
-  text-align:left;
-  }
+  border-radius: 0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
 
 /* Pupose file */
 /* Utilities  */
@@ -699,7 +659,7 @@ ol {
 .parallax { 
   /* The image used */
   /* background-image: url("https://si-interactive.s3.amazonaws.com/prod/plansponsor-com/wp-content/uploads/2020/01/23130829/PS-012320-Climate-Change-Fiduciary-Brian-Stauffer-web.gif"); */
-  background-image: url("gd_course_NHH_2023_group3/icons/purpose2.gif");
+  background-image: url("/static/gd_course_NHH_2023_group3/icons/foggyForest.jpeg");
   /* Set a specific height */
   height: 100%; 
 
@@ -752,6 +712,91 @@ ol {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
 }
 
+/* Developers file */
+.section_developers {
+  background-color:#fff;
+}
+.developers {
+  display: flex;  
+  align-items: start;
+  background: #fff;
+}
+.developers .box {
+  flex-grow:1;
+  border: 1px solid #8d8d8d;
+  border-top: 10px solid #046A38;
+  background: #FAF9F9;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 0px 20px;
+  text-align:center;
+  border-radius: 0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
+.developers .box:nth-of-type(1) {
+  flex-grow:4;
+}
+.developers .box:nth-of-type(2) {
+  flex-grow:4;
+}
+.developers .box:nth-of-type(3) {
+  flex-grow:4;
+}
+.developers .box2 {
+  flex-grow:1;
+  border: 1px solid #8d8d8d;
+  border-top: 10px solid #046A38;
+  background: #FAF9F9;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 0px 20px;
+  text-align:center;
+  border-radius: 0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
+.developers .box2:nth-of-type(1) {
+  flex-grow:4;
+}
+.developers .box2:nth-of-type(2) {
+  flex-grow:4;
+}
+.developers .box2:nth-of-type(3) {
+  flex-grow:4;
+  border: 1px solid #8d8d8d;
+  border-top: 10px solid #046A38;
+  background: #FAF9F9;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 0px 20px;
+  text-align:center;
+  border-radius: 0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+  
+}
+.section_container_buttons_developers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+.btn_developers {
+  padding: 10px 10px;
+  margin: 10px 10px 10px 10px;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  background-color: #000000;
+  border: 2px solid  #fff;
+}
+.btn_developers:hover {
+  color: #fff;
+  background-color: #c5c8d9;
+  border: 2px solid #c5c8d9;
+  text-decoration: none;
+}
 
 
 /* Media query */
@@ -769,7 +814,7 @@ ol {
     flex-direction: column;
   }
   .carbon_app_navbar a:hover{
-    color: #568c63;
+    color: #046A38;
     border-bottom: #2a4359 2px solid;
   }
   .header_home {
@@ -792,6 +837,7 @@ ol {
   .header_carbon_app {
     flex-direction: column;
   } 
+  
   .carbon_app_new_entry_main {
     flex-direction: column;
   } 
@@ -799,16 +845,45 @@ ol {
     flex-direction: column;
     padding: 10px;
     text-align: center;
+    overflow-x: auto;
   }
   .table_main .container {
     flex-direction: column;
     padding: 10px;
     text-align: center;
   }
-  .purpose {
+  .table-respons {
+    overflow-x: auto;
+  }
+  .box {
+    display: block;
+  }
+  .two_emissions_graphs .container {
+    display: flex;
     flex-direction: column;
-  } 
 }
+.two_emissions_graphs .container .box {
+    width: 100%;
+}
+.header {
+  flex-direction: column;
+} 
+.purpose {
+  flex-direction: column;
+} 
+.header_home {
+  flex-direction: column;
+} 
+.developers {
+  flex-direction: column;
+} 
+.section_container_buttons_developers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+}
+
 
 
 @keyframes showup {
