@@ -21,6 +21,7 @@ login_manager= LoginManager(application)
 login_manager.blueprint_login_views = {
     'forward_users': 'forward_users.forward_users_login',
     'gd_course_HVL_2023_group2': 'gd_course_HVL_2023_group2.login',
+    'gd_course_HVL_2023_group3': 'gd_course_HVL_2023_group3.login',
     'gd_course_NHH_2023_group1': 'gd_course_NHH_2023_group1.login',
     'gd_course_NHH_2023_group2': 'gd_course_NHH_2023_group2.login',
     'gd_course_NHH_2023_group3' : 'gd_course_NHH_2023_group3.login',
@@ -55,6 +56,7 @@ from webse.gd_course_app_calculator_2023_ch10.routes import gd_course_app_carbon
 from webse.gd_course_app_calculator_2023_ch11.routes import gd_course_app_carbon_app_2023_ch11
 from webse.boilerplates.routes import boilerplates
 from webse.gd_course_HVL_2023_group2.routes import gd_course_HVL_2023_group2
+from webse.gd_course_HVL_2023_group3.routes import gd_course_HVL_2023_group3
 from webse.gd_course_NHH_2023_group1.routes import gd_course_NHH_2023_group1
 from webse.gd_course_NHH_2023_group2.routes import gd_course_NHH_2023_group2
 from webse.gd_course_NHH_2023_group3.routes import gd_course_NHH_2023_group3
@@ -88,6 +90,7 @@ application.register_blueprint(gd_course_app_carbon_app_2023_ch10)
 application.register_blueprint(gd_course_app_carbon_app_2023_ch11)
 application.register_blueprint(boilerplates)
 application.register_blueprint(gd_course_HVL_2023_group2)
+application.register_blueprint(gd_course_HVL_2023_group3)
 application.register_blueprint(gd_course_NHH_2023_group1)
 application.register_blueprint(gd_course_NHH_2023_group2)
 application.register_blueprint(gd_course_NHH_2023_group3)
