@@ -15,6 +15,10 @@ gd_course_NHH_2023_group3=Blueprint('gd_course_NHH_2023_group3',__name__)
 def home_home():
   return render_template('gd_course/NHH_2023_group3/home.html', title = 'Home')
 
+@gd_course_NHH_2023_group3.route("/green_digitalization_course/NHH/2023/group3/home/developers")
+def developers():
+  return render_template('gd_course/NHH_2023_group3/developers.html', title = 'Developers')
+
 #Users routes
 @gd_course_NHH_2023_group3.route('/green_digitalization_course/NHH/2023/group3/register', methods=['GET','POST'])
 def register():
@@ -61,18 +65,20 @@ def methodology_home():
 efco2={'Bus':{'Diesel':0.0244130363170317,'CNG':0.019608750602746,'Petrol':0.10231,'Electric':0.00837053571428571},
     'Car':{'Petrol':0.131045333333333,'Diesel':0.132428717948718,'Electric':0},
     'Plane':{'Jet fuel':0.0969207895857439},
-    'Ferry':{'Diesel':2.22612334653623},
+    'Boat':{'Diesel':2.22612334653623},
     'Motorbike':{'Gasoline':0.0853866666666667},
     'Scooter':{'No Fossil Fuel':0},
     'Bicycle':{'No Fossil Fuel':0},
-    'Walking':{'No Fossil Fuel':0}}
-efch4={'Bus':{'Diesel':2e-5,'CNG':2.5e-3,'Petrol':2e-5,'No Fossil Fuel':0},
-    'Car':{'Petrol':3.1e-4,'Diesel':3e-6,'No Fossil Fuel':0},
+    'Walking':{'No Fossil Fuel':0},
+    'Train':{'Diesel':0.039955611, 'Electric':0.009601554}}
+efch4={'Bus':{'Diesel':2e-5,'CNG':2.5e-3,'Petrol':2e-5,'Electric':0},
+    'Car':{'Petrol':3.1e-4,'Diesel':3e-6,'Electric':0},
     'Plane':{'Jet fuel':1.1e-4},
-    'Ferry':{'Diesel':3e-5, 'CNG':3e-5,'No Fossil Fuel':0},
-    'Motorbike':{'Gasoline':2.1e-3,'No Fossil Fuel':0},
+    'Boat':{'Diesel':3e-5, 'CNG':3e-5,'Electric':0},
+    'Motorbike':{'Gasoline':2.1e-3,'Electric':0},
     'Bicycle':{'No Fossil Fuel':0},
-    'Walking':{'No Fossil Fuel':0}}
+    'Walking':{'No Fossil Fuel':0},
+       'Train':{'Diesel':0.039955611, 'Electric':0.009601554}}
 
 #Carbon app, main page
 @gd_course_NHH_2023_group3.route('/green_digitalization_course/NHH/2023/group3/carbon_app', methods=['GET','POST'])
@@ -102,6 +108,19 @@ def your_data():
         filter(EmissionsGD.institution=='NHH_2023_group3').\
         order_by(EmissionsGD.date.desc()).order_by(EmissionsGD.transport.asc()).all()
     
+    # define a dictionary to map each transportation mode to its index
+    transport_dict = {
+        'Bicycle': 0,
+        'Bus': 1,
+        'Car': 2,
+        'Boat': 3,
+        'Motorbike': 4,
+        'Plane': 5,
+        'Walking': 6,
+        'Train': 7
+    }
+    sum_transport_types = len(transport_dict)
+
     # Emissions by category
     emissions_by_transport = (
         db.session.query(db.func.sum(EmissionsGD.total), EmissionsGD.transport)
@@ -112,114 +131,35 @@ def your_data():
         .order_by(EmissionsGD.transport.asc())
         .all()
     )
-    emission_transport = [0, 0, 0, 0, 0, 0, 0, 0]
-    first_tuple_elements = []
-    second_tuple_elements = []
+    emission_transport = [0] * sum_transport_types  # initialize the list with zeros
     for a_tuple in emissions_by_transport:
-        first_tuple_elements.append(a_tuple[0])
-        second_tuple_elements.append(a_tuple[1])
-
-    if "Bus" in second_tuple_elements:
-        index_bus = second_tuple_elements.index("Bus")
-        emission_transport[1] = first_tuple_elements[index_bus]
-    else:
-        emission_transport[1]
-
-    if "Car" in second_tuple_elements:
-        index_car = second_tuple_elements.index("Car")
-        emission_transport[2] = first_tuple_elements[index_car]
-    else:
-        emission_transport[2]
-
-    if "Ferry" in second_tuple_elements:
-        index_ferry = second_tuple_elements.index("Ferry")
-        emission_transport[3] = first_tuple_elements[index_ferry]
-    else:
-        emission_transport[3]
-
-    if "Motorbike" in second_tuple_elements:
-        index_motorbike = second_tuple_elements.index("Motorbike")
-        emission_transport[4] = first_tuple_elements[index_motorbike]
-    else:
-        emission_transport[4]
-
-    if "Plane" in second_tuple_elements:
-        index_plane = second_tuple_elements.index("Plane")
-        emission_transport[5] = first_tuple_elements[index_plane]
-    else:
-        emission_transport[5]
+        transport_mode = a_tuple[1]
+        if transport_mode in transport_dict:
+            index = transport_dict[transport_mode]
+            emission_transport[index] = a_tuple[0]
 
     # Kilometers by category
     kms_by_transport = (
         db.session.query(db.func.sum(EmissionsGD.kms), EmissionsGD.transport)
         .filter(EmissionsGD.date > (datetime.now() - timedelta(days=5)))
         .filter_by(author=current_user)
-        .filter(EmissionsGD.institution=='NHH_2023_group3')
         .group_by(EmissionsGD.transport)
         .order_by(EmissionsGD.transport.asc())
         .all()
     )
 
-    kms_transport = [0, 0, 0, 0, 0, 0, 0, 0]
-    first_tuple_elements = []
-    second_tuple_elements = []
+    kms_transport = [0] * sum_transport_types  # initialize the list with zeros
     for a_tuple in kms_by_transport:
-        first_tuple_elements.append(a_tuple[0])
-        second_tuple_elements.append(a_tuple[1])
-    if "Bicycle" in second_tuple_elements:
-        index_bicycle = second_tuple_elements.index("Bicycle")
-        kms_transport[0] = first_tuple_elements[index_bicycle]
-    else:
-        kms_transport[0]
+        transport_mode = a_tuple[1]
+        if transport_mode in transport_dict:
+            index = transport_dict[transport_mode]
+            kms_transport[index] = a_tuple[0]
 
-    if "Bus" in second_tuple_elements:
-        index_bus = second_tuple_elements.index("Bus")
-        kms_transport[1] = first_tuple_elements[index_bus]
-    else:
-        kms_transport[1]
-
-    if "Car" in second_tuple_elements:
-        index_car = second_tuple_elements.index("Car")
-        kms_transport[2] = first_tuple_elements[index_car]
-    else:
-        kms_transport[2]
-
-    if "Ferry" in second_tuple_elements:
-        index_ferry = second_tuple_elements.index("Ferry")
-        kms_transport[3] = first_tuple_elements[index_ferry]
-    else:
-        kms_transport[3]
-
-    if "Motorbike" in second_tuple_elements:
-        index_motorbike = second_tuple_elements.index("Motorbike")
-        kms_transport[4] = first_tuple_elements[index_motorbike]
-    else:
-        kms_transport[4]
-
-    if "Plane" in second_tuple_elements:
-        index_plane = second_tuple_elements.index("Plane")
-        kms_transport[5] = first_tuple_elements[index_plane]
-    else:
-        kms_transport[5]
-
-    if "Scooter" in second_tuple_elements:
-        index_scooter = second_tuple_elements.index("Scooter")
-        kms_transport[6] = first_tuple_elements[index_scooter]
-    else:
-        kms_transport[6]
-
-    if "Walk" in second_tuple_elements:
-        index_walk = second_tuple_elements.index("Walk")
-        kms_transport[7] = first_tuple_elements[index_walk]
-    else:
-        kms_transport[7]
-    
     # Emissions by date (individual)
     emissions_by_date = (
         db.session.query(db.func.sum(EmissionsGD.total), EmissionsGD.date)
         .filter(EmissionsGD.date > (datetime.now() - timedelta(days=5)))
         .filter_by(author=current_user)
-        .filter(EmissionsGD.institution=='NHH_2023_group3')
         .group_by(EmissionsGD.date)
         .order_by(EmissionsGD.date.asc())
         .all()
@@ -235,7 +175,6 @@ def your_data():
         db.session.query(db.func.sum(EmissionsGD.kms), EmissionsGD.date)
         .filter(EmissionsGD.date > (datetime.now() - timedelta(days=5)))
         .filter_by(author=current_user)
-        .filter(EmissionsGD.institution=='NHH_2023_group3')
         .group_by(EmissionsGD.date)
         .order_by(EmissionsGD.date.asc())
         .all()
@@ -256,11 +195,32 @@ def your_data():
     for total in total_emissions:
         sum_total_emissions.append(total)
 
+
     # Carbon offset
     TREE_OFFSET_LOWER = 21.77
     TREE_OFFSET_UPPER = 31.5
     carbon_offset_lower_bound = round(sum_total_emissions[0][0] / TREE_OFFSET_UPPER)
     carbon_offset_upper_bound = round(sum_total_emissions[0][0] / TREE_OFFSET_LOWER)
+    planting_str = ""
+
+    if carbon_offset_lower_bound < 1 or carbon_offset_upper_bound < 1:
+        planting_str = "That is equivalent to planting less than one tree!"
+    elif carbon_offset_lower_bound == carbon_offset_upper_bound:
+        planting_str = (
+            "That is equivalent to planting ",
+            carbon_offset_lower_bound,
+            " trees!",
+        )
+    else:
+        planting_str = (
+            "That is equivalent to planting between ",
+            carbon_offset_lower_bound,
+            " and ",
+            carbon_offset_upper_bound,
+            " trees!",
+        )
+
+    planting_str = "".join(map(str, planting_str))
     CARBON_OFFSET_PRICE_PER_1000LBS = 7.99
     CARBON_OFFSET_PRICE_PER_1000KG = round(CARBON_OFFSET_PRICE_PER_1000LBS / 2.205, 2)
     user_carbon_offset_price = round(
@@ -322,12 +282,16 @@ def delete_emission(entry_id):
     db.session.delete(entry)
     db.session.commit()
     flash("Entry deleted", "success")
-    return redirect(url_for('gd_course_NHH_2023_group3.your_data'))
+    if len(EmissionsGD.query.all()) > 0:
+        return redirect(url_for('gd_course_NHH_2023_group3.your_data'))
+    else: 
+        return redirect(url_for('gd_course_NHH_2023_group3.carbon_app_home' , msg = 'All Entries Deleted'))
+
 
 #Delete all 
 @gd_course_NHH_2023_group3.route('/green_digitalization_course/NHH/2023/group3/carbon_app/delete-all-emission')
 def delete_all_emission():
-    db.session.query(EmissionsGD).delete()
+    db.session.query(EmissionsGD).filter_by(author =current_user).delete()
     db.session.commit()
     flash("Entry deleted", "success")
     return redirect(url_for('gd_course_NHH_2023_group3.carbon_app_home', msg = 'All Entries Deleted'))
