@@ -143,6 +143,7 @@ def your_data():
         db.session.query(db.func.sum(EmissionsGD.kms), EmissionsGD.transport)
         .filter(EmissionsGD.date > (datetime.now() - timedelta(days=5)))
         .filter_by(author=current_user)
+        .filter(EmissionsGD.institution=='NHH_2023_group3')
         .group_by(EmissionsGD.transport)
         .order_by(EmissionsGD.transport.asc())
         .all()
