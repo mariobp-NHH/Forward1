@@ -74,9 +74,9 @@ def carbon_calculator_func():
         first_tuple_elements.append(a_tuple[0])
         second_tuple_elements.append(a_tuple[1])
 
-    if 'Walk' in second_tuple_elements:
-        index_walk = second_tuple_elements.index('Walk')
-        emission_transport[0]=first_tuple_elements[index_walk]
+    if 'Walking' in second_tuple_elements:
+        index_walking = second_tuple_elements.index('Walking')
+        emission_transport[0]=first_tuple_elements[index_walking]
     else:
         emission_transport[0]
 
@@ -146,9 +146,9 @@ def carbon_calculator_func():
         first_tuple_elements.append(a_tuple[0])
         second_tuple_elements.append(a_tuple[1])
 
-    if 'Walk' in second_tuple_elements:
-        index_walk = second_tuple_elements.index('Walk')
-        kms_transport[0]=first_tuple_elements[index_walk]
+    if 'Walking' in second_tuple_elements:
+        index_walking = second_tuple_elements.index('Walking')
+        kms_transport[0]=first_tuple_elements[index_walking]
     else:
         kms_transport[0] 
 
@@ -259,7 +259,7 @@ def new_entry():
 co2eqIDX={}
 co2eqIDX['Car'] = {'Diesel':141.8, 'Gas':155.5, 'Electric & Gas':88.4, 'Electric':7.3}
 co2eqIDX['Bike']= {'Electric':0.2, 'No Fuel':0}
-co2eqIDX['Walk']= {'No Fuel':0}
+co2eqIDX['Walking']= {'No Fuel':0}
 co2eqIDX['Bus'] = {'Diesel':93.8}
 co2eqIDX['Motorcycle']={'Gas':163.5}
 co2eqIDX['Metro']={'Electric':3.9}
@@ -268,20 +268,7 @@ co2eqIDX['Train']={'Electric':0.4}
 co2eqIDX['Ferry']={'With_Car':1063.9, 'Without_Car':54.1}
 co2eqIDX['Plane']={'Domestic':101}
 
-@gd_course_NHH_2023_group2.route('/green_digitalization_course/NHH/2023/group2/carbon_calculator/NE/new_entry_', methods=['GET','POST'])
-@login_required
-def new_entry_bike():
-    form = BikeForm()
-    if form.validate_on_submit():
-        kms = form.kms.data
-        fuel = form.fuel.data
-        transport = 'Bike'
-        total = float(kms)*co2eqIDX[transport][fuel]
-        total = round(total,1)
-        
-        db.session.add(emissions)
-        db.session.commit()
-        
+      
 
 
 
