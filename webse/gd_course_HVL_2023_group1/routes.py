@@ -64,7 +64,7 @@ efco2={'Bus':{'Diesel':0.855,'BioDiesel':0.014,'Electric':0.067},
     'Plane':{'Gasoline':0.298},
     'Train':{'No Fossil Fuel':0.045},
     'ElkickScooter':{'No Fossil Fuel':0.002328},
-    'ElBicyle':{'No Fossil Fuel':0.002327}}
+    'ElBicycle':{'No Fossil Fuel':0.002327}}
 
 
 #New entry bus
@@ -187,15 +187,15 @@ def new_entry_ElkickScooter():
         return redirect(url_for('gd_course_HVL_2023_group1.your_data'))
     return render_template('gd_course/HVL_2023_group1/carbon_app/new_entry_ElkickScooter.html', title='new entry motorbike', form=form) 
 
-#New entry ElBicyleForm
-@gd_course_HVL_2023_group1.route('/green_digitalization_course/HVL/2023/group1/carbon_app/new_entry_ElBicyle', methods=['GET','POST'])
+#New entry ElBicycleForm
+@gd_course_HVL_2023_group1.route('/green_digitalization_course/HVL/2023/group1/carbon_app/new_entry_ElBicycle', methods=['GET','POST'])
 @login_required
 def new_entry_ElBicycle():
     form = ElBicycleForm()
     if form.validate_on_submit():
         kms = form.kms.data
         fuel = form.fuel_type.data
-        transport = 'ElBicyle'
+        transport = 'ElBicycle'
         # kms = request.form['kms']
         # fuel = request.form['fuel_type']
 
@@ -264,8 +264,8 @@ def your_data():
     else:
         emission_transport[4]
 
-    if 'ELBicyle' in second_tuple_elements:
-        index_bike = second_tuple_elements.index('ElBicyle')
+    if 'ElBicycle' in second_tuple_elements:
+        index_bike = second_tuple_elements.index('ElBicycle')
         emission_transport[5]=first_tuple_elements[index_bike]
     else:
         emission_transport[5]
@@ -313,8 +313,8 @@ def your_data():
     else:
         kms_transport[4]
 
-    if 'ELBicyle' in second_tuple_elements:
-        index_bike = second_tuple_elements.index('ElBicyle')
+    if 'ElBicycle' in second_tuple_elements:
+        index_bike = second_tuple_elements.index('ElBicycle')
         kms_transport[5]=first_tuple_elements[index_bike]
     else:
         kms_transport[5]
@@ -359,4 +359,3 @@ def delete_emission(entry_id):
     flash("Entry deleted", "success")
     return redirect(url_for('gd_course_HVL_2023_group1.your_data'))
     
-  
