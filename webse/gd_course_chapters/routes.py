@@ -592,3 +592,8 @@ def gd_course_chapters_ch13():
 @gd_course_chapters.route('/green_digitalization_course/chapter14', methods=['GET', 'POST'])
 def gd_course_chapters_ch14(): 
     return render_template('gd_course/chapters/ch14.html', title='Green Digitalization Course, ch14')   
+
+#Lysdagen
+@gd_course_chapters.route('/green_digitalization_course/lysdagen', methods=['GET', 'POST'])
+def gd_course_chapters_lysdagen(): 
+    return render_template('gd_course/chapters/lysdagen.html', title='Green Digitalization Course, lysdagen') 
