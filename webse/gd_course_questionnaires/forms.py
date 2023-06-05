@@ -106,6 +106,39 @@ class QuestionnaireForm_mc_q6(FlaskForm):
                                 ('Disagree', 'Disagree'),
                                 ('Stongly disagree', 'Strongly disagree')])
     submit = SubmitField('Submit') 
+
+#Hagesund Conference (ha)
+class QuestionnaireForm_ha_q1(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Veldig enig', 'Veldig enig'),
+                                ('Enig', 'Enig'),
+                                ('Være uenig', 'Være uenig'),
+                                ('Sterkt uenig', 'Sterkt uenig')])
+    submit = SubmitField('Submit')
+
+class QuestionnaireForm_ha_q2(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Veldig enig', 'Veldig enig'),
+                                ('Enig', 'Enig'),
+                                ('Være uenig', 'Være uenig'),
+                                ('Sterkt uenig', 'Sterkt uenig')])
+    submit = SubmitField('Submit')
+
+class QuestionnaireForm_ha_q3(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Veldig enig', 'Veldig enig'),
+                                ('Enig', 'Enig'),
+                                ('Være uenig', 'Være uenig'),
+                                ('Sterkt uenig', 'Sterkt uenig')])
+    submit = SubmitField('Submit')         
+
+class QuestionnaireForm_ha_q4(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Veldig enig', 'Veldig enig'),
+                                ('Enig', 'Enig'),
+                                ('Være uenig', 'Være uenig'),
+                                ('Sterkt uenig', 'Sterkt uenig')])
+    submit = SubmitField('Submit')     
     
 # Chat Questionnaire
 class ChatFormQuestionnaire(FlaskForm):
