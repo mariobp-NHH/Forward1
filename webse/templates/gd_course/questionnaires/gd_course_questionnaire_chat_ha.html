@@ -1,56 +1,36 @@
 {% extends "gd_course/gd_course_layout.html" %}
 {% block content %}
 
-    <section class="main_menu">
-        <div class="container">
-            <div class="box">
+<section class="main_menu">
+  <div class="container">
+      <div class="box">
 
+      </div>
+      <div class="box" style="background-color: #568c63;"> 
+        <article class="media content-section">
+          <img class="rounded-circle account-img" src="data:image/jpeg;base64,{{ func(chat.author.image_file) }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ chat.author.username }}</a>
+              <small class="text-muted">{{ chat.date_chat.strftime('%Y-%m-%d') }}</small>
+              {% if chat.author == current_user %}
+                  <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('gd_course_questionnaires.update_chat_ha', chat_id=chat.id)}}">Oppdater</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{{ url_for('gd_course_questionnaires.delete_chat_ha', chat_id=chat.id)}}">Slett</a>
+                  </div>
+              {% endif %}
             </div>
-            <div class="box" style="background-color: #568c63;"> 
-                <legend class="border-bottom mb-4">Digitalisering for å fremme internasjonalisering</legend>
-                <form method="POST" action="">
-                    {{ form.hidden_tag() }}
-                    <fieldset class="form-group">
-                        <p>
-                            Hvordan kan digitalisering bidra til å fremme internasjonalisering ved HVL?
-                        </p> 
-                        <div class="form-group">
-                            {{ form.title.label(class="form-control-label") }}
-                            {% if form.title.errors %}
-                                {{ form.title(class="form-control form-control-lg is-invalid") }}
-                                <div class="invalid-feedback">
-                                    {% for error in form.title.errors %}
-                                        <span>{{ error }}</span>
-                                    {% endfor %}
-                                </div>
-                            {% else %}
-                                {{ form.title(class="form-control form-control-lg") }}
-                            {% endif %}
-                        </div>    
-                        <div class="form-group">
-                            {{ form.content.label(class="form-control-label") }}
-                            {% if form.content.errors %}
-                                {{ form.content(class="form-control form-control-lg is-invalid") }}
-                                <div class="invalid-feedback">
-                                    {% for error in form.content.errors %}
-                                        <span>{{ error }}</span>
-                                    {% endfor %}
-                                </div>
-                            {% else %}
-                                {{ form.content(class="form-control form-control-lg") }}
-                            {% endif %}
-                        </div>
-                    </fieldset>
-                    </br>
-                    <div class="form-group">
-                        {{ form.submit(class="btn btn-outline-info") }}
-                    </div>
-                </form>     
-            </div>
-            <div class="box">
+            <h2><a class="article-title" href="#">{{ chat.title }}</a></h2>
+            <p class="article-content" style="color: black">{{ chat.content }}</p>
+          </div>
+        </article>
+      </div>
+      <div class="box">
 
-            </div>
-        </div>
-    </section> 
+      </div>
+  </div>
+</section> 
+
+
 
 {% endblock content %}
