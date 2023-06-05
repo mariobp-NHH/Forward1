@@ -1,0 +1,41 @@
+{% extends "gd_course/gd_course_layout.html" %}
+{% block content %}
+
+    <!-- Header -->
+    <section xmlns="http://www.w3.org/1999/html">
+        <header class="header_css">
+            <div class="container">
+                <div>
+                    <h1> <span class="text-warning"> Haugesundsmøte: Digitalisering for å fremme internasjonalisering</span></h1>
+                    <p class="mb-1">
+                        I avdelingsmøtet i Haugesund skal vi diskutere internasjonalisering. I min presentasjon vil jeg dele mine erfaringer og strategier for å introdusere digitalisering i mine kurs, og hvordan det kan bidra til å fremme internasjonalisering i vår institutt.
+                        <br>
+                        <br>
+                        Jeg skal fokusere på fire ulike strategier som jeg prøver å bruke i mine kurs. Først vil jeg dele med dere de <strong>digitale verktøyene</strong> jeg bruker i kursene mine, og prosjektet mitt om å lansere en <strong>europeisk master i grønn økonomi og digitalisering</strong>. For det andre vil jeg dele prosjektet mitt med å lansere en <strong>europeisk utdanningsplattform</strong>. For det tredje vil jeg forklare min strategi for å skape en <strong></strong>digital klynge ved HVL. Til slutt vil jeg dele med dere <strong>Lysdagen Conference-prosjektet</strong> der studentene mine presenterer appene som er utviklet på kursene mine for startups inkubatorer og bedrifter innen digital og bærekraftig sektor. 
+                        <br>
+                        <br>
+                        Alle disse initiativene tar sikte på å gjennomføres i samarbeid med professorer ved vårt institutt og i samarbeid med andre institutter ved HVL.
+                        <br>
+                        <br>
+                        På slutten av presentasjonen min vil jeg gjennomføre en liten <strong>spørreundersøkelse</strong> og en <strong>prat</strong> for å samle inn litt verdifull informasjon, og for å vise dere hvordan utdanningsplattformen Forward kan være nyttig på ulike nivåer innen HVL.
+                    </p>
+                    <div class="container_buttons_links_header">
+                        <div class="btn">
+                            <a href="https://indd.adobe.com/view/bf330879-4daf-4621-a47a-55f8543d0050"  target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">Presentasjon</a>
+                        </div>
+                        <div class="btn">
+                            <a href="{{ url_for('gd_course_questionnaires.gd_course_questionnaire_ha_q1') }}"  target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">Spørreskjema</a>
+                        </div>
+                    </div> 
+
+                </div>
+                <img
+                src="{{url_for('static', filename='figures/green_digitalization_course/haugesund/haugesund.svg')}}"
+                        alt=""/>
+            </div>
+        </header>
+    </section>
+ 
+
+
+{% endblock content %}
