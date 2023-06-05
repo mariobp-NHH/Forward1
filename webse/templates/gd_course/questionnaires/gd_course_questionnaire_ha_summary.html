@@ -72,10 +72,10 @@
           <img class="rounded-circle article-img" src="data:image/jpeg;base64,{{ func(chat.author.image_file) }}">
           <div class="media-body">
               <div class="article-metadata">
-              <a class="mr-2" href="{{ url_for('gd_course_questionnaires.user_chats', username=chat.author.username) }}">{{ chat.author.username }}</a>
+              <a class="mr-2" href="{{ url_for('gd_course_questionnaires.user_chats_ha', username=chat.author.username) }}">{{ chat.author.username }}</a>
               <small class="text-muted">{{ chat.date_chat.strftime('%Y-%m-%d') }}</small>
               </div>
-              <h4><a class="article-title" href="{{ url_for('gd_course_questionnaires.chat', chat_id=chat.id) }}">{{ chat.title_chat }}</a></h4>
+              <h4><a class="article-title" href="{{ url_for('gd_course_questionnaires.chat_ha', chat_id=chat.id) }}">{{ chat.title_chat }}</a></h4>
               <p class="article-content">{{ chat.content }}</p>
           </div>
           </article>
