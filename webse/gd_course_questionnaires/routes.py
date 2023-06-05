@@ -2,7 +2,7 @@ import json
 from flask import render_template, url_for, Blueprint, request, redirect, flash, jsonify
 from webse import application, db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
-from webse.gd_course_questionnaires.forms import QuestionnaireForm_1_q1, QuestionnaireForm_1_q2, QuestionnaireForm_1_q3, QuestionnaireForm_1_q4, QuestionnaireForm_mc_q1, QuestionnaireForm_mc_q2, QuestionnaireForm_mc_q3, QuestionnaireForm_mc_q4, QuestionnaireForm_mc_q5, QuestionnaireForm_mc_q6, ChatFormQuestionnaire
+from webse.gd_course_questionnaires.forms import QuestionnaireForm_1_q1, QuestionnaireForm_1_q2, QuestionnaireForm_1_q3, QuestionnaireForm_1_q4, QuestionnaireForm_mc_q1, QuestionnaireForm_mc_q2, QuestionnaireForm_mc_q3, QuestionnaireForm_mc_q4, QuestionnaireForm_mc_q5, QuestionnaireForm_mc_q6, ChatFormQuestionnaire, QuestionnaireForm_ha_q1, QuestionnaireForm_ha_q2, QuestionnaireForm_ha_q3, QuestionnaireForm_ha_q4
 from webse.models import QuestionnaireGD, QuestionnaireGDChat, User
 from webse.forward_users.utils import read_image
 gd_course_questionnaires= Blueprint('gd_course_questionnaires', __name__)
@@ -751,6 +751,243 @@ def gd_course_questionnaire_mc_summary():
         q1_results=json.dumps(q1), q2_results=json.dumps(q2), q3_results=json.dumps(q3), q4_results=json.dumps(q4),
         q5_results=json.dumps(q5), q6_results=json.dumps(q6), chats=chats, func=read_image) 
 
+#Haugesund conference. Questionnaire
+@gd_course_questionnaires.route('/green_digitalization_course/haugesund/q1', methods=['GET', 'POST'])
+@login_required
+def gd_course_questionnaire_ha_q1():
+    form_ha_q1 = QuestionnaireForm_ha_q1()
+    if form_ha_q1.validate_on_submit():
+        QuestionnaireGD.query.filter_by(author=current_user). \
+            filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+            filter(QuestionnaireGD.title_question == 'Question 1'). \
+            filter(QuestionnaireGD.university == 'ha'). \
+            filter(QuestionnaireGD.question_num == 1).delete()
+        db.session.commit()
+        questionnaire = QuestionnaireGD(question_str=form_ha_q1.type.data, author = current_user)
+        if questionnaire.question_str == 'Veldig enig':
+            questionnaire.question_option = 1
+        elif questionnaire.question_str == 'Enig':
+            questionnaire.question_option = 2
+        elif questionnaire.question_str == 'Være uenig':
+            questionnaire.question_option = 3           
+        else:
+            questionnaire.question_option = 4 
+        questionnaire.title_questionnaire = 'Questionnaire'
+        questionnaire.title_question = 'Question 1'
+        questionnaire.question_num = 1
+        questionnaire.university = 'ha'
+        db.session.add(questionnaire)
+        db.session.commit()
+        flash('Ditt svar på spørsmål 1 er sendt! Nå er det på tide å svare på spørsmål 2', 'success')
+        return redirect(url_for('gd_course_questionnaires.gd_course_questionnaire_ha_q2'))
+    return render_template('gd_course/questionnaires/gd_course_questionnaire_ha_q1.html', title='Questionnaire, q1', form_ha_q1=form_ha_q1) 
+
+@gd_course_questionnaires.route('/green_digitalization_course/haugesund/q2', methods=['GET', 'POST'])
+@login_required
+def gd_course_questionnaire_ha_q2():
+    form_ha_q2 = QuestionnaireForm_ha_q2()
+    if form_ha_q2.validate_on_submit():
+        QuestionnaireGD.query.filter_by(author=current_user). \
+            filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+            filter(QuestionnaireGD.title_question == 'Question 2'). \
+            filter(QuestionnaireGD.university == 'ha'). \
+            filter(QuestionnaireGD.question_num == 2).delete()
+        db.session.commit()
+        questionnaire = QuestionnaireGD(question_str=form_ha_q2.type.data, author = current_user)
+        if questionnaire.question_str == 'Veldig enig':
+            questionnaire.question_option = 1
+        elif questionnaire.question_str == 'Enig':
+            questionnaire.question_option = 2
+        elif questionnaire.question_str == 'Være uenig':
+            questionnaire.question_option = 3           
+        else:
+            questionnaire.question_option = 4 
+        questionnaire.title_questionnaire = 'Questionnaire'
+        questionnaire.title_question = 'Question 2'
+        questionnaire.question_num = 2
+        questionnaire.university = 'ha'
+        db.session.add(questionnaire)
+        db.session.commit()
+        flash('Ditt svar på spørsmål 2 er sendt! Nå er det på tide å svare på spørsmål 3', 'success')
+        return redirect(url_for('gd_course_questionnaires.gd_course_questionnaire_ha_q3'))
+    return render_template('gd_course/questionnaires/gd_course_questionnaire_ha_q2.html', title='Questionnaire, q2', form_ha_q2=form_ha_q2)
+
+@gd_course_questionnaires.route('/green_digitalization_course/haugesund/q3', methods=['GET', 'POST'])
+@login_required
+def gd_course_questionnaire_ha_q3():
+    form_ha_q3 = QuestionnaireForm_ha_q3()
+    if form_ha_q3.validate_on_submit():
+        QuestionnaireGD.query.filter_by(author=current_user). \
+            filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+            filter(QuestionnaireGD.title_question == 'Question 3'). \
+            filter(QuestionnaireGD.university == 'ha'). \
+            filter(QuestionnaireGD.question_num == 3).delete()
+        db.session.commit()
+        questionnaire = QuestionnaireGD(question_str=form_ha_q3.type.data, author = current_user)
+        if questionnaire.question_str == 'Veldig enig':
+            questionnaire.question_option = 1
+        elif questionnaire.question_str == 'Enig':
+            questionnaire.question_option = 2
+        elif questionnaire.question_str == 'Være uenig':
+            questionnaire.question_option = 3           
+        else:
+            questionnaire.question_option = 4 
+        questionnaire.title_questionnaire = 'Questionnaire'
+        questionnaire.title_question = 'Question 3'
+        questionnaire.question_num = 3
+        questionnaire.university = 'ha'
+        db.session.add(questionnaire)
+        db.session.commit()
+        flash('Ditt svar på spørsmål 3 er sendt! Nå er det på tide å svare på spørsmål 4', 'success')
+        return redirect(url_for('gd_course_questionnaires.gd_course_questionnaire_ha_q4'))
+    return render_template('gd_course/questionnaires/gd_course_questionnaire_ha_q3.html', title='Questionnaire, q3', form_ha_q3=form_ha_q3)
+
+@gd_course_questionnaires.route('/green_digitalization_course/haugesund/q4', methods=['GET', 'POST'])
+@login_required
+def gd_course_questionnaire_ha_q4():
+    form_ha_q4 = QuestionnaireForm_ha_q4()
+    if form_ha_q4.validate_on_submit():
+        QuestionnaireGD.query.filter_by(author=current_user). \
+            filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+            filter(QuestionnaireGD.title_question == 'Question 4'). \
+            filter(QuestionnaireGD.university == 'ha'). \
+            filter(QuestionnaireGD.question_num == 4).delete()
+        db.session.commit()
+        questionnaire = QuestionnaireGD(question_str=form_ha_q4.type.data, author = current_user)
+        if questionnaire.question_str == 'Veldig enig':
+            questionnaire.question_option = 1
+        elif questionnaire.question_str == 'Enig':
+            questionnaire.question_option = 2
+        elif questionnaire.question_str == 'Være uenig':
+            questionnaire.question_option = 3           
+        else:
+            questionnaire.question_option = 4 
+        questionnaire.title_questionnaire = 'Questionnaire'
+        questionnaire.title_question = 'Question 4'
+        questionnaire.question_num = 4
+        questionnaire.university = 'ha'
+        db.session.add(questionnaire)
+        db.session.commit()
+        flash('Ditt svar på spørsmål 4 er sendt inn! Nå er det på tide å delta i debatten', 'success')
+        return redirect(url_for('gd_course_questionnaires.gd_course_questionnaire_ha_summary'))
+    return render_template('gd_course/questionnaires/gd_course_questionnaire_ha_q4.html', title='Questionnaire, q4', form_ha_q4=form_ha_q4)
+
+@gd_course_questionnaires.route('/green_digitalization_course/haugesund/summary', methods=['GET', 'POST'])
+@login_required
+def gd_course_questionnaire_ha_summary():
+    # Question 1
+    q1 = [0, 0, 0, 0]
+    q1_strongly_agree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 1).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 1). \
+        order_by(QuestionnaireGD.question_num.asc()).count()
+    q1[0]=q1_strongly_agree
+
+    q1_agree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 1).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 2). \
+        order_by(QuestionnaireGD.question_num.asc()).count()
+    q1[1]=q1_agree
+
+    q1_disagree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 1).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 3). \
+        order_by(QuestionnaireGD.question_num.asc()).count()
+    q1[2]=q1_disagree   
+
+    q1_stongly_disagree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 1).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 4). \
+        order_by(QuestionnaireGD.question_num.asc()).count()  
+    q1[3]=q1_stongly_disagree
+
+    # Question 2
+    q2 = [0, 0, 0, 0]
+    q2_strongly_agree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 2).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 1). \
+        order_by(QuestionnaireGD.question_num.asc()).count()
+    q2[0]=q2_strongly_agree
+
+    q2_agree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 2).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 2). \
+        order_by(QuestionnaireGD.question_num.asc()).count()
+    q2[1]=q2_agree
+
+    q2_disagree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 2).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 3). \
+        order_by(QuestionnaireGD.question_num.asc()).count()
+    q2[2]=q2_disagree   
+
+    q2_stongly_disagree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 2).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 4). \
+        order_by(QuestionnaireGD.question_num.asc()).count()  
+    q2[3]=q2_stongly_disagree
+
+    # Question 3
+    q3 = [0, 0, 0, 0]
+    q3_strongly_agree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 3).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 1). \
+        order_by(QuestionnaireGD.question_num.asc()).count()
+    q3[0]=q3_strongly_agree
+
+    q3_agree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 3).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 2). \
+        order_by(QuestionnaireGD.question_num.asc()).count()
+    q3[1]=q3_agree
+
+    q3_disagree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 3).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 3). \
+        order_by(QuestionnaireGD.question_num.asc()).count()
+    q3[2]=q3_disagree   
+
+    q3_stongly_disagree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 3).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 4). \
+        order_by(QuestionnaireGD.question_num.asc()).count()  
+    q3[3]=q3_stongly_disagree
+
+    # Question 4
+    q4 = [0, 0, 0, 0]
+    q4_strongly_agree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 4).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 1). \
+        order_by(QuestionnaireGD.question_num.asc()).count()
+    q4[0]=q4_strongly_agree
+
+    q4_agree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 4).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 2). \
+        order_by(QuestionnaireGD.question_num.asc()).count()
+    q4[1]=q4_agree
+
+    q4_disagree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 4).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 3). \
+        order_by(QuestionnaireGD.question_num.asc()).count()
+    q4[2]=q4_disagree   
+
+    q4_stongly_disagree = QuestionnaireGD.query.filter(QuestionnaireGD.question_num == 4).\
+        filter(QuestionnaireGD.title_questionnaire == 'Questionnaire'). \
+        filter(QuestionnaireGD.university == 'ha').filter(QuestionnaireGD.question_option == 4). \
+        order_by(QuestionnaireGD.question_num.asc()).count()  
+    q4[3]=q4_stongly_disagree 
+
+    page = request.args.get('page', 1, type=int)
+    chats = QuestionnaireGDChat.query.filter(QuestionnaireGDChat.university == 'ha').\
+        order_by(QuestionnaireGDChat.date_chat.desc()).paginate(page=page, per_page=3)        
+  
+    return render_template('gd_course/questionnaires/gd_course_questionnaire_ha_summary.html', title='Questionnaire, summary',
+        q1_results=json.dumps(q1), q2_results=json.dumps(q2), q3_results=json.dumps(q3), q4_results=json.dumps(q4),
+        chats=chats, func=read_image) 
+
+
 #Carbon App. Chat     
 @gd_course_questionnaires.route('/green_digitalization_course/questionnaire/summary/chat', methods=['GET', 'POST'])
 @login_required
@@ -871,7 +1108,67 @@ def user_chats_mc(username):
     chats = QuestionnaireGDChat.query.filter_by(author=user)\
         .order_by(QuestionnaireGDChat.date_chat.desc())\
         .paginate(page=page, per_page=2)
-    return render_template('gd_course/questionnaires/gd_course_questionnaire_user_chats_mc.html', chats=chats, user=user, func=read_image)                              
+    return render_template('gd_course/questionnaires/gd_course_questionnaire_user_chats_mc.html', chats=chats, user=user, func=read_image)     
 
+#Haugesund Conference. Chat     
+@gd_course_questionnaires.route('/green_digitalization_course/haugesund/summary/chat', methods=['GET', 'POST'])
+@login_required
+def gd_course_questionnaires_ha_summary_chat():
+    form = ChatFormQuestionnaire()
+    if form.validate_on_submit():
+        chat = QuestionnaireGDChat(title_chat=form.title.data, content=form.content.data, author=current_user,
+                    university='ha')
+        db.session.add(chat)
+        db.session.commit()
+        flash('Chatten din er opprettet!', 'success')
+        return redirect(url_for('gd_course_questionnaires.gd_course_questionnaire_ha_summary'))
+    return render_template('gd_course/questionnaires/gd_course_questionnaire_create_chat_ha.html', title='Questionnaire - Chat',
+                           form=form, legend='Questionnaire')  
 
-                              
+#Haugesund Conference. These routes are common for all the chats
+@gd_course_questionnaires.route("/green_digitalization_course/haugesund/summary/chat/<int:chat_id>") 
+def chat_ha(chat_id):
+    chat = QuestionnaireGDChat.query.get_or_404(chat_id)
+    return render_template('gd_course/questionnaires/gd_course_questionnaire_chat_ha.html', title=chat.title_chat, chat=chat, func=read_image)    
+
+@gd_course_questionnaires.route("/green_digitalization_course/haugesund/summary/chat/<int:chat_id>/update", methods=['GET', 'POST'])
+@login_required
+def update_chat_ha(chat_id):
+    chat = QuestionnaireGDChat.query.get_or_404(chat_id)
+    if chat.author != current_user:
+        abort(403)
+    form = ChatFormQuestionnaire()
+    if form.validate_on_submit():
+        chat.title_chat=form.title.data
+        chat.content=form.content.data
+        db.session.commit()
+        flash('Chatten din har blitt oppdatert!', 'success')
+        return redirect(url_for('gd_course_questionnaires.gd_course_questionnaire_ha_summary'))
+    elif request.method == 'GET':
+        form.title.data = chat.title_chat
+        form.content.data = chat.content
+    return render_template('gd_course/questionnaires/gd_course_questionnaire_create_chat_ha.html', title='Update Chat',
+                           form=form, legend='Update Chat')    
+
+@gd_course_questionnaires.route("/green_digitalization_course/haugesund/summary/chat/<int:chat_id>/delete", methods=['GET', 'POST'])
+@login_required
+def delete_chat_ha(chat_id):
+    chat = QuestionnaireGDChat.query.get_or_404(chat_id)
+    if chat.author != current_user:
+        abort(403)
+    db.session.delete(chat)
+    db.session.commit()
+    flash('Chatten din er slettet!', 'success')
+    return redirect(url_for('gd_course_questionnaires.gd_course_questionnaire_ha_summary'))   
+
+@gd_course_questionnaires.route("/green_digitalization_course/haugesund/summary/chat/<string:username>")
+@login_required
+def user_chats_ha(username):
+    page = request.args.get('page', 1, type=int)
+    user = User.query.filter_by(username=username).first_or_404()
+    chats = QuestionnaireGDChat.query.filter_by(author=user)\
+        .order_by(QuestionnaireGDChat.date_chat.desc())\
+        .paginate(page=page, per_page=2)
+    return render_template('gd_course/questionnaires/gd_course_questionnaire_user_chats_ha.html', chats=chats, user=user, func=read_image)                              
+
+                         
