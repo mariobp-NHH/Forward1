@@ -6,10 +6,10 @@ import os
 
 application = Flask(__name__)
 
-DBVAR = f"postgresql://{os.environ['RDS_USERNAME']}:{os.environ['RDS_PASSWORD']}@{os.environ['RDS_HOSTNAME']}/{os.environ['RDS_DB_NAME']}"
+DBVAR = 'sqlite:///user.db'
 application.config['SECRET_KEY'] = '1dfc4dedcdsdsd5b2ffa3a090dfc34f845fd'
-application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR 
-application.config['SQLALCHEMY_BINDS'] ={'se_course': DBVAR, 'gd_course': DBVAR , 'gender_platform': DBVAR, 'se_platform': DBVAR}
+application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR
+application.config['SQLALCHEMY_BINDS'] ={'se_course': 'sqlite:///se_course.db', 'gd_course': 'sqlite:///gd_course.db', 'gender_platform': 'sqlite:///gender_platform.db', 'se_platform': 'sqlite:///se_platform.db'}
 
 db = SQLAlchemy(application)
 bcrypt = Bcrypt(application)
@@ -19,6 +19,11 @@ bcrypt = Bcrypt(application)
 
 login_manager= LoginManager(application)
 login_manager.blueprint_login_views = {
+    'gd_course_questionnaires': 'forward_users.forward_users_login',
+    'gd_course_chats': 'forward_users.forward_users_login',
+    'gd_course_chapters': 'forward_users.forward_users_login',
+    'gd_course_statistics': 'forward_users.forward_users_login',
+    'gd_course_app_calculator': 'forward_users.forward_users_login',
     'forward_users': 'forward_users.forward_users_login',
     'gd_course_HVL_2023_group1': 'gd_course_HVL_2023_group1.login',
     'gd_course_HVL_2023_group2': 'gd_course_HVL_2023_group2.login',
