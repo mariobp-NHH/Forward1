@@ -19,6 +19,11 @@ bcrypt = Bcrypt(application)
 
 login_manager= LoginManager(application)
 login_manager.blueprint_login_views = {
+    'gd_course_questionnaires': 'forward_users.forward_users_login',
+    'gd_course_chats': 'forward_users.forward_users_login',
+    'gd_course_chapters': 'forward_users.forward_users_login',
+    'gd_course_statistics': 'forward_users.forward_users_login',
+    'gd_course_app_calculator': 'forward_users.forward_users_login',
     'forward_users': 'forward_users.forward_users_login',
     'gd_course_HVL_2023_group1': 'gd_course_HVL_2023_group1.login',
     'gd_course_HVL_2023_group2': 'gd_course_HVL_2023_group2.login',
