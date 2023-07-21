@@ -72,6 +72,8 @@ from webse.gd_course_HVL_2023_group3.routes import gd_course_HVL_2023_group3
 from webse.gd_course_NHH_2023_group1.routes import gd_course_NHH_2023_group1
 from webse.gd_course_NHH_2023_group2.routes import gd_course_NHH_2023_group2
 from webse.gd_course_NHH_2023_group3.routes import gd_course_NHH_2023_group3
+from webse.se_platform_home.routes import se_platform_home
+from webse.se_platform_announcements.routes import se_platform_announcements
 from webse.dashboards.routes import dashboards
 from webse.dashboards.spot_go import create_dash_spot_go
 from webse.dashboards.dash_application2 import create_dash_application2
@@ -114,3 +116,5 @@ application.register_blueprint(gd_course_NHH_2023_group1)
 application.register_blueprint(gd_course_NHH_2023_group2)
 application.register_blueprint(gd_course_NHH_2023_group3)
 application.register_blueprint(dashboards)
+application.register_blueprint(se_platform_home)
+application.register_blueprint(se_platform_announcements)
