@@ -31,12 +31,13 @@ login_manager.blueprint_login_views = {
     'gd_course_app_calculator': 'forward_users.forward_users_login',
     'forward_users': 'forward_users.forward_users_login',
     'se_platform_announcements': 'forward_users.forward_users_login',
+    'papers_spot_go': 'forward_users.forward_users_login',
     'gd_course_HVL_2023_group1': 'gd_course_HVL_2023_group1.login',
     'gd_course_HVL_2023_group2': 'gd_course_HVL_2023_group2.login',
     'gd_course_HVL_2023_group3': 'gd_course_HVL_2023_group3.login',
     'gd_course_NHH_2023_group1': 'gd_course_NHH_2023_group1.login',
     'gd_course_NHH_2023_group2': 'gd_course_NHH_2023_group2.login',
-    'gd_course_NHH_2023_group3' : 'gd_course_NHH_2023_group3.login',
+    'gd_course_NHH_2023_group3' : 'gd_course_NHH_2023_group3.login'    
 }
 login_manager.login_message_category = 'info'
 
@@ -76,6 +77,7 @@ from webse.gd_course_NHH_2023_group3.routes import gd_course_NHH_2023_group3
 from webse.se_platform_home.routes import se_platform_home
 from webse.se_platform_announcements.routes import se_platform_announcements
 from webse.dashboards.routes import dashboards
+from webse.papers.spot_go.routes import papers_spot_go
 from webse.dashboards.spot_go import create_dash_spot_go
 from webse.dashboards.dash_application2 import create_dash_application2
 
@@ -117,5 +119,6 @@ application.register_blueprint(gd_course_NHH_2023_group1)
 application.register_blueprint(gd_course_NHH_2023_group2)
 application.register_blueprint(gd_course_NHH_2023_group3)
 application.register_blueprint(dashboards)
+application.register_blueprint(papers_spot_go)
 application.register_blueprint(se_platform_home)
 application.register_blueprint(se_platform_announcements)
