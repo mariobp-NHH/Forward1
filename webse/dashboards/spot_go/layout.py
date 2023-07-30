@@ -1,9 +1,9 @@
-html_layout = """
+html_layout ="""
     <!DOCTYPE html>
     <html>
         <head>
             {%metas%}
-            <title>{%title%}</title>
+              <title>Forward, Spot-GO market</title>
             {%favicon%}
             {%css%}
             
@@ -14,58 +14,65 @@ html_layout = """
         </head>
         
         <body>
-            <!-- Navbar -->
-            <header class="site-header">
-                  <nav class="navbar navbar-expand-lg navbar-default.navbar-fixed-top navbar-dark py-3", style="background-color:#f2935c;">
-                    <div class="container">                  
-                      <a href="/" class="navbar-brand", style="font-size: 21px;">Sustainable Energy</a>
-                        <button
-                          class="navbar-toggler"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#navmenu"
-                        >
-                          <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarText_left">                                                           
-                            <ul class="navbar-nav mr-auto">
-                              <li class="nav-item active">
-                                <a class="nav-link", style="font-size: 16px;" href="/register">Register </a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link", style="font-size: 16px;" href="/login">Login</a>
-                              </li>
-                            </ul>
-                        </div>
-                        <div class="collapse navbar-collapse" id="navbarText_right">
-                            <ul class="navbar-nav ms-auto">
-                              <li class="nav-item active">
-                                <a class="nav-link", style="font-size: 16px;" href="/dashboards/home">Dashboards</a>
-                              </li>
-                              <li class="nav-item active">
-                                <a class="nav-link", style="font-size: 16px;" href="/students_apps/home_developers">Students Apps</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link", style="font-size: 16px;" href="#">Students Thesis</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link", style="font-size: 16px;" href="/app_calculator">App Calculator</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link", style="font-size: 16px;" href="/teachers">Teachers</a>
-                              </li>
-                            </ul>
-                        </div>
+
+            <nav class="navbar_spot_go">
+            <div class="container_spot_go"> 
+                <div class="menu_left">
+                    <div class="logo">
+                        <a href="/"><img
+                            src="/static/figures/forward/forward_icon.svg"
+                            width="50" 
+                            height="50"
+                        alt=""/></a>
+                        <a href="/sustainable_energy_platform"><img
+                            src="/static/figures/forward/se_platform_icon.svg"
+                            width="50" 
+                            height="50"
+                        alt=""/></a>
                     </div>
-                  </nav>
-                </header>
+                    <div class="menu">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a href="/spot_go/">App-Paper</a> 
+                            </li>
+                            <li class="nav-item">
+                                <a href="/papers/spot_go/chat">Chat</a> 
+                            </li>
+                            <li class="nav-item">
+                                <a href="/papers/spot_go/students_questions">Students-Questions</a> 
+                            </li>
+                            <li class="nav-item">
+                                <a href="/papers/spot_go/students_answers">Students-Answers</a> 
+                            </li>
+                            <li class="nav-item">
+                                <a href="/papers/spot_go/calendar">Calendar</a> 
+                            </li>
+                            <li class="nav-item">
+                                <a href="/papers/spot_go/authors">Authors</a> 
+                            </li>
+                        </ul>  
+                    </div>                    
+                </div>
+
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+
+
+
+            
                 <section>
-                    <header class="header_css", style="background-color=#f2d95c">
+                    <header class="header_css_spot_go">
                         <div class="container">
                             <div class="d-sm-flex align-items-center justify-content-between">
                               <div class="col-lg-7 col-md-7 col-sm-6 col-12">
                                 <h1><span class="text-warning"> Spot - Guarantees of Origin App</span></h1>
-                                <p, style="font-size: 14px;">Consumers, governments and corporations are becoming more aware of the origin of the energy that they consume, 
+                                <p, style="font-size: 14px;" style="color: #000000;">Consumers, governments and corporations are becoming more aware of the origin of the energy that they consume, 
                                 and the guarantees of origin (GO) market is increasing in Europe and worldwide. <strong>More than 25% of the electricity 
                                 consumed in Europe is consumed by using GO markets. </strong>
                                 </br>
@@ -78,97 +85,59 @@ html_layout = """
                                 Moreover, the change on prices in the spot market induced by the introduction of a GO market could <strong>reverse the 
                                 flow of electricity</strong> between nodes in the spot market.
                                 </p>
-                                <div class="container_buttons_links_header">
+                                <div class="container_buttons_links_header_spot_go">
                                    <div class="btn">
-                                       <a href="/static/material/dashboards/spot-go/spot_go_may_2022.pdf" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Paper</a>
+
+                                        <a class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;" data-toggle="modal" data-target="#paper_Modal">Paper</a> 
+                                       
                                    </div>
                                 </div>
                               </div>
                               <div class="col-lg-4 col-md-4 col-sm-5 col-12">                                  
                                   <img src="/static/figures/dashboards/spot-go/spot_go_icon.svg" />
-                              </div>
+                              </div>  
                             </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="paper_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg " style="height: 80%;" >
+                                <div class="modal-content" style="height:100%">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Paper</h5>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <iframe id="paper_frame" src="/static/papers/spot_go/spot_go.pdf" width="100%" height="100%"></iframe>  <!-- Using iframe to view the pdf file.-->
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                                </div>
+                                </div> 
+
                         </div>
                     </header>
                 </section>
             {%app_entry%}
             
-                 <section id="developer", style="background-color:#6c757d;">
-                    <div class="container">
+                 
             
-                        <div class="section_developers3_css">
-                            <div class="box">
-                                <h5 class="card-title mb-3">Arve, Malin</h5>
-                                <div class="card-body text-center">
-                                    <div class="container_buttons_developers">
-                                       <div class="btn">
-                                           <a href="https://www.nhh.no/en/employees/faculty/malin-arve/" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Web</a>
-                                       </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <h5 class="card-title mb-3">Bjørndal, Endre</h5>
-                                <div class="card-body text-center">
-                                    <div class="container_buttons_developers">
-                                       <div class="btn">
-                                           <a href="https://www.nhh.no/en/employees/faculty/endre-bjorndal/" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Web</a>
-                                       </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <h5 class="card-title mb-3">Bjørndal, Mette</h5>
-                                <div class="card-body text-center">
-                                    <div class="container_buttons_developers">
-                                       <div class="btn">
-                                           <a href="https://www.nhh.no/en/employees/faculty/mette-helene-bjorndal" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Web</a>
-                                       </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            
-                        <div class="section_developers2_css">
-                            <div class="box">
-                                <h5 class="card-title mb-3">Blázquez, Mario</h5>
-                                <div class="card-body text-center">
-                                    <div class="container_buttons_developers">
-                                       <div class="btn">
-                                           <a href="https://www.nhh.no/en/employees/faculty/mario-blazquez-de-paz/" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Web</a>
-                                       </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <h5 class="card-title mb-3">Hovdhal, Isabel</h5>
-                                <div class="card-body text-center">
-                                    <div class="container_buttons_developers">
-                                       <div class="btn">
-                                           <a href="https://www.nhh.no/en/employees/faculty/isabel-montero-hovdahl/" class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;">Web</a>
-                                       </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box", style="background-color:#6c757d;">
-                                
-                            </div>
-                        </div>
-            
-                        
-                       
-            
-                    </div>
-              </section>
-            
-            <footer class="p-5  text-white text-center position-relative", style="background-color:#f2935c">
-                <div class="container">
-                    <p class="lead">ENE425 - Sustainable Energy and App Development</p>
-            
-                    <a href="#" class="position-absolute bottom-0 end-0 p-5">
-                      <i class="bi bi-arrow-up-circle h1"></i>
-                    </a>
-                  </div>
+            <footer class="footer_spot_go">
+                <div class="container">  
+                    <div class="item">
+                        <p class="lead">
+                        Spot-GO paper
+                        </p> 
+                    </div>              
+                    <div class="item">
+                        <a href="#">
+                            <i class="bi bi-arrow-up-circle h1"></i>
+                        </a>
+                    </div> 
+                </div>
+
+
                 {%config%}
                 {%scripts%}
                     <script type="text/x-mathjax-config">
@@ -181,23 +150,7 @@ html_layout = """
                     </script>
                 {%renderer%}
             </footer>
-            <script
-              src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-              integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-              crossorigin="anonymous"
-            ></script>
-            <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
-        
-            <script>
-              mapboxgl.accessToken =
-                'pk.eyJ1IjoiYnRyYXZlcnN5IiwiYSI6ImNrbmh0dXF1NzBtbnMyb3MzcTBpaG10eXcifQ.h5ZyYCglnMdOLAGGiL1Auw'
-              var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v11',
-                center: [-71.060982, 42.35725],
-                zoom: 18,
-              })
-            </script>
+
         
             <!-- Optional JavaScript -->
             <!-- jQuery first, then Popper.js, then Bootstrap JS -->
