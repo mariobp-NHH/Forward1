@@ -7,6 +7,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 import dash_defer_js_import as dji
+from flask_login import login_required
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -30,11 +31,14 @@ from .simulations import quantities, bounds_GO, CDF_GO, bounds_spot, CDF_spot, e
 from .spot_go_figures import fig_area_function, fig_go_areas_function, fig_strategies, fig_prices, graph_in
 
 
+
 def create_dash_spot_go(flask_app):
     dash_app = Dash(server=flask_app, name="Dashboard", url_base_pathname="/spot_go/",
                     external_stylesheets=[
+                        "/static/css/se_platform/se_platform_layout_spot_go.css",
                         "/static/dash_spot_go.css",
                         "/static/main.css",
+                        "/static/gd_course_chat.css",
                         "https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css",
                         "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css",
                         "https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css",
@@ -43,6 +47,14 @@ def create_dash_spot_go(flask_app):
                         "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/monokai-sublime.min.css"
                     ],
                     external_scripts=external_scripts)
+    
+    
+    # # Method to protect dash views/routes
+    # for view_function in dash_app.server.view_functions:
+    #         if view_function.startswith(dash_app.config.url_base_pathname):
+    #             dash_app.server.view_functions[view_function] = login_required(
+    #                 dash_app.server.view_functions[view_function]
+    #             )
 
     mathjax_script = dji.Import(src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_SVG")
 
