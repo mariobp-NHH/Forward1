@@ -32,6 +32,7 @@ login_manager.blueprint_login_views = {
     'forward_users': 'forward_users.forward_users_login',
     'se_platform_announcements': 'forward_users.forward_users_login',
     'papers_spot_go': 'forward_users.forward_users_login',
+    'se_course_se_module': 'forward_users.forward_users_login',
     'gd_course_HVL_2023_group1': 'gd_course_HVL_2023_group1.login',
     'gd_course_HVL_2023_group2': 'gd_course_HVL_2023_group2.login',
     'gd_course_HVL_2023_group3': 'gd_course_HVL_2023_group3.login',
