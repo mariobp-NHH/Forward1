@@ -48,7 +48,7 @@ def update_announcement(announcement_id):
         announcement.content = form.content.data
         db.session.commit()
         flash('Your announcement has been updated!', 'success')
-        return redirect(url_for('se_course_announcements.announcement', announcement_id=announcement.id))
+        return redirect(url_for('se_course.se_course_home', announcement_id=announcement.id))
     elif request.method == 'GET':
         form.title.data = announcement.title
         form.content.data = announcement.content
