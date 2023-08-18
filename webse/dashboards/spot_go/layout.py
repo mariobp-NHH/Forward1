@@ -10,6 +10,12 @@ html_layout ="""
             <meta charset="UTF-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+            <!-- Import Font Awesome CDN. It does not work-->
+            <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+            <!-- Import Font Awesome. My own KIT-->
+            <script src="https://kit.fontawesome.com/b6331c8bf2.js" crossorigin="anonymous"></script>
             
         </head>
         
@@ -85,13 +91,14 @@ html_layout ="""
                                 Moreover, the change on prices in the spot market induced by the introduction of a GO market could <strong>reverse the 
                                 flow of electricity</strong> between nodes in the spot market.
                                 </p>
-                                <div class="container_buttons_links_header_spot_go">
-                                   <div class="btn">
-
-                                        <a class="btn btn-primary btn-lg mr-2", style="background-color=#007bff;" data-toggle="modal" data-target="#paper_Modal">Paper</a> 
-                                       
-                                   </div>
-                                </div>
+                                <div class="container_buttons_links_header">
+                                    <div class="btn">
+                                        <a href="#"  data-toggle="modal" data-target="#paper_Modal" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;"><i class="fa-regular fa-newspaper"></i> Paper</a>
+                                    </div>
+                                    <div class="btn">
+                                        <a href="https://xd.adobe.com/view/c566c88b-f9d8-45a8-be0f-fd16eb63b1c8-9035/"  target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;"><i class="fa-solid fa-person-chalkboard"></i> Presentation</a>
+                                    </div>
+                                </div> 
                               </div>
                               <div class="col-lg-4 col-md-4 col-sm-5 col-12">                                  
                                   <img src="/static/figures/dashboards/spot-go/spot_go_icon.svg" />
