@@ -42,7 +42,7 @@ login_manager.blueprint_login_views = {
     'gd_course_HVL_2023_group3': 'gd_course_HVL_2023_group3.login',
     'gd_course_NHH_2023_group1': 'gd_course_NHH_2023_group1.login',
     'gd_course_NHH_2023_group2': 'gd_course_NHH_2023_group2.login',
-    'gd_course_NHH_2023_group3' : 'gd_course_NHH_2023_group3.login'    
+    'gd_course_NHH_2023_group3' : 'gd_course_NHH_2023_group3.login'   
 }
 login_manager.login_message_category = 'info'
 
@@ -85,6 +85,8 @@ from webse.dashboards.routes import dashboards
 from webse.papers.spot_go.routes import papers_spot_go
 from webse.dashboards.spot_go import create_dash_spot_go
 from webse.dashboards.dash_application2 import create_dash_application2
+from webse.sbm_course_home.routes import sbm_course
+from webse.sbm_course_announcements.routes import sbm_course_announcements
 
 create_dash_spot_go(application)
 create_dash_application2(application)
@@ -127,3 +129,5 @@ application.register_blueprint(dashboards)
 application.register_blueprint(papers_spot_go)
 application.register_blueprint(se_platform_home)
 application.register_blueprint(se_platform_announcements)
+application.register_blueprint(sbm_course)
+application.register_blueprint(sbm_course_announcements)
