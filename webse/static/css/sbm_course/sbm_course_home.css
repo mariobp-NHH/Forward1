@@ -1,27 +1,9 @@
-/*
- bg-primary: #007bff
- bg-secondary: #6c757d
- bg-success: #28a745
- bg-danger: #dc3545
- bg-warning: #ffc107
- bg-info: #17a2b8
- bg-light: #f8f9fa
- bg-dark: #343a40
- bg-white: #ffffff   */
-
- /* Morning theme 3 -Sustainable Business Models Course-:
- mt3-1: #827862 
- mt3-2: #FEE6A7
- mt3-3: #CED1A4
- mt3-4: #9AC7A9
- mt3-5: #5BBBAF
-Raining theme 5 -Sustainable Business Models Course-:
- rt5-1: #C5C8D9
- rt5-2: #9FA7BF
- rt5-3: #2B4359
- rt5-4: #4A736F
- rt5-5: #578C64
- */
+/* Rainy theme 5 -Green Digitalization Course-:
+ rt4-1: #c5c8d9
+ rt4-2: #9fa7bf
+ rt4-3: #2a4359
+ rt4-4: #49736f
+ rt4-5: #568c63 */
 
 /*Container home header*/
 /*color=dark*/
@@ -189,6 +171,29 @@ background: #343a40;
   width: 100px;
   height: 100px;
   background: #343a40;
+  color: #fff;
+
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/*Container buttons section newsletter*/
+.container_buttons_links_newsletter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
+}
+
+.container_buttons_links_newsletter a:hover {
+  color: #6c757d;
+}
+/*color=grey*/
+.container_buttons_links_newsletter btn {
+  width: 100px;
+  height: 100px;
+  background: #6c757d;
   color: #fff;
 
   display: flex;
