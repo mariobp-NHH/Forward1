@@ -19,7 +19,7 @@ def sbm_course_chats_new_main_chat():
         db.session.add(chat)
         db.session.commit()
         flash('Your chat has been created!', 'success')
-        return redirect(url_for('sbm_course.sbm_course_home'))
+        return redirect(url_for('sbm_course_chats.sbm_course_chats_view_main_chats'))
     return render_template('sbm_course/sbm_chats/sbm_course_create_chat.html', title=title, form=form, legend=legend)
 
 # These routes are specific for each chat (view-chat)   
@@ -51,7 +51,7 @@ def update_chat(chat_id):
         chat.content = form.content.data
         db.session.commit()
         flash('Your chat has been updated!', 'success')
-        return redirect(url_for('sbm_course.sbm_course_home'))
+        return redirect(url_for('sbm_course_chats.sbm_course_chats_view_main_chats'))
     elif request.method == 'GET':
         form.title.data = chat.title
         form.content.data = chat.content
@@ -67,7 +67,7 @@ def delete_chat(chat_id):
     db.session.delete(chat)
     db.session.commit()
     flash('Your chat has been deleted!', 'success')
-    return redirect(url_for('sbm_course.sbm_course_home'))   
+    return redirect(url_for('sbm_course_chats.sbm_course_chats_view_main_chats'))   
 
 @sbm_course_chats.route("/sustainable_business_models_course/chat/<string:username>")
 @login_required
