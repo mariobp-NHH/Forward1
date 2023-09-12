@@ -81,7 +81,7 @@
                   </div>
                   <div class="menu">
                       {% if current_user.is_authenticated %}
-                          {% if ((current_user.email=='admin@demo.com') or (current_user.email=='bjørk@demo.com'))%}
+                          {% if ((current_user.email=='mario_sbm@demo.com') or (current_user.email=='matthew_sbm@demo.com'))%}
                               <ul class="nav">
                                   <li class="nav-item">
                                       <a href="{{ url_for('sbm_course_announcements.sbm_course_announcements_new_announcement') }}">Announcement</a> 
