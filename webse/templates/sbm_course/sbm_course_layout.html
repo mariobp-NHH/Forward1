@@ -1,8 +1,12 @@
 <html>
     <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Import Google Roboto style:-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+
+    <!--Import the Bootstrap CSS file:-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,22 +17,33 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
-      rel="stylesheet"
-    />
+
+    <!--For the plots-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <!--Import the FullCalendar js and CSS file:-->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+
+    <!-- Import Font Awesome CDN. It does not work-->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <!-- Import Font Awesome. My own KIT-->
+    <script src="https://kit.fontawesome.com/b6331c8bf2.js" crossorigin="anonymous"></script>
+
+    
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_layout.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_home.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_register.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_account.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_chat.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_app_calculator.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_questionnaire.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_chapters.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_statistics.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_register.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_account.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_chat.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_app_calculator.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_questionnaire.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_chapters.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_statistics.css') }}">
 
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_chapters_ch3.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_chapters_ch3.css') }}">
     <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/se_course/se_course_questionnaire.css') }}"> -->
 
     
@@ -87,13 +102,13 @@
                                       <a href="{{ url_for('sbm_course_announcements.sbm_course_announcements_new_announcement') }}">Announcement</a> 
                                   </li>
                                   <li class="nav-item">
-                                      <a href="{{ url_for('gd_course_chats.gd_course_chats_create_chat') }}">Create-Chat</a> 
+                                      <a href="{{ url_for('sbm_course_chats.sbm_course_chats_new_main_chat') }}">Create-Chat</a> 
                                   </li>
                                   <li class="nav-item">
-                                      <a href="{{ url_for('gd_course_chats.gd_course_chats_view_chat') }}">View-Chats</a> 
+                                      <a href="{{ url_for('sbm_course_chats.sbm_course_chats_view_main_chats') }}">View-Chats</a> 
                                   </li>
                                   <li class="nav-item">
-                                      <a href="{{ url_for('gd_course_students_apps.gd_students_apps_home') }}">Students-apps</a> 
+                                      <a href="#">Students-apps</a> 
                                   </li>
                                   <li class="nav-item">
                                       <a href="{{ url_for('gd_course_app_calculator.app_calculator_entry') }}">Carbon-app</a> 
@@ -105,13 +120,13 @@
                           {% else %}
                               <ul class="nav">
                                   <li class="nav-item">
-                                      <a href="{{ url_for('gd_course_chats.gd_course_chats_create_chat') }}">Create-Chat</a> 
+                                      <a href="{{ url_for('sbm_course_chats.sbm_course_chats_new_main_chat') }}">Create-Chat</a> 
                                   </li>
                                   <li class="nav-item">
-                                      <a href="{{ url_for('gd_course_chats.gd_course_chats_view_chat') }}">View-Chats</a> 
+                                      <a href="{{ url_for('sbm_course_chats.sbm_course_chats_view_main_chats') }}">View-Chats</a> 
                                   </li>
                                   <li class="nav-item">
-                                      <a href="{{ url_for('gd_course_students_apps.gd_students_apps_home') }}">Students-apps</a> 
+                                      <a href="#">Students-apps</a> 
                                   </li>
                                   <li class="nav-item">
                                       <a href="{{ url_for('gd_course_app_calculator.app_calculator_entry') }}">Carbon-app</a> 
@@ -124,13 +139,13 @@
                       {% else %}
                       <ul class="nav">
                           <li class="nav-item">
-                              <a href="{{ url_for('gd_course_chats.gd_course_chats_create_chat') }}">Create-Chat</a> 
+                              <a href="{{ url_for('sbm_course_chats.sbm_course_chats_new_main_chat') }}">Create-Chat</a> 
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url_for('gd_course_chats.gd_course_chats_view_chat') }}">View-Chats</a> 
+                              <a href="{{ url_for('sbm_course_chats.sbm_course_chats_view_main_chats') }}">View-Chats</a> 
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url_for('gd_course_students_apps.gd_students_apps_home') }}">Students-apps</a> 
+                              <a href="#">Students-apps</a> 
                           </li>
                           <li class="nav-item">
                               <a href="{{ url_for('gd_course_app_calculator.app_calculator_entry') }}">Carbon-app</a> 
