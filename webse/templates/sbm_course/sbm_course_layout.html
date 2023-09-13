@@ -32,12 +32,14 @@
         <script src="https://kit.fontawesome.com/b6331c8bf2.js" crossorigin="anonymous"></script>
 
         <!--Import the CSS file with the style:-->
+        <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"> -->
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_layout.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_home.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_register.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_account.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_chat.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_app_calculator.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_app_calculator_v1.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_questionnaire.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_chapters.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/sbm_course/sbm_course_statistics.css') }}">
@@ -94,7 +96,7 @@
                                       <a href="#">Students-apps</a> 
                                   </li>
                                   <li class="nav-item">
-                                      <a href="{{ url_for('gd_course_app_calculator.app_calculator_entry') }}">Carbon-app</a> 
+                                      <a href="{{ url_for('sbm_course_app_calculator.app_calculator') }}">Carbon-app</a> 
                                   </li>
                                   <li class="nav-item">
                                       <a href="{{ url_for('forward_users.forward_users_logout') }}">Logout</a>
@@ -112,7 +114,7 @@
                                       <a href="#">Students-apps</a> 
                                   </li>
                                   <li class="nav-item">
-                                      <a href="{{ url_for('gd_course_app_calculator.app_calculator_entry') }}">Carbon-app</a> 
+                                      <a href="{{ url_for('sbm_course_app_calculator.app_calculator') }}">Carbon-app</a> 
                                   </li>
                                   <li class="nav-item">
                                       <a href="{{ url_for('forward_users.forward_users_logout') }}">Logout</a>
@@ -131,7 +133,7 @@
                               <a href="#">Students-apps</a> 
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url_for('gd_course_app_calculator.app_calculator_entry') }}">Carbon-app</a> 
+                              <a href="{{ url_for('sbm_course_app_calculator.app_calculator') }}">Carbon-app</a> 
                           </li>
                           <li class="nav-item">
                               <a href="{{url_for('forward_users.forward_users_login')}}">Login</a> 
