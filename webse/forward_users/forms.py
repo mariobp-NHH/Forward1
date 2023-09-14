@@ -45,6 +45,7 @@ class UpdateAccountForm(FlaskForm):
     institution = SelectField(validators=[DataRequired(False)],
                        choices=[('Norwegian School of Economics (NHH)', 'Norwegian School of Economics (NHH)'),
                                 ('Western Norway University of Applied Sciences (HVL)', 'Western Norway University of Applied Sciences (HVL)'),
+                                ('Norwegian University of Life Sciences (NMBU)', 'Norwegian University of Life Sciences (NMBU)'),
                                 ('Other', 'Other')])                      
     picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Update')
