@@ -188,28 +188,28 @@
 }
 .section_chatsHVL .container .column1 .box {
   flex: 1;
-  background: #568c63;
+  background: #4A736F;
   border-radius: 10px;
   margin: 20px 10px;
   padding: 15px 20px;
 }
 .section_chatsHVL .container .column2 .box {
   flex: 1;
-  background: #568c63;
+  background: #4A736F;
   border-radius: 10px;
   margin: 20px 10px;
   padding: 15px 20px;
 }
 .section_chatsHVL .container .column3 .box {
   flex: 1;
-  background: #568c63;
+  background: #4A736F;
   border-radius: 10px;
   margin: 20px 10px;
   padding: 15px 20px;
 }
 .section_chatsHVL .container .column4 .box {
   flex: 1;
-  background: #568c63;
+  background: #4A736F;
   border-radius: 10px;
   margin: 20px 10px;
   padding: 15px 20px;
@@ -223,7 +223,7 @@
   flex-wrap:wrap;
 }
 .container_buttons_links_chatsHVL a:hover {
-  color: #568c63;
+  color: #4A736F;
 }
 /*End container buttons section chats HVL*/
 
@@ -290,11 +290,11 @@
 /*Container gd_course_chat */
 .gd_course_chat {
   display: flex;
-  background: #568c63;
+  background: #4A736F;
   }  
 .gd_course_chat .container {
   display: flex;
-  background: #568c63;
+  background: #4A736F;
 }
 .gd_course_chat .container {
   display: flex;
@@ -303,7 +303,7 @@
 }
 .gd_course_chat .container .box {
   flex: 1;
-  background: #568c63;
+  background: #4A736F;
   border-radius: 2px;
   margin: 20px 10px;
   padding: 15px 20px;
