@@ -290,11 +290,11 @@
 /*Container gd_course_chat */
 .gd_course_chat {
   display: flex;
-  background: #466fa6;
+  background: #568c63;
   }  
 .gd_course_chat .container {
   display: flex;
-  background: #466fa6;
+  background: #568c63;
 }
 .gd_course_chat .container {
   display: flex;
@@ -303,7 +303,7 @@
 }
 .gd_course_chat .container .box {
   flex: 1;
-  background: #466fa6;
+  background: #568c63;
   border-radius: 2px;
   margin: 20px 10px;
   padding: 15px 20px;
@@ -320,7 +320,7 @@
 .gd_course_chat .container  .box:nth-of-type(2) {
   flex-grow:6;
   max-width: 450px;
-  background: #8badd9;
+  background: #9AC7A9;
   border-radius: 10px;
   margin: 20px 10px;
   padding: 15px 20px;
