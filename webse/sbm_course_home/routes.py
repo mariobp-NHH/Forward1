@@ -15,3 +15,18 @@ def sbm_course_home():
 def sbm_course_app_module():
     return render_template('sbm_course/sbm_app_module/app_module_home.html', title='Sustainable Business Models Course, App Module')
   
+#Chapter 8
+@sbm_course.route('/sustainable_business_models_course/app_module/chapter8')
+def sbm_course_chapters_ch8(): 
+    return render_template('sbm_course/sbm_app_module/chapters/ch8.html', title='Sustainable Business Models Course, ch8')   
+
+#Chapter 9
+@sbm_course.route('/sustainable_business_models_course/app_module/chapter9')
+def sbm_course_chapters_ch9(): 
+    return render_template('sbm_course/sbm_app_module/chapters/ch9.html', title='Sustainable Business Models Course, ch9') 
+
+#Chapter 10
+@sbm_course.route('/sustainable_business_models_course/app_module/chapter10')
+def sbm_course_chapters_ch10(): 
+    return render_template('sbm_course/sbm_app_module/chapters/ch10.html', title='Sustainable Business Models Course, ch10') 
+  
