@@ -1,0 +1,235 @@
+{% extends "aab_course/aab_course_layout.html" %}
+{% block content %}
+    <!-- Showcase -->
+    <section class="home_section_css">
+      <div class="container">
+          <div class="header">
+                <div class="box">
+                      {% with messages = get_flashed_messages(with_categories=true) %}
+                          {% if messages %}
+                              {% for category, message in messages %}
+                                  <div class="alert alert-{{ category }}">
+                                      {{ message }}
+                                  </div> 
+                              {% endfor %}
+                          {% endif %}
+                      {% endwith %}               
+                      <h1 class="text-center"><span class="text-warning"> Auditing, Accounting and Business </span> Course</h1>
+                      <p class="mb-1">
+                        This course studies auditing, accounting, and the role of digitalization in the most advanced business models in the green economy sector. 
+                        <br>
+                        <br>
+                        We study the main features of different companies that aim to increase sustainability, and we study their business models that connect digitalization and green economy.
+                      </p>
+                </div>
+                <div class="box">
+                  <div class="h1 mb-3">
+                    <i class="bi bi-bell"></i>
+                  </div>
+                  <h3 class="text-center"><span class="text-warning"> Announcements: </span>
+                  </h3>
+                  {% for announcement in announcements.items %}
+                      <article class="media content-section">
+                        <img class="rounded-circle account-img" src="data:image/jpeg;base64,{{ func(announcement.author.image_file) }}">
+                        <div class="media-body">
+                          <div class="article-metadata">
+                            <a class="mr-2" href="{{ url_for('aab_course_announcements.user_announcements', username=announcement.author.username) }}">{{ announcement.author.username }}</a>
+                            <small class="text-muted">{{ announcement.date_posted.strftime('%Y-%m-%d') }}</small>
+                          </div>
+                          <h4><a class="article-title" href="{{ url_for('aab_course_announcements.announcement', announcement_id=announcement.id) }}">{{ announcement.title }}</a></h4>
+                          <p class="article-content">{{ announcement.content }}</p>
+                        </div>
+                      </article>
+                  {% endfor %}
+                  {% for page_num in announcements.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                    {% if page_num %}
+                      {% if announcements.page == page_num %}
+                        <a class="btn btn-info mb-4" href="{{ url_for('aab_course.aab_course_home', page=page_num) }}">{{ page_num }}</a>
+                      {% else %}
+                        <a class="btn btn-outline-info mb-4" href="{{ url_for('aab_course.aab_course_home', page=page_num) }}">{{ page_num }}</a>
+                      {% endif %}
+                    {% else %}
+                      ...
+                    {% endif %}
+                  {% endfor %}
+                </div>
+            </div>
+        </div>
+      </div>
+    </section> 
+
+
+    <!-- Boxes -->
+    <section class="p-5", style="background-color:#6DA6A6;">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md">
+                    <div class="card text-light", style="background-color:#6c757d;">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                              <i class="bi bi-terminal-fill"></i>
+                            </div>
+                            <h3 class="card-title mb-3">
+                                App Development Module
+                            </h3>
+                            <p class="card-text">
+                              The app development module is organized in three blocks that complement each other. First, the students design the <strong>layout of the app</strong> by using HTML, CSS, JavaScript and Flask. Second, they program the <strong>economic simulations</strong> by using Python. Finally, they <strong>deploy their apps</strong> in the server, by using GitGub, Heroku, and Amazon Web Services.
+                              <br>
+                              <br>
+                            </p>
+                            <div class="container_buttons_links_header">
+                              <div class="btn">
+                                <a href="#" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">App Web</a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card text-light", style="background-color:#6c757d;">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                              <i class="bi bi-bar-chart-fill"></i>
+                            </div>
+                            <h3 class="card-title mb-3">
+                                Business Module
+                            </h3>
+                            <p class="card-text">
+                              In the business module, we study relevant business models in the green economy sector that combine digitalization and the most advanced economic models to achieve sustainability. First, we study the main characteristics of the <strong>market</strong> in which the company operates. Second, we study the <strong>company business model</strong> and the role of digitalization in that model. Third, an <strong>expert</strong> in the sector gives a talk about the business model that we study in each chapter.
+                            </p>
+                            <div class="container_buttons_links_newsletter">
+                              <div class="btn">
+                                <a href="{{ url_for('aab_course_business_module.aab_course_business_module_home') }}" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">Business Web</a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question Accordion -->
+    <section id="questions" class="p-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+        </div>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <!-- Item 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+              >
+                Assignment and final grades.
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+              <p>
+                ...                 
+              </p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 6 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingSix">
+              <button class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseSix"
+              >
+                Essay and app.
+              </button>
+            </h2>
+            <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+              <p>
+                ...
+              </p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseTwo"
+              >
+                Groups.
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+              <p>
+                ...
+              </p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseThree"
+              >
+                Key dates and final exam.
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+              <p>
+                ...
+              </p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFour">
+              <button class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseFour"
+              >
+                Lectures.
+              </button>
+            </h2>
+            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+              <p>
+                ...
+              </p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFive">
+              <button class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseFive"
+              >
+                Tutorials.
+              </button>
+            </h2>
+            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+              <p>
+                ...
+              </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+{% endblock content %}
