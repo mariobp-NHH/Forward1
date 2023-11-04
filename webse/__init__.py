@@ -47,7 +47,6 @@ login_manager.blueprint_login_views = {
 }
 login_manager.login_message_category = 'info'
 
-
 from webse.forward_home.routes import forward_home
 from webse.forward_users.routes import forward_users
 from webse.se_course_routes.routes import se_course
@@ -91,6 +90,9 @@ from webse.sbm_course_home.routes import sbm_course
 from webse.sbm_course_announcements.routes import sbm_course_announcements
 from webse.sbm_course_chats.routes import sbm_course_chats
 from webse.sbm_course_app_calculator.routes import sbm_course_app_calculator
+from webse.aab_course_home.routes import aab_course
+from webse.aab_course_announcements.routes import aab_course_announcements
+from webse.aab_course_business_module.routes import aab_course_business_module
 
 create_dash_spot_go(application)
 create_dash_application2(application)
@@ -137,3 +139,6 @@ application.register_blueprint(sbm_course)
 application.register_blueprint(sbm_course_announcements)
 application.register_blueprint(sbm_course_chats)
 application.register_blueprint(sbm_course_app_calculator)
+application.register_blueprint(aab_course)
+application.register_blueprint(aab_course_announcements)
+application.register_blueprint(aab_course_business_module)
