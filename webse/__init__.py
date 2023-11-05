@@ -93,6 +93,7 @@ from webse.sbm_course_app_calculator.routes import sbm_course_app_calculator
 from webse.aab_course_home.routes import aab_course
 from webse.aab_course_announcements.routes import aab_course_announcements
 from webse.aab_course_business_module.routes import aab_course_business_module
+from webse.aab_course_statistics.routes import aab_course_statistics
 
 create_dash_spot_go(application)
 create_dash_application2(application)
@@ -142,3 +143,4 @@ application.register_blueprint(sbm_course_app_calculator)
 application.register_blueprint(aab_course)
 application.register_blueprint(aab_course_announcements)
 application.register_blueprint(aab_course_business_module)
+application.register_blueprint(aab_course_statistics)
