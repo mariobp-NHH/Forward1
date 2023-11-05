@@ -1,0 +1,179 @@
+from flask import render_template, url_for, Blueprint, request, flash, redirect
+from flask_login import login_user, current_user, logout_user, login_required
+from webse import application, db, bcrypt, DBVAR
+from webse.models import AnnouncementGD
+from webse.models import Moduls
+from webse.forward_users.utils import save_picture, read_image
+from webse.aab_course_business_module.forms import ModulsForm_m2_ch1_e1, ModulsForm_m2_ch1_e2, ModulsForm_m2_ch1_q1, \
+    ModulsForm_m2_ch1_q2
+aab_course_business_module= Blueprint('aab_course_business_module', __name__)
+
+# Business module
+@aab_course_business_module.route('/sustainable_business_models_course/business_module')
+def aab_course_business_module_home():
+    return render_template('aab_course/aab_business_module/business_module_home.html', title='Sustainable Business Models Course, App Module')
+  
+#Chapter 1
+@aab_course_business_module.route('/auditing_accounting_business_course/business_module/ch1', methods=['GET', 'POST'])
+@login_required
+def ch1(): 
+    form_m2_ch1_q1 = ModulsForm_m2_ch1_q1()
+    form_m2_ch1_q2 = ModulsForm_m2_ch1_q2()
+
+    if form_m2_ch1_q1.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'AAB Course Business Module'). \
+            filter(Moduls.title_ch == 'Ch1. AAB Course Business Module. Smart Cities'). \
+            filter(Moduls.question_num == 1).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch1_q1.type.data, author=current_user)
+        if moduls.question_str == 'The reduction in methane emissions':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'AAB Course Business Module'
+        moduls.title_ch = 'Ch1. AAB Course Business Module. Smart Cities'
+        moduls.question_num = 1
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('aab_course_business_module.ch1'))
+
+    if form_m2_ch1_q2.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'AAB Course Business Module'). \
+            filter(Moduls.title_ch == 'Ch1. AAB Course Business Module. Smart Cities'). \
+            filter(Moduls.question_num == 2).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch1_q2.type.data, author=current_user)
+        if moduls.question_str == 'Incineration, and gasification to obtain biodiesel and hydrogen':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'AAB Course Business Module'
+        moduls.title_ch = 'Ch1. AAB Course Business Module. Smart Cities'
+        moduls.question_num = 2
+        moduls.question_option = 50
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('aab_course_business_module.ch1'))
+    return render_template('aab_course/aab_business_module/chapters/ch1/ch1.html', title='Auditing, Accounting and Business Course, Business Module,  ch1',
+        form_m2_ch1_q1=form_m2_ch1_q1, form_m2_ch1_q2=form_m2_ch1_q2,)  
+
+#Chapter 1, Exercise 1.
+@aab_course_business_module.route('/auditing_accounting_business_course/business_module/ch1/ex1/questionnaire', methods=['GET', 'POST'])
+@login_required
+def ch1_ex1_questionnaire():
+    form_m2_ch1_e1 = ModulsForm_m2_ch1_e1()
+    if form_m2_ch1_e1.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'AAB Course Business Module'). \
+            filter(Moduls.title_ch == 'Ch1. AAB Course Business Module. Smart Cities'). \
+            filter(Moduls.question_num == 11).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch1_e1.type.data, author=current_user)
+        if moduls.question_str == 'Only in the gasification process':
+            moduls.question_option = 1
+        elif moduls.question_str == 'Only in the anaerobic digestion process':
+            moduls.question_option = 2
+        else:
+            moduls.question_option = 3
+        moduls.title_mo = 'AAB Course Business Module'
+        moduls.title_ch = 'Ch1. AAB Course Business Module. Smart Cities'
+        moduls.question_num = 11
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('aab_course_business_module.ch1_ex1_questionnaire'))
+    return render_template('aab_course/aab_business_module/chapters/ch1/ch1_ex1_questionnaire.html', title='Auditing, Accounting and Business Course, Business Module,  ch1 - Ex1',
+                           form_m2_ch1_e1=form_m2_ch1_e1)
+
+@aab_course_business_module.route('/auditing_accounting_business_course/business_module/ch1/ex1/questionnaire/refresh', methods=['GET', 'POST'])
+@login_required
+def ch1_ex1_questionnaire_refresh():
+    form_m2_ch1_e1 = ModulsForm_m2_ch1_e1()
+    option_1 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.title_mo == 'AAB Course Business Module'). \
+        filter(Moduls.title_ch == 'Ch1. AAB Course Business Module. Smart Cities'). \
+        filter(Moduls.question_option == 1). \
+        order_by(Moduls.question_num.asc()).count()
+
+    option_2 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.title_mo == 'AAB Course Business Module'). \
+        filter(Moduls.title_ch == 'Ch1. AAB Course Business Module. Smart Cities'). \
+        filter(Moduls.question_option == 2). \
+        order_by(Moduls.question_num.asc()).count()
+
+    option_3 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.title_mo == 'AAB Course Business Module'). \
+        filter(Moduls.title_ch == 'Ch1. AAB Course Business Module. Smart Cities'). \
+        filter(Moduls.question_option == 3). \
+        order_by(Moduls.question_num.asc()).count()
+    return render_template('aab_course/aab_business_module/chapters/ch1/ch1_ex1_questionnaire.html', title='Auditing, Accounting and Business Course, Business Module,  ch1 - Ex1',
+                           option_1=option_1, option_2=option_2, option_3=option_3,
+                           form_m2_ch1_e1=form_m2_ch1_e1)
+
+@aab_course_business_module.route('/auditing_accounting_business_course/business_module/ch1/ex2/questionnaire', methods=['GET', 'POST'])
+@login_required
+def ch1_ex2_questionnaire():
+    form_m2_ch1_e2 = ModulsForm_m2_ch1_e2()
+    if form_m2_ch1_e2.validate_on_submit():
+        Moduls.query.filter_by(author=current_user). \
+            filter(Moduls.title_mo == 'AAB Course Business Module'). \
+            filter(Moduls.title_ch == 'Ch1. AAB Course Business Module. Smart Cities'). \
+            filter(Moduls.question_num == 11).delete()
+        db.session.commit()
+        moduls = Moduls(question_str=form_m2_ch1_e2.type.data, author=current_user)
+        if moduls.question_str == 'Only in the gasification process':
+            moduls.question_option = 1
+        elif moduls.question_str == 'Only in the anaerobic digestion process':
+            moduls.question_option = 2
+        else:
+            moduls.question_option = 3
+        moduls.title_mo = 'AAB Course Business Module'
+        moduls.title_ch = 'Ch1. AAB Course Business Module. Smart Cities'
+        moduls.question_num = 11
+        db.session.add(moduls)
+        db.session.commit()
+        flash('Your answer has been submitted!', 'success')
+        return redirect(url_for('aab_course_business_module.ch1_ex2_questionnaire'))
+    return render_template('aab_course/aab_business_module/chapters/ch1/ch1_ex2_questionnaire.html', title='Auditing, Accounting and Business Course, Business Module,  ch1 - ex2',
+                           form_m2_ch1_e2=form_m2_ch1_e2)
+
+@aab_course_business_module.route('/auditing_accounting_business_course/business_module/ch1/ex2/questionnaire/refresh', methods=['GET', 'POST'])
+@login_required
+def ch1_ex2_questionnaire_refresh():
+    form_m2_ch1_e2 = ModulsForm_m2_ch1_e2()
+    option_1 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.title_mo == 'AAB Course Business Module'). \
+        filter(Moduls.title_ch == 'Ch1. AAB Course Business Module. Smart Cities'). \
+        filter(Moduls.question_option == 1). \
+        order_by(Moduls.question_num.asc()).count()
+
+    option_2 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.title_mo == 'AAB Course Business Module'). \
+        filter(Moduls.title_ch == 'Ch1. AAB Course Business Module. Smart Cities'). \
+        filter(Moduls.question_option == 2). \
+        order_by(Moduls.question_num.asc()).count()
+
+    option_3 = Moduls.query.filter(Moduls.question_num == 11). \
+        filter(Moduls.title_mo == 'AAB Course Business Module'). \
+        filter(Moduls.title_ch == 'Ch1. AAB Course Business Module. Smart Cities'). \
+        filter(Moduls.question_option == 3). \
+        order_by(Moduls.question_num.asc()).count()
+    return render_template('aab_course/aab_business_module/chapters/ch1/ch1_ex2_questionnaire.html', title='Auditing, Accounting and Business Course, Business Module,  ch1 - ex2',
+                           option_1=option_1, option_2=option_2, option_3=option_3,
+                           form_m2_ch1_e2=form_m2_ch1_e2)
+
+#Chapter 2
+@aab_course_business_module.route('/auditing_accounting_business_course/business_module/ch2')
+def ch2(): 
+    return render_template('aab_course/aab_business_module/chapters/ch2.html', title='Auditing, Accounting and Business Course, Business Module, ch2') 
+
+#Chapter 3
+@aab_course_business_module.route('/auditing_accounting_business_course/business_module/ch3')
+def ch3(): 
+    return render_template('aab_course/aab_business_module/chapters/ch3.html', title='Auditing, Accounting and Business Course, Business Module, ch3') 
+  
