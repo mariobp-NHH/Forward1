@@ -1,0 +1,89 @@
+{% extends "aab_course/aab_course_layout.html" %}
+{% block content %}
+
+  <!-- Introduction -->
+  <section xmlns="http://www.w3.org/1999/html">
+    <header class="header_css">
+        <div class="container">
+            <div>
+                <h1> <span class="text-warning"> App Development Module </span></h1>
+                <p class="mb-1">
+                  The app development module is organized in three blocks that complement each other. First, the students design the <strong>layout of the app</strong> by using HTML, CSS, JavaScript and Flask. Second, they program the <strong>economic simulations</strong> by using Python. Finally, they <strong>deploy their apps</strong> in the server, by using GitGub, Heroku, and Amazon Web Services.
+                </p>
+                </br> 
+
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">The <strong>first seven chapters</strong> of the course are a block of chapters that will help you to develop the <strong>home and the methodology webpages</strong> in your project. Those seven chapters are <strong>common with the course Green Digitalization and App Development</strong> that Mario teaches at HVL and NHH in Bergen. Therefore, when you click on the links to those chapters, you will be redirected to the chapters in the Green Digitalization and App Development webpage. If you want to come back to the main webpage of the course Sustainable Business Models, you only need to click on the <strong>icon of the course</strong> located on the main menu of the Green Digitalization and App Development webpage.</li>
+                  <li class="list-group-item">The <strong>last three chapters of the course</strong> are <strong>specific for the course Sustainable Business Models</strong>, and they will have their own webpages hosted in the Sustainable Business Models webpage. In those three chapters, we will develop all the <strong>tools necessary to work out transport carbon emissions</strong>.</li>
+                </ul>
+                <br>
+            </div>
+            <img
+            src="{{url_for('static', filename='figures/sustainable_business_models/app_development_module/app_development_module_home.svg')}}"
+                    alt=""/>
+        </div>
+    </header>
+</section>
+
+    <!-- Section chapters   -->
+    <section class="section_chapter2" style="background-color: #6DA6A6;">
+      <div class="container">
+
+        <div class="column column1">          
+          <div class="column column1 box">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-terminal-fill"></i>
+            </div>
+            <p><strong>Ch1:</strong> ... </p> 
+            
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="{{ url_for('aab_course_business_module.ch1') }}" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 1</a>
+              </div>
+            </div>              
+          </div>
+                   
+        </div>
+        
+
+        <div class="column column2">
+
+          <div class="column column2 box">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-terminal-fill"></i>
+            </div>
+            <p><strong>Ch2:</strong>...</p>
+            
+
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="{{ url_for('aab_course_business_module.ch2') }}" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 2</a>
+              </div>
+            </div> 
+          </div> 
+          
+        </div>
+
+        <div class="column column3">
+
+          <div class="column column3 box">
+            <div class="h1 mb-3" style="text-align: center;">
+              <i class="bi bi-terminal-fill"></i>
+            </div>
+            <p><strong>Ch3:</strong> ...</p>
+
+            <div class="container_buttons_links_chapters">
+              <div class="btn">
+                  <a href="{{ url_for('aab_course_business_module.ch3') }}" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Chapter 3</a>
+              </div>
+            </div>  
+
+          </div>      
+        </div>
+
+      </div>
+    </section>
+
+
+
+{% endblock content %}
