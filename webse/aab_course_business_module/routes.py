@@ -277,10 +277,10 @@ def ch1_ex4_questionnaire_refresh():
 #Chapter 2
 @aab_course_business_module.route('/auditing_accounting_business_course/business_module/ch2')
 def ch2(): 
-    return render_template('aab_course/aab_business_module/chapters/ch2.html', title='Auditing, Accounting and Business Course, Business Module, ch2') 
+    return render_template('aab_course/aab_business_module/chapters/ch2/ch2.html', title='Auditing, Accounting and Business Course, Business Module, ch2') 
 
 #Chapter 3
 @aab_course_business_module.route('/auditing_accounting_business_course/business_module/ch3')
 def ch3(): 
-    return render_template('aab_course/aab_business_module/chapters/ch3.html', title='Auditing, Accounting and Business Course, Business Module, ch3') 
+    return render_template('aab_course/aab_business_module/chapters/ch3/ch3.html', title='Auditing, Accounting and Business Course, Business Module, ch3') 
   
