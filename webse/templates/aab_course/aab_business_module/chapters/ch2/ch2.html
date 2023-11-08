@@ -1,0 +1,106 @@
+{% extends "aab_course/aab_course_layout.html" %}
+{% block content %}
+
+<!-- Header -->
+<section>
+  <header class="header_css">
+    <div class="container">
+        <div>
+            <h1> <span class="text-warning"> Ch2. Energy and Digitalization </span></h1>
+            <p class="mb-1">
+              ...
+            </p>
+            </br>
+
+            <div class="container_buttons_links_header">
+              <div class="btn">
+                  <a href="#"  data-toggle="modal" data-target="#paper_Modal" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;"><i class="fa-regular fa-newspaper"></i> Material</a>
+                  <a href="#"  data-toggle="modal" data-target="#presentation_Modal" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;"><i class="fa-solid fa-person-chalkboard"></i> Presentation</a>
+              </div>
+            </div>  
+
+            <!-- Modal Paper -->
+            <div class="modal fade" id="paper_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg " style="height: 80%;" >
+              <div class="modal-content" style="height:100%">
+                  <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Paper</h5>
+                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <iframe id="paper_frame" src="/static/material/aab_course/ch1/ch1_material.pdf" width="100%" height="100%"></iframe>  <!-- Using iframe to view the pdf file.-->
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+              </div>
+              </div> 
+
+              <!-- Modal Presentation -->
+            <div class="modal fade" id="presentation_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg " style="height: 80%;" >
+              <div class="modal-content" style="height:100%">
+                  <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Presentation</h5>
+                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <iframe id="presentation_frame" src="/static/material/aab_course/ch1/ch1_material.pdf" width="100%" height="100%"></iframe>  <!-- Using iframe to view the pdf file.-->
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+              </div>
+              </div> 
+
+            <div class="list-group", style="padding: 15px 0px;">
+              <a href="#section1" class="list-group-item list-group-item-action flex-column align-items-start active">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">...</h5>
+                </div>
+                <p class="mb-1">
+                    ...
+                </p>
+
+              </a>
+              <a href="#section2" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">...</h5>
+                </div>
+                <p class="mb-1">
+                    ...
+                </p>
+              </a>
+              <a href="#section3" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">...</h5>
+                </div>
+                <p class="mb-1">
+                    ...
+                </p>
+              </a>
+              <a href="#section4" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">...</h5>
+                </div>
+                <p class="mb-1">
+                    ...
+                </p>
+              </a>
+           </div>
+        </div>
+        <img
+        src="{{url_for('static', filename='figures/auditing_accounting_business/ch2/ch2.svg')}}"
+                alt=""/>
+    </div>
+  </header>
+</section>
+
+
+
+
+
+
+{% endblock content %}
