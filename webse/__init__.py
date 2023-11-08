@@ -43,7 +43,10 @@ login_manager.blueprint_login_views = {
     'gd_course_NHH_2023_group1': 'gd_course_NHH_2023_group1.login',
     'gd_course_NHH_2023_group2': 'gd_course_NHH_2023_group2.login',
     'gd_course_NHH_2023_group3' : 'gd_course_NHH_2023_group3.login',
-    'sbm_course_chats': 'forward_users.forward_users_login',  
+    'sbm_course_chats': 'forward_users.forward_users_login', 
+    'aab_course_business_module': 'forward_users.forward_users_login', 
+    'aab_course_announcements': 'forward_users.forward_users_login', 
+    'aab_course_statistics': 'forward_users.forward_users_login'
 }
 login_manager.login_message_category = 'info'
 
