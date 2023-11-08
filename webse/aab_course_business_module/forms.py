@@ -7,16 +7,30 @@ from webse.models import User
 
 class ModulsForm_m2_ch1_e1(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
-                       choices=[('Only in the gasification process', 'Only in the gasification process'),
-                                ('Only in the anaerobic digestion process', 'Only in the anaerobic digestion process'),
-                                ('In both processes', 'In both processes')])
+                       choices=[('Reducing the waste of food in supermarkets and restaurants', 'Reducing the waste of food in supermarkets and restaurants'),
+                                ('Reducing transport carbon emissions and the public transport', 'Reducing transport carbon emissions and the public transport'),
+                                ('Improving the recycling system', 'Improving the recycling system')])
     submit = SubmitField('Submit')
 
 class ModulsForm_m2_ch1_e2(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
-                       choices=[('Only in the gasification process', 'Only in the gasification process'),
-                                ('Only in the anaerobic digestion process', 'Only in the anaerobic digestion process'),
-                                ('In both processes', 'In both processes')])
+                       choices=[('Yes, substantially', 'Yes, substantially'),
+                                ('Yes, slightly', 'Yes, slightly'),
+                                ('No', 'No')])
+    submit = SubmitField('Submit') 
+
+class ModulsForm_m2_ch1_e3(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Yes, substantially', 'Yes, substantially'),
+                                ('Yes, slightly', 'Yes, slightly'),
+                                ('No', 'No')])
+    submit = SubmitField('Submit') 
+
+class ModulsForm_m2_ch1_e4(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Yes, substantially', 'Yes, substantially'),
+                                ('Yes, slightly', 'Yes, slightly'),
+                                ('No', 'No')])
     submit = SubmitField('Submit') 
 
 class ModulsForm_m2_ch1_q1(FlaskForm):
