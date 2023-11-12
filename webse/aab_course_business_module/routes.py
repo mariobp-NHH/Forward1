@@ -289,7 +289,7 @@ def ch2():
     if form_m2_ch2_q1.validate_on_submit():
         Moduls.query.filter_by(author=current_user). \
             filter(Moduls.title_mo == 'AAB Course Business Module'). \
-            filter(Moduls.title_ch == 'ch2. AAB Course Business Module. Smart Cities'). \
+            filter(Moduls.title_ch == 'Ch2. AAB Course Business Module.  Digitalization and Energy'). \
             filter(Moduls.question_num == 1).delete()
         db.session.commit()
         moduls = Moduls(question_str=form_m2_ch2_q1.type.data, author=current_user)
@@ -298,7 +298,7 @@ def ch2():
         else:
             moduls.question_result = 0
         moduls.title_mo = 'AAB Course Business Module'
-        moduls.title_ch = 'ch2. AAB Course Business Module. Smart Cities'
+        moduls.title_ch = 'Ch2. AAB Course Business Module.  Digitalization and Energy'
         moduls.question_num = 1
         moduls.question_option = 50
         db.session.add(moduls)
@@ -309,7 +309,7 @@ def ch2():
     if form_m2_ch2_q2.validate_on_submit():
         Moduls.query.filter_by(author=current_user). \
             filter(Moduls.title_mo == 'AAB Course Business Module'). \
-            filter(Moduls.title_ch == 'ch2. AAB Course Business Module. Smart Cities'). \
+            filter(Moduls.title_ch == 'Ch2. AAB Course Business Module.  Digitalization and Energy'). \
             filter(Moduls.question_num == 2).delete()
         db.session.commit()
         moduls = Moduls(question_str=form_m2_ch2_q2.type.data, author=current_user)
@@ -318,7 +318,7 @@ def ch2():
         else:
             moduls.question_result = 0
         moduls.title_mo = 'AAB Course Business Module'
-        moduls.title_ch = 'ch2. AAB Course Business Module. Smart Cities'
+        moduls.title_ch = 'Ch2. AAB Course Business Module.  Digitalization and Energy'
         moduls.question_num = 2
         moduls.question_option = 50
         db.session.add(moduls)
@@ -329,7 +329,7 @@ def ch2():
     if form_m2_ch2_q3.validate_on_submit():
         Moduls.query.filter_by(author=current_user). \
             filter(Moduls.title_mo == 'AAB Course Business Module'). \
-            filter(Moduls.title_ch == 'ch2. AAB Course Business Module. Smart Cities'). \
+            filter(Moduls.title_ch == 'Ch2. AAB Course Business Module.  Digitalization and Energy'). \
             filter(Moduls.question_num == 3).delete()
         db.session.commit()
         moduls = Moduls(question_str=form_m2_ch2_q3.type.data, author=current_user)
@@ -338,7 +338,7 @@ def ch2():
         else:
             moduls.question_result = 0
         moduls.title_mo = 'AAB Course Business Module'
-        moduls.title_ch = 'ch2. AAB Course Business Module. Smart Cities'
+        moduls.title_ch = 'Ch2. AAB Course Business Module.  Digitalization and Energy'
         moduls.question_num = 3
         moduls.question_option = 50
         db.session.add(moduls)
@@ -349,7 +349,7 @@ def ch2():
     if form_m2_ch2_q4.validate_on_submit():
         Moduls.query.filter_by(author=current_user). \
             filter(Moduls.title_mo == 'AAB Course Business Module'). \
-            filter(Moduls.title_ch == 'ch2. AAB Course Business Module. Smart Cities'). \
+            filter(Moduls.title_ch == 'Ch2. AAB Course Business Module.  Digitalization and Energy'). \
             filter(Moduls.question_num == 4).delete()
         db.session.commit()
         moduls = Moduls(question_str=form_m2_ch2_q4.type.data, author=current_user)
@@ -358,7 +358,7 @@ def ch2():
         else:
             moduls.question_result = 0
         moduls.title_mo = 'AAB Course Business Module'
-        moduls.title_ch = 'ch2. AAB Course Business Module. Smart Cities'
+        moduls.title_ch = 'Ch2. AAB Course Business Module.  Digitalization and Energy'
         moduls.question_num = 4
         moduls.question_option = 50
         db.session.add(moduls)
@@ -369,7 +369,7 @@ def ch2():
     if form_m2_ch2_q5.validate_on_submit():
         Moduls.query.filter_by(author=current_user). \
             filter(Moduls.title_mo == 'AAB Course Business Module'). \
-            filter(Moduls.title_ch == 'ch2. AAB Course Business Module. Smart Cities'). \
+            filter(Moduls.title_ch == 'Ch2. AAB Course Business Module.  Digitalization and Energy'). \
             filter(Moduls.question_num == 5).delete()
         db.session.commit()
         moduls = Moduls(question_str=form_m2_ch2_q5.type.data, author=current_user)
@@ -378,7 +378,7 @@ def ch2():
         else:
             moduls.question_result = 0
         moduls.title_mo = 'AAB Course Business Module'
-        moduls.title_ch = 'ch2. AAB Course Business Module. Smart Cities'
+        moduls.title_ch = 'Ch2. AAB Course Business Module.  Digitalization and Energy'
         moduls.question_num = 5
         moduls.question_option = 50
         db.session.add(moduls)
@@ -389,7 +389,7 @@ def ch2():
     if form_m2_ch2_q6.validate_on_submit():
         Moduls.query.filter_by(author=current_user). \
             filter(Moduls.title_mo == 'AAB Course Business Module'). \
-            filter(Moduls.title_ch == 'ch2. AAB Course Business Module. Smart Cities'). \
+            filter(Moduls.title_ch == 'Ch2. AAB Course Business Module.  Digitalization and Energy'). \
             filter(Moduls.question_num == 6).delete()
         db.session.commit()
         moduls = Moduls(question_str=form_m2_ch2_q6.type.data, author=current_user)
@@ -398,7 +398,7 @@ def ch2():
         else:
             moduls.question_result = 0
         moduls.title_mo = 'AAB Course Business Module'
-        moduls.title_ch = 'ch2. AAB Course Business Module. Smart Cities'
+        moduls.title_ch = 'Ch2. AAB Course Business Module.  Digitalization and Energy'
         moduls.question_num = 6
         moduls.question_option = 50
         db.session.add(moduls)
