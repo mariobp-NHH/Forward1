@@ -373,7 +373,7 @@ def ch2():
             filter(Moduls.question_num == 5).delete()
         db.session.commit()
         moduls = Moduls(question_str=form_m2_ch2_q5.type.data, author=current_user)
-        if moduls.question_str == 'Creates value to the customers that are willing to make upwards or downwards adjustments in their consumption':
+        if moduls.question_str == 'Creates value to the customers that make upwards or downwards consumption':
             moduls.question_result = 1
         else:
             moduls.question_result = 0
