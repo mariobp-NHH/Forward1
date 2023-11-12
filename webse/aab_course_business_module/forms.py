@@ -35,16 +35,16 @@ class ModulsForm_m2_ch1_e4(FlaskForm):
 
 class ModulsForm_m2_ch1_q1(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
-                       choices=[('The reduction in methane emissions', 'The reduction in methane emissions'),
-                                ('The reduction of plastic in the nature', 'The reduction of plastic in the nature'),
-                                ('The recycling of residues', 'The recycling of residues')])
+                       choices=[('Produce energy locally', 'Produce energy locally'),
+                                ('Share ownership of energy technologies', 'Share ownership of energy technologies'),
+                                ('Buy green energy from another country', 'Buy green energy from another country')])
     submit = SubmitField('Submit')
 
 class ModulsForm_m2_ch1_q2(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
-                       choices=[('Heating in buildings', 'Heating in buildings'),
-                                ('Incineration, and gasification to obtain biodiesel and hydrogen', 'Incineration, and gasification to obtain biodiesel and hydrogen'),
-                                ('Compost to be used in agriculture', 'Compost to be used in agriculture')])
+                       choices=[('Focus only on the aesthetic', 'Focus only on the aesthetic'),
+                                ('Help accessibility to people with reduced mobility', 'Help accessibility to people with reduced mobility'),
+                                ('Create safe an inviting spaces for women, minorities and people with different sexual orientations', 'Create safe an inviting spaces for women, minorities and people with different sexual orientations')])
     submit = SubmitField('Submit') 
 
 
