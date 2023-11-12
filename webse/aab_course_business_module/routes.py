@@ -28,7 +28,7 @@ def ch1():
             filter(Moduls.question_num == 1).delete()
         db.session.commit()
         moduls = Moduls(question_str=form_m2_ch1_q1.type.data, author=current_user)
-        if moduls.question_str == 'The reduction in methane emissions':
+        if moduls.question_str == 'Buy green energy from another country':
             moduls.question_result = 1
         else:
             moduls.question_result = 0
@@ -48,7 +48,7 @@ def ch1():
             filter(Moduls.question_num == 2).delete()
         db.session.commit()
         moduls = Moduls(question_str=form_m2_ch1_q2.type.data, author=current_user)
-        if moduls.question_str == 'Incineration, and gasification to obtain biodiesel and hydrogen':
+        if moduls.question_str == 'Focus only on the aesthetic':
             moduls.question_result = 1
         else:
             moduls.question_result = 0
