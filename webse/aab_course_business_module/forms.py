@@ -107,7 +107,7 @@ class ModulsForm_m2_ch2_q4(FlaskForm):
 
 class ModulsForm_m2_ch2_q5(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
-                       choices=[('Creates value to the customers that are willing to make upwards or downwards adjustments in their consumption', 'Creates value to the customers that are willing to make upwards or downwards adjustments in their consumption'),
+                       choices=[('Creates value to the customers that make upwards or downwards consumption', 'Creates value to the customers that make upwards or downwards consumption'),
                                 ('Foster the development of renewable energy', 'Foster the development of renewable energy'),
                                 ('Reduce the consumption of energy', 'Reduce the consumption of energy')])
     submit = SubmitField('Submit') 
