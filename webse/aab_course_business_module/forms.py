@@ -118,3 +118,18 @@ class ModulsForm_m2_ch2_q6(FlaskForm):
                                 ('Solve the congestion problems in the grid at local level', 'Solve the congestion problems in the grid at local level'),
                                 ('Solve supply fluctuation of electricity du to the introduction of renewable energy', 'Solve supply fluctuation of electricity du to the introduction of renewable energy')])
     submit = SubmitField('Submit') 
+
+# Chapter 3
+class ModulsForm_m2_ch3_e1(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Access in real time to databases, information, and simulations', 'Access in real time to databases, information, and simulations'),
+                                ('Better information from the consumers', 'Better information from the consumers'),
+                                ('Better information with suppliers', 'Better information with suppliers')])
+    submit = SubmitField('Submit')
+
+class ModulsForm_m2_ch3_e2(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('Statistical packages (e.g., R, Stata); programming languages (e.g., Python)', 'Statistical packages (e.g., R, Stata); programming languages (e.g., Python)'),
+                                ('Excel with basic functionality', 'Excel with basic functionality'),
+                                ('More advanced Excel (including Power-BI, Solver, Miner, and Macros)', 'More advanced Excel (including Power-BI, Solver, Miner, and Macros)')])
+    submit = SubmitField('Submit') 
