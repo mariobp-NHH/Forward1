@@ -95,6 +95,7 @@ from webse.sbm_course_chats.routes import sbm_course_chats
 from webse.sbm_course_app_calculator.routes import sbm_course_app_calculator
 from webse.sbm_course_students_apps.routes import sbm_course_students_apps
 from webse.sbm_course_NMBU_2023_group1.routes import sbm_course_NMBU_2023_group1
+from webse.sbm_course_NMBU_2023_group2.routes import sbm_course_NMBU_2023_group2
 from webse.aab_course_home.routes import aab_course
 from webse.aab_course_announcements.routes import aab_course_announcements
 from webse.aab_course_business_module.routes import aab_course_business_module
@@ -147,6 +148,7 @@ application.register_blueprint(sbm_course_chats)
 application.register_blueprint(sbm_course_app_calculator)
 application.register_blueprint(sbm_course_students_apps)
 application.register_blueprint(sbm_course_NMBU_2023_group1)
+application.register_blueprint(sbm_course_NMBU_2023_group2)
 application.register_blueprint(aab_course)
 application.register_blueprint(aab_course_announcements)
 application.register_blueprint(aab_course_business_module)
