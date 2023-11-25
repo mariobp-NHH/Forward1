@@ -22,12 +22,12 @@ class SpotGo_q1(FlaskForm):
 
 class SpotGo_q2(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
-                       choices=[('A decrease in competition in the spot market',
-                                 'A decrease in competition in the spot market'),
-                                ('An increase in competition in the spot market',
-                                 'An increase in competition in the spot market'),
-                                ('It has no impact on the competition in the spot market',
-                                 'It has no impact on the competition in the spot market')])
+                       choices=[('a',
+                                 'a'),
+                                ('b',
+                                 'b'),
+                                ('c',
+                                 'c')])
     submit = SubmitField('Submit')    
 
 class SpotGo_q3(FlaskForm):
