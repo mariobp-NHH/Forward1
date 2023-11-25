@@ -95,7 +95,7 @@ def papers_spot_go_students_questions():
             filter(ModulsGD.question_num == 1).delete()
         db.session.commit()
         moduls = ModulsGD(question_str=spot_go_q1.type.data, author=current_user)
-        if moduls.question_str == 'render_template':
+        if moduls.question_str == 'An increase in competition in the spot market':
             moduls.question_result = 1
         else:
             moduls.question_result = 0
@@ -116,7 +116,7 @@ def papers_spot_go_students_questions():
             filter(ModulsGD.question_num == 2).delete()
         db.session.commit()
         moduls = ModulsGD(question_str=spot_go_q2.type.data, author=current_user)
-        if moduls.question_str == '<title>{{title}}</title>':
+        if moduls.question_str == 'An increase in competition in the spot market':
             moduls.question_result = 1
         else:
             moduls.question_result = 0
