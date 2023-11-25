@@ -37,8 +37,10 @@
           <form method="POST" action="">
               {{ spot_go_q1.csrf_token }}
                   <legend class="border-bottom mb-4">Question 1</legend>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur culpa ipsam voluptatum quos sit fugit itaque! Porro soluta veritatis aut?
-                      <strong>(chose one of the next options):</strong>      
+                  <p class="card-text">With the <strong>current GO market design</strong>, which is the impact on the <strong>competition in the spot market</strong> of an <strong>increase in the demand for GOs</strong>?
+                      (chose one of the next options): 
+                      <br>
+                      <br>     
                   </p>
                   <div class="form-group">
                       {% if spot_go_q1.type.errors %}
@@ -63,8 +65,10 @@
           <form method="POST" action="">
               {{ spot_go_q2.csrf_token }}
                   <legend class="border-bottom mb-4">Question 2</legend>
-                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur culpa ipsam voluptatum quos sit fugit itaque! Porro soluta veritatis aut?
-                      <strong>(chose one of the next options):</strong>
+                  <p class="card-text">With the <strong>current GO market design</strong>, 
+                    which is the impact on the <strong>competition in the spot market</strong> of a 
+                    <strong>decrease in the green production capacity</strong> that can be sold in the GO market?
+                      (chose one of the next options):
                   </p>
                   <div class="form-group">
                       {% if spot_go_q2.type.errors %}
