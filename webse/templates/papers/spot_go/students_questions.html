@@ -37,7 +37,8 @@
           <form method="POST" action="">
               {{ spot_go_q1.csrf_token }}
                   <legend class="border-bottom mb-4">Question 1</legend>
-                  <p class="card-text">With the <strong>current GO market design</strong>, which is the impact on the <strong>competition in the spot market</strong> of an <strong>increase in the demand for GOs</strong>?
+                  <p class="card-text">With the <strong>current GO market design</strong>, which is the impact on the 
+                    <strong>competition in the spot market</strong> of an <strong>increase in the demand for GOs</strong>?
                       (chose one of the next options): 
                       <br>
                       <br>     
@@ -102,9 +103,12 @@
             <form method="POST" action="">
                 {{ spot_go_q3.csrf_token }}
                     <legend class="border-bottom mb-4">Question 3</legend>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur culpa ipsam voluptatum quos sit fugit itaque! Porro soluta veritatis aut?
-                        <strong>(chose one of the next options):</strong>      
+                    <p class="card-text">With the <strong>current GO market design</strong>, if a government wants to 
+                        <strong>foster competition in the spot market</strong>, which is the right policy to implement?
+                        (chose one of the next options):     
                     </p>
+                    <br>
+                    <br>
                     <div class="form-group">
                         {% if spot_go_q3.type.errors %}
                             {{ spot_go_q3.type(class="form-control form-control is-invalid") }}
@@ -128,8 +132,10 @@
             <form method="POST" action="">
                 {{ spot_go_q4.csrf_token }}
                     <legend class="border-bottom mb-4">Question 4</legend>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur culpa ipsam voluptatum quos sit fugit itaque! Porro soluta veritatis aut?
-                        <strong>(chose one of the next options):</strong>
+                    <p class="card-text">The European Commission wants to change the <strong>GOs market design </strong>
+                        by considering the transmission congestion to work out the equilibrium prices in that market. 
+                        Which is the impact of that policy on <strong>competition</strong>?
+                        (chose one of the next options):
                     </p>
                     <div class="form-group">
                         {% if spot_go_q4.type.errors %}
@@ -165,7 +171,7 @@
 
               <div class="modal-body", style="color:black">
               <p style="text-align: left;">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi aliquid ducimus fuga molestiae iure fugiat ullam id, assumenda impedit quo. 
+                  You have some useful information to answer this question in proposition 5. You also have an example in table 1.
               </p>
               </div>
 
@@ -188,7 +194,7 @@
 
               <div class="modal-body", style="color:black">
               <p style="text-align: left;">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi aliquid ducimus fuga molestiae iure fugiat ullam id, assumenda impedit quo. 
+                You have some useful information to answer this question in proposition 6. You also have an example in table 1. 
               </p>
               </div>
 
@@ -211,7 +217,7 @@
 
               <div class="modal-body", style="color:black">
               <p style="text-align: left;">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi aliquid ducimus fuga molestiae iure fugiat ullam id, assumenda impedit quo. 
+                You have some useful information to answer this question in proposition 6. You also have an example in table 1. 
               </p>
               </div>
 
@@ -234,7 +240,7 @@
 
               <div class="modal-body", style="color:black">
               <p style="text-align: left;">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi aliquid ducimus fuga molestiae iure fugiat ullam id, assumenda impedit quo. 
+                You have some useful information to answer this question in proposition 7. 
               </p>
               </div>
 
