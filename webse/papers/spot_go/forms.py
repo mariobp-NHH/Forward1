@@ -22,30 +22,30 @@ class SpotGo_q1(FlaskForm):
 
 class SpotGo_q2(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
-                       choices=[('a',
-                                 'a'),
-                                ('b',
-                                 'b'),
-                                ('c',
-                                 'c')])
+                       choices=[('It reduces competition in the spot market',
+                                 'It reduces competition in the spot market'),
+                                ('It fosters competition in the spot market',
+                                 'It fosters competition in the spot market'),
+                                ('It does not affect competition in the spot market',
+                                 'It does not affect competition in the spot market')])
     submit = SubmitField('Submit')    
 
 class SpotGo_q3(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
-                       choices=[('option aaa',
-                                 'option aaa'),
-                                ('option bbb',
-                                 'option bbb'),
-                                ('option ccc',
-                                 'option ccc')])
+                       choices=[('Allow all the green production capacity to participate in the GO market',
+                                 'Allow all the green production capacity to participate in the GO market'),
+                                ('Do not interfere in the GO market',
+                                 'Do not interfere in the GO market'),
+                                ('Allow only the new green production technology capacity to participate in the GO market',
+                                 'Allow only the new green production technology capacity to participate in the GO market')])
     submit = SubmitField('Submit') 
 
 class SpotGo_q4(FlaskForm):
     type = SelectField('Type', validators=[DataRequired()],
-                       choices=[('option aaaa',
-                                 'option aaaa'),
-                                ('option bbbb',
-                                 'option bbbb'),
-                                ('option cccc',
-                                 'option cccc')])
+                       choices=[('It activates the competition in the GO market',
+                                 'It activates the competition in the GO market'),
+                                ('It deactivates the competition in the GO market',
+                                 'It deactivates the competition in the GO market'),
+                                ('It does not modify the competition in the GO market',
+                                 'It does not modify the competition in the GO market')])
     submit = SubmitField('Submit')      
