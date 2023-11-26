@@ -116,7 +116,7 @@ def papers_spot_go_students_questions():
             filter(ModulsGD.question_num == 2).delete()
         db.session.commit()
         moduls = ModulsGD(question_str=spot_go_q2.type.data, author=current_user)
-        if moduls.question_str == 'An increase in competition in the spot market':
+        if moduls.question_str == 'It fosters competition in the spot market':
             moduls.question_result = 1
         else:
             moduls.question_result = 0
@@ -137,7 +137,7 @@ def papers_spot_go_students_questions():
             filter(ModulsGD.question_num == 3).delete()
         db.session.commit()
         moduls = ModulsGD(question_str=spot_go_q3.type.data, author=current_user)
-        if moduls.question_str == '<ul><li>...</li></ul>':
+        if moduls.question_str == 'Allow only the new green production technology capacity to participate in the GO market':
             moduls.question_result = 1
         else:
             moduls.question_result = 0
@@ -158,7 +158,7 @@ def papers_spot_go_students_questions():
             filter(ModulsGD.question_num == 4).delete()
         db.session.commit()
         moduls = ModulsGD(question_str=spot_go_q4.type.data, author=current_user)
-        if moduls.question_str == 'url_for':
+        if moduls.question_str == 'It deactivates the competition in the GO market':
             moduls.question_result = 1
         else:
             moduls.question_result = 0
