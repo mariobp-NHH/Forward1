@@ -3,6 +3,63 @@ import matplotlib.pyplot as plt
 plt.rc('text', usetex=True)
 
 def quantities(ah, al, ah_go, al_go, T, alpha1, alpha2, cases):
+    """
+    This function calculates the dispatch in the spot and GO markets for supplier
+    1 and 2. It is assumed that the transmission line is always congested in the
+    spot market, while the quantities in the GO market depend on whether or not
+    the transmission line is taken into account in the GO market. 
+    
+    Note that the first number in the quantity variables refers to the branch in 
+    the spot market, the second number refers to the branch in the GO market, 
+    while the last number refers to the supplier.
+
+    Parameters
+    ----------
+    a1 : float
+        Demand in spot market in node 1 (high-demand node).
+    a2 : float
+        Demand in spot market in node 2 (low-demand node).
+    a1_go : float
+        Demand in GO market in node 1 (high-demand node).
+    a2_go : float
+        Demand in GO market in node 2 (low-demand node).
+    T : float
+        Capacity of transmission line.
+    alpha1 : float
+        Share of production capacity of supplier 1 that qualifies for GOs.
+    alpha2 : float
+        Share of production capacity of supplier 2 that qualifies for GOs.
+    restriction : bool
+        True if there is transmission line restriction in GO market, False otherwise.
+
+    Returns
+    -------
+    q11 : float
+        Quantity of supplier 1 in branch 1 spot.
+    q12 : float
+        Quantity of supplier 2 in branch 1 spot.
+    q1go11 : float
+        Quantity of supplier 1 in branch 1 spot and branch 1 go.
+    q1go12 : float
+        Quantity of supplier 2 in branch 1 spot and branch 1 go.
+    q1go21 : float
+        Quantity of supplier 1 in branch 1 spot and branch 2 go.
+    q1go22 : float
+        Quantity of supplier 2 in branch 1 spot and branch 2 go.
+    q21 : float
+        Quantity of supplier 1 in branch 2 spot.
+    q22 : float
+        Quantity of supplier 2 in branch 2 spot.
+    q2go11 : float
+        Quantity of supplier 1 in branch 2 spot and branch 1 go.
+    q2go12 : float
+        Quantity of supplier 2 in branch 2 spot and branch 1 go.
+    q2go21 : float
+        Quantity of supplier 1 in branch 2 spot and branch 2 go.
+    q2go22 : float
+        Quantity of supplier 2 in branch 2 spot and branch 2 go.
+
+    """
     # Branch 1 spot
     q11 = ah + T
     q12 = al - T
@@ -41,6 +98,47 @@ def quantities(ah, al, ah_go, al_go, T, alpha1, alpha2, cases):
     return q11, q12, q1go11, q1go12, q1go21, q1go22, q21, q22, q2go11, q2go12, q2go21, q2go22
 
 def bounds_GO(q1go11, q1go12, q1go21, q1go22, q2go11, q2go12, q2go21, q2go22, pmaxgo, branch):
+    """
+    This function calculates the lower bounds of the price support for the two
+    suppliers in each branch of the spot market. See lemma 2 in the paper.
+    
+    Note that the first number in the quantity variables refers to the branch in 
+    the spot market, the second number refers to the branch in the GO market, 
+    while the last number refers to the supplier.
+
+    Parameters
+    ----------
+    q1go11 : float
+        Quantity of supplier 1 in branch 1 spot and branch 1 go.
+    q1go12 : float
+        Quantity of supplier 2 in branch 1 spot and branch 1 go.
+    q1go21 : float
+        Quantity of supplier 1 in branch 1 spot and branch 2 go.
+    q1go22 : float
+        Quantity of supplier 2 in branch 1 spot and branch 2 go.
+    q2go11 : float
+        Quantity of supplier 1 in branch 2 spot and branch 1 go.
+    q2go12 : float
+        Quantity of supplier 2 in branch 2 spot and branch 1 go.
+    q2go21 : float
+        Quantity of supplier 1 in branch 2 spot and branch 2 go.
+    q2go22 : float
+        Quantity of supplier 2 in branch 2 spot and branch 2 go.
+    pmaxgo : float
+        Price cap in GO market.
+    branch : int
+        Branch 1 in spot market if 1, branch 2 otherwise.
+
+    Returns
+    -------
+    b1 : float
+        Lower bound of price support for supplier 1 in GO market.
+    b2 : float
+        Lower bound of price support for supplier 2 in GO market.
+    b : float
+        Lower bound of price support in GO market.
+
+    """
     # Branch 1: p1s<=p2s:
     if branch == 1:
         b1 = pmaxgo * q1go21 / q1go11
@@ -55,6 +153,51 @@ def bounds_GO(q1go11, q1go12, q1go21, q1go22, q2go11, q2go12, q2go21, q2go22, pm
     return b1, b2, b
 
 def CDF_GO(q1go11, q1go12, q1go21, q1go22, q2go11, q2go12, q2go21, q2go22, N, bgo, pmaxgo, branch):
+    """
+    This function calculates the cumulative distribution functions for both
+    suppliers in both branches of the spot market. See proposition 1 in the paper.
+
+    Note that the first number in the quantity variables refers to the branch in 
+    the spot market, the second number refers to the branch in the GO market, 
+    while the last number refers to the supplier.
+ 
+    Parameters
+    ----------
+    q1go11 : float
+        Quantity of supplier 1 in branch 1 spot and branch 1 go.
+    q1go12 : float
+        Quantity of supplier 2 in branch 1 spot and branch 1 go.
+    q1go21 : float
+        Quantity of supplier 1 in branch 1 spot and branch 2 go.
+    q1go22 : float
+        Quantity of supplier 2 in branch 1 spot and branch 2 go.
+    q2go11 : float
+        Quantity of supplier 1 in branch 2 spot and branch 1 go.
+    q2go12 : float
+        Quantity of supplier 2 in branch 2 spot and branch 1 go.
+    q2go21 : float
+        Quantity of supplier 1 in branch 2 spot and branch 2 go.
+    q2go22 : float
+        Quantity of supplier 2 in branch 2 spot and branch 2 go.
+    N : int
+        Length of price vector and CDFs.
+    bgo : float
+        Lower bound of price support in GO market.
+    pmaxgo : float
+        Price cap in GO market.
+    branch : int
+        Branch 1 in spot market if 1, branch 2 otherwise.
+
+    Returns
+    -------
+    F1 : array
+        CDF of supplier 1 in GO market.
+    F2 : array
+        CDF of supplier 2 in GO market.
+    p : array
+        Price vector.
+
+    """
     eps = (pmaxgo - bgo) / N
     p = np.zeros(N + 1)
     F_h = np.zeros(N + 1)
@@ -75,12 +218,102 @@ def CDF_GO(q1go11, q1go12, q1go21, q1go22, q2go11, q2go12, q2go21, q2go22, N, bg
     return F_h, F_l, p
 
 def bounds_spot(q11, q12, q21, q22, q1go11, q1go22, q2go11, q2go22, b1go, b2go, pmaxs):
+    """
+    This function calculates the lower bounds of the price support for the two
+    suppliers in the spot market. See lemma 3 in the paper.
+    
+    Note that the first number in the quantity variables refers to the branch in 
+    the spot market, the second number refers to the branch in the GO market, 
+    while the last number refers to the supplier. 
+
+    Parameters
+    ----------
+    q11 : float
+        Quantity of supplier 1 in branch 1 spot.
+    q12 : float
+        Quantity of supplier 2 in branch 1 spot.
+    q21 : float
+        Quantity of supplier 1 in branch 2 spot.
+    q22 : float
+        Quantity of supplier 2 in branch 2 spot.
+    q1go11 : float
+        Quantity of supplier 1 in branch 1 spot and branch 1 go.
+    q1go22 : float
+        Quantity of supplier 2 in branch 1 spot and branch 2 go.
+    q2go11 : float
+        Quantity of supplier 1 in branch 2 spot and branch 1 go.
+    q2go22 : float
+        Quantity of supplier 2 in branch 2 spot and branch 2 go.
+    b1go : float
+        Lower bound of price support in GO market in branch 1 spot (go1).
+    b2go : float
+        Lower bound of price support in GO market in branch 2 spot (go2).
+    pmaxs : float
+        Price cap in spot market.
+
+    Returns
+    -------
+    b1 : float
+        Lower bound of price support of supplier 1 in spot market.
+    b2 : float
+        Lower bound of price support of supplier 2 in spot market.
+    b : float
+        Lower bound of price support in spot market.
+
+    """
     b1 = ((pmaxs * q21) + (b2go * q2go11) - (b1go * q1go11)) / q11
     b2 = ((pmaxs * q12) + (b1go * q1go22) - (b2go * q2go22)) / q22
     b = max(b1, b2)
     return b1, b2, b
 
 def CDF_spot(q11, q12, q21, q22, q1go11, q1go22, q2go11, q2go22, N, bs, b1go, b2go, pmaxs):
+    """
+    This function calculates the cumulative distribution functions for both
+    suppliers the spot market. See proposition 2 in the paper.
+
+    Note that the first number in the quantity variables refers to the branch in 
+    the spot market, the second number refers to the branch in the GO market, 
+    while the last number refers to the supplier.
+ 
+    Parameters
+    ----------
+    q11 : float
+        Quantity of supplier 1 in branch 1 spot.
+    q12 : float
+        Quantity of supplier 2 in branch 1 spot.
+    q21 : float
+        Quantity of supplier 1 in branch 2 spot.
+    q22 : float
+        Quantity of supplier 2 in branch 2 spot.
+    q1go11 : float
+        Quantity of supplier 1 in branch 1 spot and branch 1 go.
+    q1go22 : float
+        Quantity of supplier 2 in branch 1 spot and branch 2 go.
+    q2go11 : float
+        Quantity of supplier 1 in branch 2 spot and branch 1 go.
+    q2go22 : float
+        Quantity of supplier 2 in branch 2 spot and branch 2 go.
+    N : int
+        Length of price vector and CDFs.
+    bs : float
+        Lower bound of price support in spot market.
+    b1go : float
+        Lower bound of price support in GO market in branch 1 spot (go1).
+    b2go : float
+        Lower bound of price support in GO market in branch 2 spot (go2).
+    pmaxs : float
+        Price cap in spot market.
+
+    Returns
+    -------
+    F1 : array
+        CDF of supplier 1 in spot market.
+    F2 : array
+        CDF of supplier 2 in spot market.
+    p : array
+        Price vector.
+
+    """
     eps = (pmaxs - bs) / N
     p = np.zeros(N + 1)
     F_h = np.zeros(N + 1)
@@ -95,6 +328,27 @@ def CDF_spot(q11, q12, q21, q22, q1go11, q1go22, q2go11, q2go22, N, bs, b1go, b2
     return F_h, F_l, p
 
 def exp_price(F_h, F_l, p):
+    """
+    This function calculates the expected price in the spot market for each 
+    of the suppliers.
+
+    Parameters
+    ----------
+    F1 : array
+        CDF of supplier 1 in spot market.
+    F2 : array
+        CDF of supplier 2 in spot market.
+    p : array
+        Price vector.
+
+    Returns
+    -------
+    E1 : float
+        Expected bid of supplier 1 in spot market.
+    E2 : float
+        Expected bid of supplier 2 in spot market.
+
+    """
     F_h_diff = np.diff(F_h)
     F_l_diff = np.diff(F_l)
 
@@ -103,8 +357,12 @@ def exp_price(F_h, F_l, p):
 
     return E_h, E_l
 
-def consumer_surplus(al, ah, El, Eh, pmax):
+def consumer_surplus_spot(al, ah, El, Eh, pmax):
     CS= ((pmax-El)*al) +((pmax-Eh)*ah)
+    return CS
+
+def consumer_surplus_go(al, ah, El, Eh, pmax):
+    CS= (pmax-((El+Eh)/2))*(al+ah)
     return CS
 
 def profit(b, q1, q2):
@@ -128,7 +386,7 @@ def plot_exp_price(ah, al, ah_go, al_go, T, pmaxgo, pmaxs, N, alpha1, alpha2, ca
             b1, b2, bgo1 = bounds_GO(q1go11, q1go12, q1go21, q1go22, q2go11, q2go12, q2go21, q2go22, pmaxgo, branch)
             F_hgo1, F_lgo1, pgo1 = CDF_GO(q1go11, q1go12, q1go21, q1go22, q2go11, q2go12, q2go21, q2go22, N, bgo1, pmaxgo, branch)
             E_h, E_l = exp_price(F_hgo1, F_lgo1, pgo1)
-            CS = consumer_surplus(al_go, ah_go, E_l, E_h, pmaxgo)
+            CS = consumer_surplus_go(al_go, ah_go, E_l, E_h, pmaxgo)
             pi1, pi2 = profit(bgo1, q1go11, q1go22)
             W = CS+pi1+pi2
             E_h_lst.append(E_h)
@@ -143,7 +401,7 @@ def plot_exp_price(ah, al, ah_go, al_go, T, pmaxgo, pmaxs, N, alpha1, alpha2, ca
             b1, b2, bgo2 = bounds_GO(q1go11, q1go12, q1go21, q1go22, q2go11, q2go12, q2go21, q2go22, pmaxgo, branch)
             F_hgo1, F_lgo1, pgo1 = CDF_GO(q1go11, q1go12, q1go21, q1go22, q2go11, q2go12, q2go21, q2go22, N, bgo2, pmaxgo, branch)
             E_h, E_l = exp_price(F_hgo1, F_lgo1, pgo1)
-            CS = consumer_surplus(al_go, ah_go, E_l, E_h, pmaxgo)
+            CS = consumer_surplus_go(al_go, ah_go, E_l, E_h, pmaxgo)
             pi1, pi2 = profit(bgo2, q2go11, q2go22)
             W = CS + pi1 + pi2
             E_h_lst.append(E_h)
@@ -160,7 +418,7 @@ def plot_exp_price(ah, al, ah_go, al_go, T, pmaxgo, pmaxs, N, alpha1, alpha2, ca
             b1sgo, b2sgo, bsgo = bounds_spot(q11, q12, q21, q22, q1go11, q1go22, q2go11, q2go22, b1go, b2go, pmaxs)
             F1sgo, F2sgo, psgo = CDF_spot(q11, q12, q21, q22, q1go11, q1go22, q2go11, q2go22, N, bsgo, b1go, b2go, pmaxs)
             E_h, E_l = exp_price(F1sgo, F2sgo, psgo)
-            CS = consumer_surplus(a2, ah, E_l, E_h, pmaxs)
+            CS = consumer_surplus_spot(a2, ah, E_l, E_h, pmaxs)
             pi1, pi2 = profit(bsgo, q11, q22)
             W = CS + pi1 + pi2
             E_h_lst.append(E_h)
@@ -175,7 +433,7 @@ def plot_exp_price(ah, al, ah_go, al_go, T, pmaxgo, pmaxs, N, alpha1, alpha2, ca
             b1s, b2s, bs = bounds_spot(q11, q12, q21, q22, 0, 0, 0, 0, 0, 0, pmaxs)
             F1s, F2s, ps = CDF_spot(q11, q12, q21, q22, 0, 0, 0, 0, N, bs, 0, 0, pmaxs)
             E_h, E_l = exp_price(F1s, F2s, ps)
-            CS = consumer_surplus(a2, ah, E_l, E_h, pmaxs)
+            CS = consumer_surplus_spot(a2, ah, E_l, E_h, pmaxs)
             pi1, pi2 = profit(bs, q11, q22)
             W = CS + pi1 + pi2
             E_h_lst.append(E_h)
