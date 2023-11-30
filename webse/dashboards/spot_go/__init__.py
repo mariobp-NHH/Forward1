@@ -27,7 +27,7 @@ colors= {
 
 from .layout import html_layout
 from .parameters import parameters
-from .simulations import quantities, bounds_GO, CDF_GO, bounds_spot, CDF_spot, exp_price, consumer_surplus, profit, plot_exp_price
+from .simulations import quantities, bounds_GO, CDF_GO, bounds_spot, CDF_spot, exp_price, consumer_surplus_spot, consumer_surplus_go, profit, plot_exp_price
 from .spot_go_figures import fig_area_function, fig_go_areas_function, fig_strategies, fig_prices, graph_in
 
 
@@ -103,20 +103,14 @@ def create_dash_spot_go(flask_app):
                             html.Label('Demand node 1, GO ($a_1^{go}$)'),
                             dcc.Slider(id="ah_go",
                                        min=2,
-                                       max=3,
+                                       max=5,
                                        step=None,
                                        marks={
                                            2: '2',
-                                           2.1: '2.1',
-                                           2.2: '2.2',
-                                           2.3: '2.3',
-                                           2.4: '2.4',
-                                           2.5: '2.5',
                                            2.6: '2.6',
-                                           2.7: '2.7',
-                                           2.8: '2.8',
-                                           2.9: '2.9',
                                            3: '3',
+                                           4.4: '4.4', 
+                                           5: '5',                                          
                                        },
                                        value=3,
                                        ),
@@ -124,20 +118,14 @@ def create_dash_spot_go(flask_app):
                             html.Label('Demand node 2, GO ($a_2^{go}$)'),
                             dcc.Slider(id="al_go",
                                        min=2,
-                                       max=3,
+                                       max=5,
                                        step=None,
                                        marks={
                                            2: '2',
-                                           2.1: '2.1',
-                                           2.2: '2.2',
-                                           2.3: '2.3',
-                                           2.4: '2.4',
-                                           2.5: '2.5',
                                            2.6: '2.6',
-                                           2.7: '2.7',
-                                           2.8: '2.8',
-                                           2.9: '2.9',
                                            3: '3',
+                                           4.4: '4.4',
+                                           5: '5',
                                        },
                                        value=3,
                                        ),
@@ -146,10 +134,11 @@ def create_dash_spot_go(flask_app):
                         html.Div([
                             html.Label('Green capacity node 1 ($\\alpha_1$)'),
                             dcc.Slider(id="alpha1",
-                                       min=0.6,
+                                       min=0.5,
                                        max=1,
                                        step=None,
                                        marks={
+                                           0.5: '0.5', 
                                            0.6: '0.6',
                                            0.7: '0.7',
                                            0.8: '0.8',
@@ -161,10 +150,11 @@ def create_dash_spot_go(flask_app):
 
                             html.Label('Green capacity node 2 ($\\alpha_2$)'),
                             dcc.Slider(id="alpha2",
-                                       min=0.6,
+                                       min=0.5,
                                        max=1,
                                        step=None,
                                        marks={
+                                           0.5: '0.5',
                                            0.6: '0.6',
                                            0.7: '0.7',
                                            0.8: '0.8',
@@ -393,27 +383,27 @@ def init_callbacks(dash_app):
         b11go, b12go, b1go = bounds_GO(q1go11, q1go12, q1go21, q1go22, q2go11, q2go12, q2go21, q2go22, pmaxgo, branch=1)
         F1go1, F2go1, pgo1 = CDF_GO(q1go11, q1go12, q1go21, q1go22, q2go11, q2go12, q2go21, q2go22, N, b1go, pmaxgo, branch=1)
         E1go1, E2go1 = exp_price(F1go1, F2go1, pgo1)
-        CSgo1 = consumer_surplus(al_go, ah_go, E2go1, E1go1, pmaxgo)
+        CSgo1 = consumer_surplus_go(al_go, ah_go, E2go1, E1go1, pmaxgo)
         pi1go1, pi2go1 = profit(b1go, q1go11, q1go22)
         Wgo1 = CSgo1 + pi1go1 + pi2go1
         # GO2:
         b21go, b22go, b2go = bounds_GO(q1go11, q1go12, q1go21, q1go22, q2go11, q2go12, q2go21, q2go22, pmaxgo, branch=2)
         F1go2, F2go2, pgo2 = CDF_GO(q1go11, q1go12, q1go21, q1go22, q2go11, q2go12, q2go21, q2go22, N, b2go, pmaxgo, branch=2)
         E1go2, E2go2 = exp_price(F1go2, F2go2, pgo2)
-        CSgo2 = consumer_surplus(al_go, ah_go, E2go2, E1go2, pmaxgo)
+        CSgo2 = consumer_surplus_go(al_go, ah_go, E2go2, E1go2, pmaxgo)
         pi1go2, pi2go2 = profit(b2go, q2go11, q2go22)
         Wgo2 = CSgo2 + pi1go2 + pi2go2
         # Spot
         b1sgo, b2sgo, bsgo = bounds_spot(q11, q12, q21, q22, q1go11, q1go22, q2go11, q2go22, b1go, b2go, pmaxs)
         F1sgo, F2sgo, psgo = CDF_spot(q11, q12, q21, q22, q1go11, q1go22, q2go11, q2go22, N, bsgo, b1go, b2go, pmaxs)
         E1sgo, E2sgo = exp_price(F1sgo, F2sgo, psgo)
-        CSsgo = consumer_surplus(al, ah, E2sgo, E1sgo, pmaxs)
+        CSsgo = consumer_surplus_spot(al, ah, E2sgo, E1sgo, pmaxs)
         pi1sgo, pi2sgo = profit(bsgo, q11, q22)
         Wsgo = CSsgo + pi1sgo + pi2sgo
         b1s, b2s, bs = bounds_spot(q11, q12, q21, q22, 0, 0, 0, 0, 0, 0, pmaxs)
         F1s, F2s, ps = CDF_spot(q11, q12, q21, q22, 0, 0, 0, 0, N, bs, 0, 0, pmaxs)
         E1s, E2s = exp_price(F1s, F2s, ps)
-        CSs = consumer_surplus(al, ah, E2s, E1s, pmaxs)
+        CSs = consumer_surplus_spot(al, ah, E2s, E1s, pmaxs)
         pi1s, pi2s = profit(bs, q11, q22)
         Ws = CSs + pi1s + pi2s
 
