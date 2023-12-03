@@ -3,7 +3,7 @@ from webse import application, db, bcrypt
 from webse.models import User, ChatSEP, ModulsGD
 from flask_login import login_user, current_user, logout_user, login_required
 from webse.forward_users.utils import read_image
-from webse.papers.spot_go.forms import ChatForm, SpotGo_q1, SpotGo_q2, SpotGo_q3, SpotGo_q4
+from webse.papers.spot_go.forms import ChatForm, SpotGo_q1, SpotGo_q2, SpotGo_q3, SpotGo_q4, SpotGo_q5, SpotGo_q6
 
 papers_spot_go= Blueprint('papers_spot_go', __name__)
 
@@ -86,7 +86,8 @@ def papers_spot_go_students_questions():
     spot_go_q2 = SpotGo_q2()
     spot_go_q3 = SpotGo_q3()
     spot_go_q4 = SpotGo_q4()
-    
+    spot_go_q5 = SpotGo_q5()
+    spot_go_q6 = SpotGo_q6()
 
     if spot_go_q1.validate_on_submit():
         ModulsGD.query.filter_by(author=current_user). \
@@ -106,7 +107,6 @@ def papers_spot_go_students_questions():
         moduls.question_section = 'spot_go'       
         db.session.add(moduls)
         db.session.commit()
-        flash('Your answer has been submitted!', 'success')
         return redirect(url_for('papers_spot_go.papers_spot_go_students_questions'))
 
     if spot_go_q2.validate_on_submit():
@@ -127,7 +127,6 @@ def papers_spot_go_students_questions():
         moduls.question_section = 'spot_go'       
         db.session.add(moduls)
         db.session.commit()
-        flash('Your answer has been submitted!', 'success')
         return redirect(url_for('papers_spot_go.papers_spot_go_students_questions'))
 
     if spot_go_q3.validate_on_submit():
@@ -148,7 +147,6 @@ def papers_spot_go_students_questions():
         moduls.question_section = 'spot_go'       
         db.session.add(moduls)
         db.session.commit()
-        flash('Your answer has been submitted!', 'success')
         return redirect(url_for('papers_spot_go.papers_spot_go_students_questions'))    
 
     if spot_go_q4.validate_on_submit():
@@ -169,11 +167,48 @@ def papers_spot_go_students_questions():
         moduls.question_section = 'spot_go'       
         db.session.add(moduls)
         db.session.commit()
-        flash('Your answer has been submitted!', 'success')
         return redirect(url_for('papers_spot_go.papers_spot_go_students_questions'))   
+    if spot_go_q5.validate_on_submit():
+        ModulsGD.query.filter_by(author=current_user). \
+            filter(ModulsGD.title_mo == 'spot_go'). \
+            filter(ModulsGD.title_ch == 'spot_go'). \
+            filter(ModulsGD.question_num == 5).delete()
+        db.session.commit()
+        moduls = ModulsGD(question_str=spot_go_q5.type.data, author=current_user)
+        if moduls.question_str == '5.137':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'spot_go'
+        moduls.title_ch = 'spot_go'
+        moduls.question_num = 5
+        moduls.question_option = 50 
+        moduls.question_section = 'spot_go'       
+        db.session.add(moduls)
+        db.session.commit()
+        return redirect(url_for('papers_spot_go.papers_spot_go_students_questions')) 
+    if spot_go_q6.validate_on_submit():
+        ModulsGD.query.filter_by(author=current_user). \
+            filter(ModulsGD.title_mo == 'spot_go'). \
+            filter(ModulsGD.title_ch == 'spot_go'). \
+            filter(ModulsGD.question_num == 6).delete()
+        db.session.commit()
+        moduls = ModulsGD(question_str=spot_go_q6.type.data, author=current_user)
+        if moduls.question_str == '4.954':
+            moduls.question_result = 1
+        else:
+            moduls.question_result = 0
+        moduls.title_mo = 'spot_go'
+        moduls.title_ch = 'spot_go'
+        moduls.question_num = 6
+        moduls.question_option = 50 
+        moduls.question_section = 'spot_go'       
+        db.session.add(moduls)
+        db.session.commit()
+        return redirect(url_for('papers_spot_go.papers_spot_go_students_questions')) 
     return render_template('papers/spot_go/students_questions.html', title='Spot-GO, students questions',
         spot_go_q1=spot_go_q1, spot_go_q2=spot_go_q2, spot_go_q3=spot_go_q3,
-        spot_go_q4=spot_go_q4)
+        spot_go_q4=spot_go_q4, spot_go_q5=spot_go_q5, spot_go_q6=spot_go_q6)
 
 @papers_spot_go.route('/papers/spot_go/students_answers', methods=['GET', 'POST'])
 @login_required
@@ -255,7 +290,35 @@ def students_answers():
         filter(ModulsGD.title_mo == 'spot_go'). \
         filter(ModulsGD.title_ch == 'spot_go'). \
         filter(ModulsGD.question_option == 50). \
-        order_by(ModulsGD.question_num.asc()).count()          
+        order_by(ModulsGD.question_num.asc()).count() 
+
+    incorrect_q5 = ModulsGD.query.filter(ModulsGD.question_num == 5). \
+        filter(ModulsGD.question_result == 0). \
+        filter(ModulsGD.title_mo == 'spot_go'). \
+        filter(ModulsGD.title_ch == 'spot_go'). \
+        filter(ModulsGD.question_option == 50). \
+        order_by(ModulsGD.question_num.asc()).count()
+
+    correct_q5 = ModulsGD.query.filter(ModulsGD.question_num == 5). \
+        filter(ModulsGD.question_result == 1). \
+        filter(ModulsGD.title_mo == 'spot_go'). \
+        filter(ModulsGD.title_ch == 'spot_go'). \
+        filter(ModulsGD.question_option == 50). \
+        order_by(ModulsGD.question_num.asc()).count()    
+
+    incorrect_q6 = ModulsGD.query.filter(ModulsGD.question_num == 6). \
+        filter(ModulsGD.question_result == 0). \
+        filter(ModulsGD.title_mo == 'spot_go'). \
+        filter(ModulsGD.title_ch == 'spot_go'). \
+        filter(ModulsGD.question_option == 50). \
+        order_by(ModulsGD.question_num.asc()).count()
+
+    correct_q6 = ModulsGD.query.filter(ModulsGD.question_num == 6). \
+        filter(ModulsGD.question_result == 1). \
+        filter(ModulsGD.title_mo == 'spot_go'). \
+        filter(ModulsGD.title_ch == 'spot_go'). \
+        filter(ModulsGD.question_option == 50). \
+        order_by(ModulsGD.question_num.asc()).count()       
 
     return render_template('papers/spot_go/students_answers.html', title='Spot-GO, students answers', entries=entries,
                            correct=correct, incorrect=incorrect,
@@ -263,6 +326,8 @@ def students_answers():
                            correct_q2=correct_q2, incorrect_q2=incorrect_q2,
                            correct_q3=correct_q3, incorrect_q3=incorrect_q3,
                            correct_q4=correct_q4, incorrect_q4=incorrect_q4,
+                           correct_q5=correct_q5, incorrect_q5=incorrect_q5,
+                           correct_q6=correct_q6, incorrect_q6=incorrect_q6,
                            chats=chats, func=read_image)
 
 @papers_spot_go.route('/papers/spot_go/students_answers/new', methods=['GET', 'POST'])
