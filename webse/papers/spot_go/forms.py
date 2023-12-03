@@ -48,4 +48,24 @@ class SpotGo_q4(FlaskForm):
                                  'It deactivates the competition in the GO market'),
                                 ('It does not modify the competition in the GO market',
                                  'It does not modify the competition in the GO market')])
+    submit = SubmitField('Submit') 
+
+class SpotGo_q5(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('5.923',
+                                 '5.923'),
+                                ('5.137',
+                                 '5.137'),
+                                ('4.567',
+                                 '4.567')])
+    submit = SubmitField('Submit') 
+    
+class SpotGo_q6(FlaskForm):
+    type = SelectField('Type', validators=[DataRequired()],
+                       choices=[('5.856',
+                                 '5.856'),
+                                ('5.395',
+                                 '5.395'),
+                                ('4.954',
+                                 '4.954')])
     submit = SubmitField('Submit')      
