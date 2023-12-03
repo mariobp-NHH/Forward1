@@ -159,98 +159,211 @@
         <div class="box_questions_two">
                   
         </div>
+    </div>
 
-        <!-- Modal Hint Q1 -->
-        <div class="modal fade" id="hint_q1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-          <div class="modal-content">
-
-              <div class="modal-header", style="background-color: #49736f;">
-              <h5 class="modal-title", style="color:black">Hint, question 1</h5>
-              </div>
-
-              <div class="modal-body", style="color:black">
-              <p style="text-align: left;">
-                  You have some useful information to answer this question in proposition 5. You also have an example in table 1.
-              </p>
-              </div>
-
-              <div class="modal-footer", style="background-color: #49736f;">
-              <button class="btn btn-secondary btn-lg mr-2", style="background-color:#6c757d;", data-dismiss="modal">Close</button>
-              </div>
-
-          </div>
-          </div>
+    <div class="container">
+        <div class="box_questions_two">
+                  
         </div>
-
-        <!-- Modal Hint Q2 -->
-        <div class="modal fade" id="hint_q2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-          <div class="modal-content">
-
-              <div class="modal-header", style="background-color: #49736f;">
-              <h5 class="modal-title", style="color:black">Hint, question 2</h5>
-              </div>
-
-              <div class="modal-body", style="color:black">
-              <p style="text-align: left;">
-                You have some useful information to answer this question in proposition 6. You also have an example in table 1. 
-              </p>
-              </div>
-
-              <div class="modal-footer", style="background-color: #49736f;">
-              <button class="btn btn-secondary btn-lg mr-2", style="background-color:#6c757d;", data-dismiss="modal">Close</button>
-              </div>
-
-          </div>
-          </div>
+        <div class="box_questions_two">
+            <form method="POST" action="">
+                {{ spot_go_q5.csrf_token }}
+                    <legend class="border-bottom mb-4">Question 5</legend>
+                    <p class="card-text">If for the parameters in <strong>proposition 4</strong>, 
+                        we <strong>reduce the demand both nodes</strong> in the GO market to <strong>three</strong>, 
+                        which will be the expected <strong>equilibrium price in the spot market?</strong>
+                        (chose one of the next options):     
+                    </p>
+                    <div class="form-group">
+                        {% if spot_go_q5.type.errors %}
+                            {{ spot_go_q5.type(class="form-control form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in spot_go_q5.type.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ spot_go_q5.type(class="form-control form-control") }}
+                        {% endif %}
+                    </div>
+                    </br>
+                    <div class="container_buttons_developers">
+                      {{ spot_go_q5.submit(class="btn_developers")}}
+                      <a class="btn_developers" data-toggle="modal" data-target="#hint_q5">Hint</a>
+                    </div> 
+            </form>         
         </div>
-
-        <!-- Modal Hint Q3 -->
-        <div class="modal fade" id="hint_q3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-          <div class="modal-content">
-
-              <div class="modal-header", style="background-color: #49736f;">
-              <h5 class="modal-title", style="color:black">Hint, question 3</h5>
-              </div>
-
-              <div class="modal-body", style="color:black">
-              <p style="text-align: left;">
-                You have some useful information to answer this question in proposition 6. You also have an example in table 1. 
-              </p>
-              </div>
-
-              <div class="modal-footer", style="background-color: #49736f;">
-              <button class="btn btn-secondary btn-lg mr-2", style="background-color:#6c757d;", data-dismiss="modal">Close</button>
-              </div>
-
-          </div>
-          </div>
+        <div class="box_questions_two">
+            <form method="POST" action="">
+                {{ spot_go_q6.csrf_token }}
+                    <legend class="border-bottom mb-4">Question 6</legend>
+                    <p class="card-text">If for the parameters in <strong>proposition 5</strong>, 
+                        we <strong>increase the demand both nodes</strong> in the GO market to <strong>three</strong>, 
+                        which will be the expected <strong>equilibrium price in the spot market?</strong>
+                        (chose one of the next options):
+                    </p>
+                    <div class="form-group">
+                        {% if spot_go_q6.type.errors %}
+                            {{ spot_go_q6.type(class="form-control form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in spot_go_q6.type.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ spot_go_q6.type(class="form-control form-control") }}
+                        {% endif %}
+                    </div>
+                    </br>
+                    <div class="container_buttons_developers">
+                      {{ spot_go_q6.submit(class="btn_developers")}}
+                      <a class="btn_developers" data-toggle="modal" data-target="#hint_q6">Hint</a>
+                    </div> 
+            </form>
         </div>
-
-        <!-- Modal Hint Q4 -->
-        <div class="modal fade" id="hint_q4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-          <div class="modal-content">
-
-              <div class="modal-header", style="background-color: #49736f;">
-              <h5 class="modal-title", style="color:black">Hint, question 4</h5>
-              </div>
-
-              <div class="modal-body", style="color:black">
-              <p style="text-align: left;">
-                You have some useful information to answer this question in proposition 7. 
-              </p>
-              </div>
-
-              <div class="modal-footer", style="background-color: #49736f;">
-              <button class="btn btn-secondary btn-lg mr-2", style="background-color:#6c757d;", data-dismiss="modal">Close</button>
-              </div>
-
-          </div>
-          </div>
+        <div class="box_questions_two">
+                  
         </div>
     </div>
+
+    <!-- Modal Hint Q1 -->
+    <div class="modal fade" id="hint_q1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header", style="background-color: #49736f;">
+            <h5 class="modal-title", style="color:black">Hint, question 1</h5>
+            </div>
+
+            <div class="modal-body", style="color:black">
+            <p style="text-align: left;">
+                You have some useful information to answer this question in proposition 5. You also have an example in table 1.
+            </p>
+            </div>
+
+            <div class="modal-footer", style="background-color: #49736f;">
+            <button class="btn btn-secondary btn-lg mr-2", style="background-color:#6c757d;", data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+        </div>
+      </div>
+
+      <!-- Modal Hint Q2 -->
+      <div class="modal fade" id="hint_q2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header", style="background-color: #49736f;">
+            <h5 class="modal-title", style="color:black">Hint, question 2</h5>
+            </div>
+
+            <div class="modal-body", style="color:black">
+            <p style="text-align: left;">
+              You have some useful information to answer this question in proposition 6. You also have an example in table 1. 
+            </p>
+            </div>
+
+            <div class="modal-footer", style="background-color: #49736f;">
+            <button class="btn btn-secondary btn-lg mr-2", style="background-color:#6c757d;", data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+        </div>
+      </div>
+
+      <!-- Modal Hint Q3 -->
+      <div class="modal fade" id="hint_q3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header", style="background-color: #49736f;">
+            <h5 class="modal-title", style="color:black">Hint, question 3</h5>
+            </div>
+
+            <div class="modal-body", style="color:black">
+            <p style="text-align: left;">
+              You have some useful information to answer this question in proposition 6. You also have an example in table 1. 
+            </p>
+            </div>
+
+            <div class="modal-footer", style="background-color: #49736f;">
+            <button class="btn btn-secondary btn-lg mr-2", style="background-color:#6c757d;", data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+        </div>
+      </div>
+
+      <!-- Modal Hint Q4 -->
+      <div class="modal fade" id="hint_q4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header", style="background-color: #49736f;">
+            <h5 class="modal-title", style="color:black">Hint, question 4</h5>
+            </div>
+
+            <div class="modal-body", style="color:black">
+            <p style="text-align: left;">
+              You have some useful information to answer this question in proposition 7. 
+            </p>
+            </div>
+
+            <div class="modal-footer", style="background-color: #49736f;">
+            <button class="btn btn-secondary btn-lg mr-2", style="background-color:#6c757d;", data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+        </div>
+      </div>
+
+      <!-- Modal Hint Q5 -->
+      <div class="modal fade" id="hint_q5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header", style="background-color: #49736f;">
+            <h5 class="modal-title", style="color:black">Hint, question 5</h5>
+            </div>
+
+            <div class="modal-body", style="color:black">
+            <p style="text-align: left;">
+              To answer this question you can use the paper's app.
+            </p>
+            <a href="/spot_go/" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Paper's app</a>
+            </div>
+
+            <div class="modal-footer", style="background-color: #49736f;">
+            <button class="btn btn-secondary btn-lg mr-2", style="background-color:#6c757d;", data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+        </div>
+      </div>
+
+      <!-- Modal Hint Q6 -->
+      <div class="modal fade" id="hint_q6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header", style="background-color: #49736f;">
+            <h5 class="modal-title", style="color:black">Hint, question 6</h5>
+            </div>
+
+            <div class="modal-body", style="color:black">
+            <p style="text-align: left;">
+                To answer this question you can use the paper's app.
+            </p>
+            <a href="/spot_go/" class="btn btn-primary btn-sm mr-2", style="background-color:#007bff;">Paper's app</a>
+            </div>
+
+            <div class="modal-footer", style="background-color: #49736f;">
+            <button class="btn btn-secondary btn-lg mr-2", style="background-color:#6c757d;", data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+        </div>
+      </div>
    </section> 
 {% endblock content %}
