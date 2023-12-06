@@ -96,7 +96,7 @@ html_layout ="""
                                         <a href="#"  data-toggle="modal" data-target="#paper_Modal" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;"><i class="fa-regular fa-newspaper"></i> Paper</a>
                                     </div>
                                     <div class="btn">
-                                        <a href="https://xd.adobe.com/view/c566c88b-f9d8-45a8-be0f-fd16eb63b1c8-9035/"  target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;"><i class="fa-solid fa-person-chalkboard"></i> Presentation</a>
+                                        <a href="https://xd.adobe.com/view/b2665b34-2dbe-4123-b4ac-64a29748a86c-e735/"  target="_blank" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;"><i class="fa-solid fa-person-chalkboard"></i> Presentation</a>
                                     </div>
                                 </div> 
                               </div>
