@@ -15,6 +15,12 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}  
+            <script>
+              setTimeout(function () {
+                var flashes = document.querySelectorAll('.alert');
+                flashes.forEach((flash) => flash.remove());
+              }, 5000);
+            </script>
             <h1 class="text-center"><span class="text-warning"> Forward: </span> Connecting Education and Society</h1>
             <p class="lead my-3">
                 Forward is an <b>educational platform</b> that aims to connect education and society making that interaction fluent and effective.
