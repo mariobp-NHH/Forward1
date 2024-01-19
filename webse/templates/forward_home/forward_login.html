@@ -15,6 +15,12 @@
                         {% endfor %}
                     {% endif %}
                 {% endwith %}
+                <script>
+                  setTimeout(function () {
+                    var flashes = document.querySelectorAll('.alert');
+                    flashes.forEach((flash) => flash.remove());
+                  }, 5000);
+                </script>
                 <form method="POST" action="">
                     {{ form.hidden_tag() }}
                         <fieldset class="form-group">
