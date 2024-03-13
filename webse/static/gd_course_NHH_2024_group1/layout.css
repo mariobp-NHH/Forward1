@@ -1,0 +1,189 @@
+/* New font */
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans&display=swap');
+
+
+/* CSS utilities */
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Albert Sans', sans-serif;
+  background: #fff;
+  line-height: 1.6;
+}
+.container {
+  margin: auto;
+  max-width: 1320px;
+}
+ul { 
+  /* list-style: none; */
+  text-align: left;
+  font-size: 400;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+h1, h2 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+/* Pushing the footer to the bottom when the page is too small */
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.section_padding {
+  flex-grow: 1;
+  background-color: #d8cdc3;
+}
+
+/* Navbar */
+.section_carbon_calc_navbar {
+  /* background-color:#6c8c75; */
+  background-image: linear-gradient(#57745f, #90a897);
+}
+.carbon_calc_navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 65px;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.carbon_calc_navbar a {
+  color: #d8cdc3;
+  padding: 15px 30px 15px;
+  font-size: 20px;
+  text-decoration: none;
+  align-items: center;
+}
+.carbon_calc_navbar a:hover{
+  color: #d8cdc3;
+  background-color: #4e6454;
+  border-bottom: #d8cdc3 4px solid;
+}
+.carbon_calc_navbar ul {
+  display: flex;
+  flex-direction: row;
+}
+.carbon_calc_navbar .logo {
+  font-weight: bold;
+  font-size: 30px;
+}
+.text-logo {
+  color: #314736;
+}
+
+/* Style formatting: make the logo clickable (back to home-page) */
+.carbon_calc_navbar a.logo-link {
+  color: #314736;
+  background-color: transparent;
+  border-bottom: none;
+  padding: 0;
+}
+.carbon_calc_navbar a.logo-link:hover {
+  color: #4e6454;
+  background-color: transparent;
+  border-bottom: none;
+  padding: 0;
+}
+
+/* Footer */
+.section_footer{
+  background-image: linear-gradient(#d8cdc3, #aa9d90);
+  width: 100%;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+/* Title text on every page */
+.page-title{
+  font-size: 50px;
+  text-align: start;
+  color: #314736;
+}
+
+.main-intro-text,
+.main-extra-text{
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+/* Buttons for headers on every page */
+.section_container_buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+
+.container_buttons{
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.btn{
+  padding: 0px;
+  line-height: 1; /*fixes button height bug on login*/
+}
+
+.btn_header {
+  padding: 10px 10px;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 22px;
+  background-color: #314736;
+}
+.btn_header:hover {
+  background-color: #4b6551;
+  color: #d8cdc3;
+  text-decoration: none;
+}
+
+/* Media query */
+@media(max-width:768px){
+  .carbon_calc_navbar {
+    height: 160px;
+    flex-direction: column;
+  }
+  .carbon_calc_navbar a {
+    font-size: 15px;
+    padding: 5px 20px;
+  }
+  .carbon_calc_navbar ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .carbon_calc_navbar a:hover{
+    color: #568c63;
+    /* border-bottom: #d8cdc3 2px solid; */
+  }
+}
