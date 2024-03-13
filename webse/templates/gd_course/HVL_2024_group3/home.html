@@ -1,0 +1,165 @@
+{% extends "gd_course/HVL_2024_group3/layout.html" %}
+{% block content %}
+
+<!-- Header -->
+<section class="section_header_home">
+  <div class="container">
+    <div class="hidden-element animate">
+
+    <div class="header_home">
+      <div class="box"> 
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div> 
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <script>
+          setTimeout(function () {
+            var flashes = document.querySelectorAll('.alert');
+            flashes.forEach((flash) => flash.remove());
+          }, 5000);
+        </script>
+        <h1 style="font-size:55px;"><span class="text-logo"> Home</span></h1>
+        <p style="text-align:left;">
+          Hello, and welcome to our carbon emissions calculator app! Our mission is to empower individuals and companies to understand their carbon footprint better and make informed steps toward reducing their environmental impact.
+           Our app is user-friendly and offers customized advice on how to reduce emissions tailored to your personal habits or company operations. With our app, you can monitor your carbon emissions and implement significant changes to lessen your effect on our planet while contributing to a more sustainable future. Join us in the effort to protect our Earth today!
+        </p>
+        <div class="container_buttons_links_header_home">
+          <div class="btn">
+              <a href="{{url_for('gd_course_HVL_2024_group3.register')}}" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">Register</a>
+          </div>
+          <div class="btn">
+              <a href="{{url_for('gd_course_HVL_2024_group3.login')}}" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">Login</a>
+          </div>
+        </div>  
+      </div>
+      <div class="box">
+        <img src="/static/gd_course_HVL_2024_group3/icons/EcoTracker.jpeg" style="border-radius: 20%; width:300px; border-style:outset; border-width: 5px;">
+      </div>
+    </div>
+    </div>
+  </div>
+</section> 
+
+<!-- Developers -->
+<section class="section_developers">
+  <div class="container">
+    <div class="hidden-element animate">
+    <div class="developers" style="display:block;">
+      <h1 style="text-align:center;"> Our Team</h1>
+      <p>
+        Our team of economists and developers ... Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, ut? Praesentium quidem sunt perspiciatis doloremque fugiat nesciunt quaerat ullam, pariatur iure unde ratione ipsum adipisci repellendus, repudiandae hic sit, temporibus molestias corrupti aut soluta sequi! Architecto deleniti expedita nisi repudiandae enim eum quas odit facilis placeat neque porro, animi incidunt consectetur. Maiores ab saepe tempora, iure asperiores beatae suscipit cum ipsum, rerum doloremque reprehenderit dolorum debitis, aliquam quasi. Maiores corporis fuga quasi nesciunt dolor iste, inventore necessitatibus unde!
+      </p>      
+    </div>
+    </div>
+    <div class="hidden-element animate">
+    <div class="developers">
+        <div class="box">
+          <img src="/static/gd_course_HVL_2024_group3/icons/Matiasvh.jpeg" style="border-radius: 50%; width:200px;">
+        <h3>Matias von Haffenbrädl</h3>
+        <p>  Matias von Haffenbrädl, who is 24 and hails from Skien, is on his way to earning a Bachelor's degree in Business and Administration from the Western University of Applied Sciences. Prior to diving into his current academic pursuit, Matias gained some hands-on experience with computer programming, specifically in R and JavaScript languages. The driving force behind his decision to enroll in the business program was his desire to thoroughly expand his capabilities and business insight, enabling him to independently sharpen his talents further.
+        </p>
+        <div class="container_buttons_developers">
+          <a class="btn_developers" href="https://www.linkedin.com/in/matias-von-haffenbr%C3%A4dl-610534257/" target="_blank">Linked
+            <i class="fa-brands fa-linkedin fa-xl" style="color: #0e6bbd;"></i></a>
+          </div> 
+        </div>
+        <div class="box">
+          <img src="/static/gd_course_HVL_2024_group3/icons/mathias.jpeg" style="border-radius: 50%; width:200px;">
+          <h3>Mathias Martinsen</h3>
+          <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
+          </p>
+          <div class="container_buttons_developers">
+            <a class="btn_developers" href="https://www.linkedin.com/in/mathias-martinsen-34b3882b6/" target="_blank">Linked
+              <i class="fa-brands fa-linkedin fa-xl" style="color: #0e6bbd;"></i></a>
+          </div> 
+        </div>           
+        <div class="box">
+          <img src="/static/gd_course_HVL_2024_group3/icons/casper.jpeg" style="border-radius: 50%; width:200px;">
+          <h3>Casper Berle Linnestad</h3>
+          <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
+          </p>
+          <div class="container_buttons_developers">
+            <a class="btn_developers" href="https://www.linkedin.com/in/casper-berle-linnestad-b7300699/" target="_blank">Linked
+              <i class="fa-brands fa-linkedin fa-xl" style="color: #0e6bbd;"></i></a>
+          </div> 
+        </div>     
+    </div>
+    </div>
+    <div class="hidden-element animate">
+    <div class="developers">
+      <div class="box2">
+        <img src="/static/gd_course_HVL_2024_group3/icons/Elias.jpeg" style="border-radius: 50%; width:200px;">
+        <h3>Elias Slettebak Urke</h3>
+        <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
+        </p>
+        <div class="container_buttons_developers">
+          <a class="btn_developers" href="https://www.linkedin.com/in/elias-slettebak-urke-7789242b7/" target="_blank">Linked
+            <i class="fa-brands fa-linkedin fa-xl" style="color: #0e6bbd;"></i></a>
+        </div> 
+      </div>
+      <div class="box2">
+        <img src="/static/gd_course_HVL_2024_group3/icons/Jesper.jpeg" alt="" style="border-radius: 50%; width:200px;">
+        <h3>Jesper Aas Gonstad</h3>
+        <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
+        </p>
+        <div class="container_buttons_developers">
+          <a class="btn_developers" href="https://www.linkedin.com/in/jesper-gonstad-2700932b7/" target="_blank">Linked
+            <i class="fa-brands fa-linkedin fa-xl" style="color: #0e6bbd;"></i></a>
+        </div> 
+      </div>
+      <div class="box2">
+        <img src="/static/gd_course_HVL_2024_group3/icons/Nikko.jpeg" style="border-radius: 50%; width:200px;">
+        <h3>Nikodem Wiktorowicz</h3>
+        <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
+        </p>
+        <div class="container_buttons_developers">
+          <a class="btn_developers" href="https://www.linkedin.com/in/nikodem-wiktorowicz-a255592a8/" target="_blank">Linked
+            <i class="fa-brands fa-linkedin fa-xl" style="color: #0e6bbd;"></i></a>
+        </div> 
+      </div>          
+      </div>
+
+      </div>
+      <div class="hidden-element animate">
+        <div class="developers">
+          <div class="box3">
+            <img src="/static/gd_course_HVL_2024_group3/icons/Alex.jpeg" style="border-radius: 50%; width:200px;">
+            <h3>Alexander Fosse</h3>
+            <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
+            </p>
+            <div class="container_buttons_developers">
+              <a class="btn_developers" href="https://www.linkedin.com/in/alexander-fosse-7367a8244/?fbclid=IwAR1hecc4dkoP4OCVQc1PbaUIsLzS7yy7Yv5UxQF8PLw9iibqhwgZW7ntgkI" target="_blank">Linked
+                <i class="fa-brands fa-linkedin fa-xl" style="color: #0e6bbd;"></i></a>
+            </div> 
+          </div> 
+            <div class="box3">
+              <img src="/static/gd_course_HVL_2024_group3/icons/Olav.jpeg" style="border-radius: 50%; width:200px;">
+              <h3>Olav Ljones</h3>
+              <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
+              </p>
+              <div class="container_buttons_developers">
+                <a class="btn_developers" href="https://www.linkedin.com/in/olav-ljones-9b40a6274/" target="_blank">Linked
+                  <i class="fa-brands fa-linkedin fa-xl" style="color: #0e6bbd;"></i></a>
+              </div> 
+            </div>
+              <div class="box3">
+                <img src="/static/gd_course_HVL_2024_group3/icons/Jonas.jpeg" style="border-radius: 50%; width:200px;">
+                <h3>Jonas Eide Vågen</h3>
+                <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
+                </p>
+                <div class="container_buttons_developers">
+                  <a class="btn_developers" href="https://www.linkedin.com/in/jonas-v%C3%A5gen-3088782b8/" target="_blank">Linked
+                    <i class="fa-brands fa-linkedin fa-xl" style="color: #0e6bbd;"></i></a>
+                </div> 
+              </div>         
+  </div>
+
+  </div>          
+</section>
+        
+{% endblock content %}
