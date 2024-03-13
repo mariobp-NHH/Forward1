@@ -92,7 +92,6 @@ from webse.dashboards.routes import dashboards
 from webse.papers.spot_go.routes import papers_spot_go
 from webse.dashboards.spot_go import create_dash_spot_go
 from webse.dashboards.dash_application2 import create_dash_application2
-from webse.dashboards.redispatch import create_dash_redispatch
 from webse.sbm_course_home.routes import sbm_course
 from webse.sbm_course_announcements.routes import sbm_course_announcements
 from webse.sbm_course_chats.routes import sbm_course_chats
