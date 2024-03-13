@@ -1,0 +1,99 @@
+{% extends "gd_course/NHH_2024_group1/layout.html" %}{% block content %}
+
+<!-- Header -->
+<section class="section_header_carbon_calc">
+  <div class="container">
+    <div class="header_carbon_calc">
+      <div class="box">
+        <h1 class="page-title">Carbon Calculator</h1>
+        <p style="text-align: left">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat
+          dolores quos asperiores repellendus facilis cum illo aperiam odit
+          doloremque nostrum. Totam excepturi labore voluptatibus iusto sapiente
+          quisquam consectetur optio magnam voluptates omnis vel officia alias
+          distinctio quas laborum reiciendis ratione inventore veniam,
+          cupiditate doloribus dolore, eius natus a. Magni inventore
+          consequuntur voluptas reprehenderit perferendis! Molestias aspernatur
+          rem autem aut temporibus.
+        </p>
+        <div class="container_buttons">
+          <div class="btn">
+            <a
+              href="{{url_for('gd_course_NHH_2024_group1.methodology_home')}}"
+              class="btn_header"
+              >Methodology</a
+            >
+          </div>
+          <div class="btn">
+            <a
+              href="#"
+              class="btn_header"
+              ,
+              data-toggle="modal"
+              data-target="#carbon_calc_instructions"
+              >Instructions</a
+            >
+          </div>
+          <div class="btn">
+            <a href="#" class="btn_header">Your emissions</a>
+          </div>
+        </div>
+        <!-- Modal Instructions -->
+        <div
+          class="modal fade"
+          id="carbon_calc_instructions"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5
+                  class="modal-title"
+                  ,
+                  style="color: black; text-align: center"
+                >
+                  Carbon App, instructions
+                </h5>
+              </div>
+
+              <div class="modal-body" , style="color: black">
+                <p style="text-align: left">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Repudiandae ratione tempore id esse nobis molestias quasi
+                  explicabo possimus ea reprehenderit.
+                </p>
+                <ol style="text-align: left">
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Sequi, sint.
+                  </li>
+                  <li>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Sequi, sint.
+                  </li>
+                </ol>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  class="btn btn-secondary btn-lg mr-2"
+                  ,
+                  style="background-color: #695747"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section_padding"></section>
+
+{% endblock content %}
