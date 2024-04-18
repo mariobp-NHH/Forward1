@@ -1,6 +1,5 @@
 from flask import render_template, Blueprint, redirect, flash, url_for, request
-from webse.gd_course_NHH_2024_group1.forms import RegistrationForm, LoginForm, BusForm, CarForm, PlaneForm, FerryForm, TrainForm, MotorbikeForm, BicycleForm, WalkForm, SpecificCarForm
-from webse.gd_course_NHH_2024_group1.api import CarbonAPI
+from webse.gd_course_NHH_2024_group1.forms import RegistrationForm, LoginForm, BusForm, CarForm, PlaneForm, FerryForm, TrainForm, MotorbikeForm, BicycleForm, WalkForm, SpecificCarForm, CarbonAPI
 from datetime import timedelta, datetime
 from webse import db, bcrypt
 from flask_login import login_required, login_user, current_user, logout_user
