@@ -31,7 +31,7 @@ body.forEach((element) => {
   const realModel = document.getElementById("model")
 
   const getMake = async (id) => {
-    const resMake = await fetch("https://forwardedu.org/green_digitalization_course/NHH/2024/group1/carbon_interface/models/${id}")
+    const resMake = await fetch(`https://forwardedu.org/green_digitalization_course/NHH/2024/group1/carbon_interface/models/${id}`)
     const makeBody = resMake.json()
 
     return makeBody
