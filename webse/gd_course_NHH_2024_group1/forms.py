@@ -113,6 +113,10 @@ url = 'https://www.carboninterface.com/api'
 headers = {'Authorization': 'Bearer Q6eGoxxENeS3vpIoXkKOw'}
 
 
+url = 'https://www.carboninterface.com/api'
+headers = {'Authorization': 'Bearer Q6eGoxxENeS3vpIoXkKOw'}
+
+
 class CarbonAPI:
     def __init__(self):
         req = requests.get(url + "/v1/auth", headers=headers)
