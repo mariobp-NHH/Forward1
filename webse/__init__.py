@@ -113,7 +113,6 @@ from webse.aab_course_home.routes import aab_course
 from webse.aab_course_announcements.routes import aab_course_announcements
 from webse.aab_course_business_module.routes import aab_course_business_module
 from webse.aab_course_statistics.routes import aab_course_statistics
-from webse.people_researchers.routes import people_researchers
 
 create_dash_spot_go(application)
 create_dash_application2(application)
@@ -173,4 +172,3 @@ application.register_blueprint(aab_course)
 application.register_blueprint(aab_course_announcements)
 application.register_blueprint(aab_course_business_module)
 application.register_blueprint(aab_course_statistics)
-application.register_blueprint(people_researchers)
