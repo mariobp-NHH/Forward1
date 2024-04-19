@@ -30,16 +30,17 @@ class LoginForm(FlaskForm):
   remember = BooleanField('Remember Me')
   submit = SubmitField('Login') 
 
+
 class BusForm(FlaskForm):
   kms = FloatField('Kilometers', [InputRequired()])
-  fuel_type = SelectField('Type of Fuel', [InputRequired()], choices=[('Not my choice', 'No Fossil Fuel')])
+  fuel_type = SelectField('Type of Fuel', [InputRequired()], choices=[('Not my choice', 'Not my choice')])
     #choices=[('Diesel', 'Diesel'), ('CNG', 'CNG'), ('Petrol', 'Petrol'), ('No Fossil Fuel', 'No Fossil Fuel')])
                           
   submit = SubmitField('Submit')
 
 class long_distance_busForm(FlaskForm):
   kms = FloatField('Kilometers', [InputRequired()])
-  fuel_type = SelectField('Type of Fuel', [InputRequired()], choices=[('Not my choice', 'No Fossil Fuel')])
+  fuel_type = SelectField('Type of Fuel', [InputRequired()], choices=[('Not my choice', 'Not my choice')])
     #choices=[('Diesel', 'Diesel'), ('CNG', 'CNG'), ('Petrol', 'Petrol'), ('No Fossil Fuel', 'No Fossil Fuel')])                       
   submit = SubmitField('Submit')
 
@@ -64,31 +65,31 @@ class CarFormSUV(FlaskForm):
 class Long_haul_FlightForm(FlaskForm):
   kms = FloatField('Kilometers', [InputRequired()])
   fuel_type = SelectField('Type of Fuel', [InputRequired()], 
-    choices=[('Not my choice', 'not my choice')])
+    choices=[('Not my choice', 'Not my choice')])
   submit = SubmitField('Submit')
 
 class Domestic_FlightForm(FlaskForm):
   kms = FloatField('Kilometers', [InputRequired()])
   fuel_type = SelectField('Type of Fuel', [InputRequired()], 
-    choices=[('Not my choice', 'not my choice')])
+    choices=[('Not my choice', 'Not my choice')])
   submit = SubmitField('Submit')
 
 class tramForm(FlaskForm):
   kms = FloatField('Kilometers', [InputRequired()])
   fuel_type = SelectField('Type of Fuel', [InputRequired()], 
-    choices=[('Not my choice', 'not my choice')])
+    choices=[('Not my choice', 'Not my choice')])
   submit = SubmitField('Submit') 
 
 class trainForm(FlaskForm):
   kms = FloatField('Kilometers', [InputRequired()])
   fuel_type = SelectField('Type of Fuel', [InputRequired()], 
-    choices=[('Not my choice', 'not my choice')])
+    choices=[('Not my choice', 'Not my choice')])
   submit = SubmitField('Submit') 
 
 class FerryForm(FlaskForm):
   kms = FloatField('Kilometers', [InputRequired()])
   fuel_type = SelectField('Type of Fuel', [InputRequired()], 
-    choices=[('Not my choice', 'not my choice')])
+    choices=[('Not my choice', 'Not my choice')])
   submit = SubmitField('Submit')  
 
 
