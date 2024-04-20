@@ -70,22 +70,22 @@ def new_entry():
 
 
 # Emissions factor per transport in kg per passenger km
-efco2={'Bus':{'Diesel':0.027,'Biodiesel':0.014,'Electric':0.013},
-    'Car':{'Gas':0.15647,'Diesel':0.13009,'Renewable energy':0.000617},
-    'Plane':{'Domestic flights':0.244,'Short hauls':0.156,'Long hauls':0.190},
-    'Ferry':{'Heavy fuel oil':0.226, 'E-ferry':0.000098},
-    'Motorbike':{'Gas':0.08502,'Renewable energy':0.000087},
-    'Scooter':{'No fossil fuel':0},
-    'Bicycle':{'No fossil fuel':0},
-    'Walk':{'No fossil fuel':0}}
-efch4={'Bus':{'Diesel':2e-5,'Biodiesel':2.5e-3,'Electric':0},
-    'Car':{'Gas':3.1e-4,'Diesel':3e-6,'Renewable energy':0},
-    'Plane':{'Domestic flights':1.1e-4,'Short hauls':1.1e-4,'Long hauls':1.1e-4},
-    'Ferry':{'Heavy fuel oil':3e-5, 'E-ferry':3e-5},
-    'Motorbike':{'Gas':2.1e-3,'Renewable energy':0},
-    'Scooter':{'No fossil fuel':0},
-    'Bicycle':{'No fossil fuel':0},
-    'Walk':{'No fossil fuel':0}}
+efco2={'Bus':{'Diesel':0.10231,'CNG':0.08,'Petrol':0.10231,'No Fossil Fuel':0},
+    'Car':{'Petrol':0.18592,'Diesel':0.16453,'No Fossil Fuel':0},
+    'Plane':{'Petrol':0.24298},
+    'Ferry':{'Diesel':0.11131, 'CNG':0.1131, 'No Fossil Fuel':0},
+    'Motorbike':{'Petrol':0.09816,'No Fossil Fuel':0},
+    'Scooter':{'No Fossil Fuel':0},
+    'Bicycle':{'No Fossil Fuel':0},
+    'Walk':{'No Fossil Fuel':0}}
+efch4={'Bus':{'Diesel':2e-5,'CNG':2.5e-3,'Petrol':2e-5,'No Fossil Fuel':0},
+    'Car':{'Petrol':3.1e-4,'Diesel':3e-6,'No Fossil Fuel':0},
+    'Plane':{'Petrol':1.1e-4},
+    'Ferry':{'Diesel':3e-5, 'CNG':3e-5,'No Fossil Fuel':0},
+    'Motorbike':{'Petrol':2.1e-3,'No Fossil Fuel':0},
+    'Scooter':{'No Fossil Fuel':0},
+    'Bicycle':{'No Fossil Fuel':0},
+    'Walk':{'No Fossil Fuel':0}}
 
 #New entry bus
 @gd_course_HVL_2024_group5.route('/green_digitalization_course/HVL/2024/group5/carbon_app/new_entry_bus', methods=['GET','POST'])
