@@ -17,6 +17,7 @@ class RegistrationForm(FlaskForm):
                        choices=[('Norwegian School of Economics (NHH)', 'Norwegian School of Economics (NHH)'),
                                 ('Western Norway University of Applied Sciences (HVL)', 'Western Norway University of Applied Sciences (HVL)'),
                                 ('Norwegian University of Life Sciences (NMBU)', 'Norwegian University of Life Sciences (NMBU)'),
+                                ('University of Salamanca (USAL)', 'University of Salamanca (USAL)'),
                                 ('Other', 'Other')])                                 
     submit = SubmitField('Sign Up')
 
