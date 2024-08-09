@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(30), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    date_register = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     institution = db.Column(db.String(120), nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
@@ -30,6 +31,11 @@ class User(db.Model, UserMixin):
     moduls_se = db.relationship('Moduls', backref='author', lazy=True)
     emissions_se = db.relationship('EmissionsSE', backref='author', lazy=True)
     chats_sep = db.relationship('ChatSEP', backref='author', lazy=True)
+    chats_es = db.relationship('ChatES', backref='author', lazy=True)
+    announcement_es = db.relationship('AnnouncementES', backref='author', lazy=True)
+    questionnaires_es = db.relationship('QuestionnaireES', backref='author', lazy=True)    
+    moduls_es = db.relationship('ModulsES', backref='author', lazy=True)
+    sentence_es = db.relationship('SentenceES', backref='author', lazy=True)
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.image_file}')"
@@ -246,5 +252,90 @@ class ChatSEP(db.Model):
 
     def __repr__(self):
         return f"ChatSEP('{self.title}', '{self.date_posted}')"
+    
+
+# Database Economies of the Spanish Course
+class ChatES(db.Model):
+    __bind_key__ = 'es_course'
+    __tablename__ = 'chat_es'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    content = db.Column(db.Text, nullable=False)
+    institution = db.Column(db.String(120))
+    chapter = db.Column(db.String(120))
+    group = db.Column(db.String(120))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __repr__(self):
+        return f"ChatES('{self.title}', '{self.date_posted}')"  
+
+class AnnouncementES(db.Model):
+    __bind_key__= 'es_course'
+    __tablename__= 'announcement_es'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    content = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __repr__(self):
+        return f"AnnouncementES('{self.title}', '{self.date_posted}')"
+
+class QuestionnaireES(db.Model):
+    __bind_key__= 'es_course'
+    __tablename__ = 'questionnaire_es'
+    id = db.Column(db.Integer, primary_key=True)
+    title_questionnaire = db.Column(db.String(100), nullable=False)
+    title_question = db.Column(db.String(100), nullable=False)
+    question_num = db.Column(db.Integer)
+    question_str = db.Column(db.String(100))
+    question_option = db.Column(db.Integer, nullable=True)
+    university = db.Column(db.String(100))
+    date_question = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __repr__(self):
+        return f"QuestionnaireES('{self.question_str}', '{self.date_exercise}')" 
+
+
+class ModulsES(db.Model):
+    __bind_key__= 'es_course'
+    __tablename__= 'moduls_es'
+    id = db.Column(db.Integer, primary_key=True)
+    title_mo = db.Column(db.String(100), nullable=False)
+    title_ch = db.Column(db.String(100), nullable=False)
+    question_num = db.Column(db.Integer)
+    question_str = db.Column(db.String(100))
+    question_result = db.Column(db.Integer)
+    question_option = db.Column(db.Integer, nullable=True)
+    question_section = db.Column(db.String(100), nullable=True)
+    date_exercise = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __repr__(self):
+        return f"ModulsES('{self.question_str}', '{self.question_result}', '{self.date_exercise}')"
+    
+
+class SentenceES(db.Model):
+    __bind_key__ = 'es_course'
+    __tablename__= 'sentence_table_es'
+    id = db.Column(db.Integer, primary_key=True)
+    incorrect_sentence = db.Column(db.String)
+    correct_sentence_one = db.Column(db.String)
+    correct_sentence_two = db.Column(db.String)
+    correct_sentence_three = db.Column(db.String)
+    correct_sentence_four = db.Column(db.String)
+    objective = db.Column(db.String)
+    source = db.Column(db.String)
+    your_sentence = db.Column(db.String)
+    result_string = db.Column(db.String)
+    result_num= db.Column(db.Float)
+    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow) 
+    group = db.Column(db.String)
+    university = db.Column(db.String)
+    year = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
                         
         
