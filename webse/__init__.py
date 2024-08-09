@@ -9,7 +9,7 @@ application = Flask(__name__)
 DBVAR = f"postgresql://{os.environ['RDS_USERNAME']}:{os.environ['RDS_PASSWORD']}@{os.environ['RDS_HOSTNAME']}/{os.environ['RDS_DB_NAME']}"
 application.config['SECRET_KEY'] = '1dfc4dedcdsdsd5b2ffa3a090dfc34f845fd'
 application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR 
-application.config['SQLALCHEMY_BINDS'] ={'se_course': DBVAR, 'gd_course': DBVAR , 'gender_platform': DBVAR, 'se_platform': DBVAR}
+application.config['SQLALCHEMY_BINDS'] ={'se_course': DBVAR, 'gd_course': DBVAR, 'gender_platform': DBVAR, 'se_platform': DBVAR, 'es_course': DBVAR}
 
 # DBVAR = 'sqlite:///user.db'
 # application.config['SECRET_KEY'] = '1dfc4dedcdsdsd5b2ffa3a090dfc34f845fd'
@@ -55,7 +55,10 @@ login_manager.blueprint_login_views = {
     'sbm_course_chats': 'forward_users.forward_users_login', 
     'aab_course_business_module': 'forward_users.forward_users_login', 
     'aab_course_announcements': 'forward_users.forward_users_login', 
-    'aab_course_statistics': 'forward_users.forward_users_login'
+    'aab_course_statistics': 'forward_users.forward_users_login',
+    'es_course_chapters': 'forward_users.forward_users_login',
+    'es_course_chats': 'forward_users.forward_users_login',
+    'es_course_announcements': 'forward_users.forward_users_login'
 }
 login_manager.login_message_category = 'info'
 
@@ -121,6 +124,10 @@ from webse.aab_course_home.routes import aab_course
 from webse.aab_course_announcements.routes import aab_course_announcements
 from webse.aab_course_business_module.routes import aab_course_business_module
 from webse.aab_course_statistics.routes import aab_course_statistics
+from webse.es_course_routes.routes import es_course
+from webse.es_course_chapters.routes import es_course_chapters
+from webse.es_course_chats.routes import es_course_chats
+from webse.es_course_announcements.routes import es_course_announcements
 
 create_dash_spot_go(application)
 create_dash_application2(application)
@@ -184,3 +191,7 @@ application.register_blueprint(aab_course)
 application.register_blueprint(aab_course_announcements)
 application.register_blueprint(aab_course_business_module)
 application.register_blueprint(aab_course_statistics)
+application.register_blueprint(es_course)
+application.register_blueprint(es_course_chapters)
+application.register_blueprint(es_course_chats)
+application.register_blueprint(es_course_announcements)
