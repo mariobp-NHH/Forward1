@@ -1,0 +1,240 @@
+/* Colors */
+/* Afternoon 10:
+Verde: #027B63
+Amarillo: #F1C435
+Naranga: #F2A534
+*/
+/* Morning 2:
+Azul: #9CD5CO
+Amarillo: #F2DA5D
+Crema: #F3CA99
+Naranga: #F29545
+Rojo: #F26934
+*/
+
+/*Container main menu */
+.main_menu {
+  display: flex;
+  background: #f2a534;
+}
+.main_menu .container {
+  display: flex;
+  background: #f2a534;
+}
+.main_menu .container {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.main_menu .container .box {
+  flex: 1;
+  background: #f2a534;
+  border-radius: 2px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align: center;
+}
+.main_menu .container .box:nth-of-type(1) {
+  flex-grow: 1;
+  background: #fff;
+  border-radius: 10px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  text-align: left;
+}
+.main_menu .container .box:nth-of-type(2) {
+  flex-grow: 6;
+  max-width: 450px;
+  background: #f3ca99;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align: center;
+}
+.main_menu .container .box:nth-of-type(3) {
+  flex-grow: 1;
+  background: #fff;
+  border-radius: 10px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  text-align: left;
+}
+/*End container main menu*/
+/*Container buttons section main menu */
+.container_buttons_links_main_menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.container_buttons_links_main_menu a:hover {
+  color: #f3ca99;
+}
+/*End container buttons section main menu*/
+
+/*Container entry menu */
+.entry_menu {
+  display: flex;
+  background: #f29545;
+}
+.entry_menu .container {
+  display: flex;
+  background: #f29545;
+}
+.entry_menu .container {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.entry_menu .container .box {
+  flex: 1;
+  background: #f29545;
+  border-radius: 2px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align: center;
+}
+.entry_menu .container .box:nth-of-type(1) {
+  flex-grow: 1;
+  background: #fff;
+  border-radius: 10px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  text-align: left;
+}
+.entry_menu .container .box:nth-of-type(2) {
+  flex-grow: 6;
+  max-width: 450px;
+  background: #f3ca99;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align: center;
+}
+.entry_menu .container .box:nth-of-type(3) {
+  flex-grow: 1;
+  background: #fff;
+  border-radius: 10px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  text-align: left;
+}
+/*End container entry menu*/
+
+/*Container two_emissions_graphs */
+.two_emissions_graphs {
+  display: flex;
+  background: #f29545;
+}
+.two_emissions_graphs .container {
+  display: flex;
+  background: #f29545;
+}
+.two_emissions_graphs .container {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.two_emissions_graphs .container .box {
+  flex: 1;
+  background: #f29545;
+  border-radius: 2px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align: center;
+}
+.two_emissions_graphs .container .box:nth-of-type(1) {
+  flex-grow: 1;
+  background: #f3ca99;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align: center;
+}
+.two_emissions_graphs .container .box:nth-of-type(2) {
+  flex-grow: 1;
+  background: #f3ca99;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align: center;
+}
+/*End container two_emissions_graphs*/
+
+/*Container table_main */
+.table_main {
+  display: flex;
+  background: #f29545;
+}
+.table_main .container {
+  display: flex;
+  background: #f29545;
+}
+.table_main .container {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.table_main .container .box {
+  flex: 1;
+  background: #f29545;
+  border-radius: 2px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align: center;
+}
+.table_main .container .box:nth-of-type(1) {
+  flex-grow: 1;
+  background: #fff;
+  border-radius: 10px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  text-align: left;
+}
+.table_main .container .box:nth-of-type(2) {
+  flex-grow: 6;
+  /* max-width: 700px; */
+  background: #f3ca99;
+  border-radius: 10px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align: center;
+}
+.table_main .container .box:nth-of-type(3) {
+  flex-grow: 1;
+  background: #fff;
+  border-radius: 10px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  text-align: left;
+}
+/*End container table_main*/
+
+@media (max-width: 768px) {
+  .main_menu .container {
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+  }
+  .entry_menu .container {
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+  }
+  .two_emissions_graphs .container {
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+  }
+  .table_main .container {
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+  }
+  .two_emissions_graphs .container .box:nth-of-type(1) {
+    max-width: 400px;
+  }
+  .two_emissions_graphs .container .box:nth-of-type(2) {
+    max-width: 400px;
+  }
+}
