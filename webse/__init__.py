@@ -58,7 +58,8 @@ login_manager.blueprint_login_views = {
     'aab_course_statistics': 'forward_users.forward_users_login',
     'es_course_chapters': 'forward_users.forward_users_login',
     'es_course_chats': 'forward_users.forward_users_login',
-    'es_course_announcements': 'forward_users.forward_users_login'
+    'es_course_announcements': 'forward_users.forward_users_login',
+    'es_course_light_talk_app': 'forward_users.forward_users_login'
 }
 login_manager.login_message_category = 'info'
 
@@ -128,6 +129,7 @@ from webse.es_course_routes.routes import es_course
 from webse.es_course_chapters.routes import es_course_chapters
 from webse.es_course_chats.routes import es_course_chats
 from webse.es_course_announcements.routes import es_course_announcements
+from webse.es_course_light_talk_app.routes import es_course_light_talk_app
 
 create_dash_spot_go(application)
 create_dash_application2(application)
@@ -195,3 +197,5 @@ application.register_blueprint(es_course)
 application.register_blueprint(es_course_chapters)
 application.register_blueprint(es_course_chats)
 application.register_blueprint(es_course_announcements)
+application.register_blueprint(es_course_light_talk_app)
+
