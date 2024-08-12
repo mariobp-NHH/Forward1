@@ -108,10 +108,7 @@ from webse.gd_course_NHH_2024_group3.routes import gd_course_NHH_2024_group3
 from webse.gd_course_NHH_2024_group4.routes import gd_course_NHH_2024_group4
 from webse.se_platform_home.routes import se_platform_home
 from webse.se_platform_announcements.routes import se_platform_announcements
-from webse.dashboards.routes import dashboards
-from webse.papers.spot_go.routes import papers_spot_go
-from webse.dashboards.spot_go import create_dash_spot_go
-from webse.dashboards.dash_application2 import create_dash_application2
+
 from webse.sbm_course_home.routes import sbm_course
 from webse.sbm_course_announcements.routes import sbm_course_announcements
 from webse.sbm_course_chats.routes import sbm_course_chats
@@ -131,8 +128,7 @@ from webse.es_course_chats.routes import es_course_chats
 from webse.es_course_announcements.routes import es_course_announcements
 from webse.es_course_light_talk_app.routes import es_course_light_talk_app
 
-create_dash_spot_go(application)
-create_dash_application2(application)
+
 
 application.register_blueprint(forward_home)
 application.register_blueprint(forward_users)
